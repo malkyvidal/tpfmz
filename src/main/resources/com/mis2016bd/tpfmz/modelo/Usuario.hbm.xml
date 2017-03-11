@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.mis2016bd.tpfmz.modelo">
+    <class name="Usuario" table="Usuario">
+        <id name="legajo" column="legajo">
+            <generator class="native" />
+        </id>
+        <property name="contrasenia" column="contrasenia" />
+        <property name="codPerfil" column="codPerfil" />
+  
+        <joined-subclass name="AdminAlumnado" table="AdminAlumnado">
+            <key column="legajo"/>
+            <property name="fechaAlta" />
+            <property name="fechaBaja" />
+        </joined-subclass>
+       
+        <joined-subclass name="Alumno" table="Alumno">
+            <key column="legajo" />
+            <property name="telefono" />
+            <property name="email" />
+            <property name="egresado" />
+            
+            
+        </joined-subclass>
+        
+             <joined-subclass name="Coordinador" table="Coordinador">
+            <key column="legajo" />
+            <property name="especialidad" />
+           
+            
+            
+        </joined-subclass>
+    </class>
+</hibernate-mapping>
