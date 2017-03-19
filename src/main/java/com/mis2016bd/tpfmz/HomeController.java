@@ -18,19 +18,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class HomeController {
     
-//   @Autowired
-//  private AlumnoServicio servicio;
+   @Autowired
+    private AlumnoServicio servicio;
 //    
 //    @Autowired
 //    private CarreraServicio servicio;
 //  
-    @Autowired
-    private MateriaServicio servicio;
+    //@Autowired
+    //private MateriaServicio servicio;
     
     @RequestMapping("/")
     public String welcome(Model model){
 //        
-      model.addAttribute("alumnos", servicio.obtenerTodasLasMaterias().size());
-        return "welcome";
+     model.addAttribute("alumnos", servicio.obtenerTodosLosAlumnos().size());
+     return "welcome";
     }
 }

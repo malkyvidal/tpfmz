@@ -18,7 +18,7 @@
             <div class="jumbotron">
                 <div class="container" >
                     <h1>Alumnos</h1>
-                    <p>En la base ahora hay  ${alumnos} alumnos</p>
+                    <p>En la base ahora hay ${alumnos} alumnos</p>
                 </div>
             </div>
         </section>

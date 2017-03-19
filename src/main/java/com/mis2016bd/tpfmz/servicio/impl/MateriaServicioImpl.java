@@ -7,6 +7,7 @@ package com.mis2016bd.tpfmz.servicio.impl;
 
 import com.mis2016bd.tpfmz.modelo.Materia;
 import com.mis2016bd.tpfmz.servicio.MateriaServicio;
+import com.mis2016bd.tpfmz.repositorio.MateriaRepositorio;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,7 +20,7 @@ import org.springframework.stereotype.Service;
 public class MateriaServicioImpl implements MateriaServicio{
 
     @Autowired 
-    private MateriaServicio repo;
+    private MateriaRepositorio repo;
     
     @Override
     public List<Materia> obtenerTodasLasMaterias() {
