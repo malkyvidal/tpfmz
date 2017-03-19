@@ -75,5 +75,9 @@ CREATE TABLE `BDTP`.`Materia` (
 
 
 
+INSERT INTO `Carrera` VALUES (1,'Ingenieria Industrial',NULL);
+INSERT INTO `Materia` VALUES (0,'Algebra Lineal',0,1);
+
+
 
 
