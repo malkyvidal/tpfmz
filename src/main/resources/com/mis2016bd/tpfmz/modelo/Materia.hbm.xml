@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.mis2016bd.tpfmz.modelo">
+    <class name="Materia" table="Materia" >
+        <id name="codMateria" type="int">
+            <column name="codMateria" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="carrera" class="Carrera" >
+            <column name="codCarrera" />
+        </many-to-one>
+        <property name="nombreMateria" type="string">
+            <column name="nombreMateria" length="45" />
+        </property>
+        <property name="modalidad" type="java.lang.Boolean">
+            <column name="modalidad" />
+        </property>
+    </class>
+</hibernate-mapping>
+

@@ -10,5 +10,56 @@ package com.mis2016bd.tpfmz.modelo;
  * @author malky
  */
 public class Materia {
-    
+
+    private int codMateria;
+    private Carrera carrera;
+    private String nombreMateria;
+    private Boolean modalidad;
+
+    public Materia() {
+    }
+
+    public Materia(int codMateria) {
+        this.codMateria = codMateria;
+    }
+
+    public Materia(int codMateria, Carrera carrera, String nombreMateria, Boolean modalidad) {
+        this.codMateria = codMateria;
+        this.carrera = carrera;
+        this.nombreMateria = nombreMateria;
+        this.modalidad = modalidad;
+    }
+
+    public int getCodMateria() {
+        return this.codMateria;
+    }
+
+    public void setCodMateria(int codMateria) {
+        this.codMateria = codMateria;
+    }
+
+    public Carrera getCarrera() {
+        return this.carrera;
+    }
+
+    public void setCarrera(Carrera carrera) {
+        this.carrera = carrera;
+    }
+
+    public String getNombreMateria() {
+        return this.nombreMateria;
+    }
+
+    public void setNombreMateria(String nombreMateria) {
+        this.nombreMateria = nombreMateria;
+    }
+
+    public Boolean getModalidad() {
+        return this.modalidad;
+    }
+
+    public void setModalidad(Boolean modalidad) {
+        this.modalidad = modalidad;
+    }
+
 }
