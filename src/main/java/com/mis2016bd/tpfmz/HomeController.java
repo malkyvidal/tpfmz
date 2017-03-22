@@ -7,6 +7,9 @@ package com.mis2016bd.tpfmz;
 
 
 import com.mis2016bd.tpfmz.servicio.AlumnoServicio;
+import com.mis2016bd.tpfmz.servicio.ModuloServicio;
+import com.mis2016bd.tpfmz.servicio.PermisoServicio;
+import com.mis2016bd.tpfmz.servicio.PerfilServicio;
 import org.springframework.ui.Model;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,13 +19,29 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class HomeController {
     
-   @Autowired
+  @Autowired
   private AlumnoServicio servicio;
+   
+  //  @Autowired
+  //private ModuloServicio servicio;
+    // @Autowired
+  //private PerfilServicio servicio;
+   //@Autowired
+  //private PermisoServicio servicio;
     
     @RequestMapping("/")
     public String welcome(Model model){
         
-       model.addAttribute("alumnos", servicio.obtenerTodosLosAlumnos().size());
-        return "welcome";
+    model.addAttribute("alumnos", servicio.obtenerTodosLosAlumnos().size());
+      return "welcome";
+        
+     // model.addAttribute("modulos", servicio.obtenerTodosLosModulos().size());
+     // return "welcome";
+    // model.addAttribute("permisos", servicio.obtenerTodosLosPermisos().size());
+    //  return "welcome";
+      //model.addAttribute("perfiles", servicio.obtenerTodosLosPerfiles().size());
+     // return "welcome";
+      //model.addAttribute("perfiles", servicio.obtenerPerfilPorCodigoPerfil(1).getDescripcion());
+      //return "welcome";
     }
 }

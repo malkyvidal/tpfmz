@@ -41,7 +41,9 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
         <property name="mappingResources">
             <list>
                 <value>com/mis2016bd/tpfmz/modelo/Usuario.hbm.xml</value>
-                
+                <value>com/mis2016bd/tpfmz/modelo/Modulo.hbm.xml</value>
+                <value>com/mis2016bd/tpfmz/modelo/Permiso.hbm.xml</value>  
+                <value>com/mis2016bd/tpfmz/modelo/Perfil.hbm.xml</value>      
 				
             </list>
         </property>

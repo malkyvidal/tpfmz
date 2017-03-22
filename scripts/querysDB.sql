@@ -1,3 +1,4 @@
+
 CREATE DATABASE BDTP;
 CREATE USER 'usrapp'@'localhost' IDENTIFIED BY 'usrapp';
 GRANT CREATE, DROP, ALTER, INSERT, UPDATE, SELECT, DELETE,
@@ -77,3 +78,34 @@ CREATE TABLE `BDTP`.`Materia` (
 
 
 
+CREATE TABLE `BDTP`.`Modulo`(
+`codModulo`INT NOT NULL AUTO_INCREMENT,
+`codPermiso` INT NULL,
+`descripcion` VARCHAR(255) NULL,
+PRIMARY KEY (codModulo),
+INDEX `fk_Modulo_1_idx` (`codPermiso` ASC),
+  CONSTRAINT `fk_Modulo_1`
+    FOREIGN KEY (`codPermiso`)
+    REFERENCES `BDTP`.`Permiso` (`codPermiso`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+
+    CREATE TABLE `BDTP`.`Permiso` (
+    `codPermiso` INT NOT NULL AUTO_INCREMENT,
+    `codPerfil` INT NULL,
+    `accion` VARCHAR(50) NULL,
+    PRIMARY KEY (`codPermiso`),
+    INDEX `fk_Permiso_1_idx` (`codPerfil` ASC),
+    CONSTRAINT `fk_Permiso_1`
+        FOREIGN KEY (`codPerfil`)
+        REFERENCES `BDTP`.`Perfil` (`codPerfil`)
+        ON DELETE NO ACTION
+        ON UPDATE NO ACTION);
+
+CREATE TABLE `BDTP`.`Perfil` (
+     `codPerfil` INT NOT NULL AUTO_INCREMENT,
+     `descripcion` VARCHAR(255) NULL,
+     `estado` TINYINT(1) NULL,
+   PRIMARY KEY (codPerfil)  
+);
+    

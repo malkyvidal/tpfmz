@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.mis2016bd.tpfmz.modelo" >
+<class name="Permiso" table="Permiso" >
+<id name="codPermiso" type="java.lang.Integer">
+<column name="codPermiso" />
+<generator class="identity" />
+</id>
+<property name="accion" type="string">
+<column name="accion" length="255" not-null="true" />
+</property>
+<many-to-one name="perfil" class="Perfil">
+<column name="codPerfil" />
+</many-to-one>
+<set name="modulos" table="Modulo" >
+<key>
+<column name="codPermiso" />
+</key>
+<one-to-many class="Modulo" />
+</set>
+</class>
+</hibernate-mapping>
