@@ -72,8 +72,36 @@ CREATE TABLE `BDTP`.`Materia` (
     REFERENCES `BDTP`.`Carrera` (`codigoCarrera`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
+    
+    
+ /* Agrego la parte de Plan, Materias y estados - Franco - */   
 
+CREATE TABLE `BDTP`.`Plan` (
+identificador VARCHAR(50),
+nombre VARCHAR(50),
+nroResolucion SMALLINT,
+descripcion VARCHAR(255),
+fechaIni DATE,
+fechaFin DATE,
+PRIMARY KEY (identificador)  
+);
 
+CREATE TABLE `BDTP`.`materiasAlumnos`(
+legajo INT,
+codigo VARCHAR(25),
+modalidad SMALLINT,
+PRIMARY KEY (legajo,codigo)
+);
+
+CREATE TABLE `BDTP`.`estadosMateria`(
+identificador VARCHAR(50),
+legajo INT,
+codigo VARCHAR(25),
+id SMALLINT NOT NULL AUTO_INCREMENT,
+estado VARCHAR(25),
+fecha DATE,
+PRIMARY KEY (id)
+);
 
 INSERT INTO `Carrera` VALUES (1,'Ingenieria Industrial',NULL);
 INSERT INTO `Materia` VALUES (0,'Algebra Lineal',0,1);
