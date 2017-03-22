@@ -3,17 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mis2016bd.tpfmz.servicio;
+package com.mis2016bd.tpfmz.repositorio;
 
-import com.mis2016bd.tpfmz.modelo.Alumno;
+import com.mis2016bd.tpfmz.modelo.Materia;
 import java.util.List;
 
 /**
  *
  * @author malky
  */
-
-public interface AlumnoServicio {
-    
-     List<Alumno> obtenerTodosLosAlumnos();
+public interface MateriaRepositorio {
+    public List<Materia> obtenerTodasLasMaterias();
 }

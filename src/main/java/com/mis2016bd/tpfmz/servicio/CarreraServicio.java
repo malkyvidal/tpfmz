@@ -5,15 +5,14 @@
  */
 package com.mis2016bd.tpfmz.servicio;
 
-import com.mis2016bd.tpfmz.modelo.Alumno;
+import com.mis2016bd.tpfmz.modelo.Carrera;
 import java.util.List;
 
 /**
  *
  * @author malky
  */
-
-public interface AlumnoServicio {
-    
-     List<Alumno> obtenerTodosLosAlumnos();
+public interface CarreraServicio {
+    public List<Carrera> obtenerTodasLasCarreras();
+    public Carrera obtenerCarreraPorCodigoCarrera(Integer codigoCarrera);
 }

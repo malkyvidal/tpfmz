@@ -10,6 +10,8 @@ import com.mis2016bd.tpfmz.servicio.AlumnoServicio;
 import com.mis2016bd.tpfmz.servicio.ModuloServicio;
 import com.mis2016bd.tpfmz.servicio.PermisoServicio;
 import com.mis2016bd.tpfmz.servicio.PerfilServicio;
+import com.mis2016bd.tpfmz.servicio.CarreraServicio;
+import com.mis2016bd.tpfmz.servicio.MateriaServicio;
 import org.springframework.ui.Model;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,10 +30,16 @@ public class HomeController {
   //private PerfilServicio servicio;
    //@Autowired
   //private PermisoServicio servicio;
-    
+
+//    @Autowired
+//    private CarreraServicio servicio;
+//  
+    //@Autowired
+    //private MateriaServicio servicio;
+  
     @RequestMapping("/")
     public String welcome(Model model){
-        
+      
     model.addAttribute("alumnos", servicio.obtenerTodosLosAlumnos().size());
       return "welcome";
         
