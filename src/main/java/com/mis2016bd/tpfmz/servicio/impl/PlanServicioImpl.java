@@ -10,11 +10,13 @@ import com.mis2016bd.tpfmz.repositorio.PlanRepositorio;
 import com.mis2016bd.tpfmz.servicio.PlanServicio;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author franco
  */
+@Service
 public class PlanServicioImpl implements PlanServicio{
     @Autowired
     PlanRepositorio repo;

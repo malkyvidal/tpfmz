@@ -22,9 +22,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class HomeController {
     
-  @Autowired
-  private AlumnoServicio servicio;
   //@Autowired
+  //private AlumnoServicio servicio;
+  @Autowired
   private PlanServicio servicio1;
   //  @Autowired
   //private ModuloServicio servicio;
@@ -42,7 +42,7 @@ public class HomeController {
     @RequestMapping("/")
     public String welcome(Model model){
       
-    model.addAttribute("alumnos", servicio.obtenerTodosLosAlumnos().size());
+    //model.addAttribute("alumnos", servicio.obtenerTodosLosAlumnos().size());
     model.addAttribute("plan",servicio1.obtenerTodosLosPlanes().size());
       return "welcome";
         

@@ -12,36 +12,37 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+
 /**
  *
  * @author franco
  */
+@Repository
 public class PlanRepositorioImpl implements PlanRepositorio{
+    
     private SessionFactory sessionFactory;
- 
+    
     @Transactional
     @Override
     public List<Plan> obtenerTodosLosPlanes() {
         Session session = sessionFactory.getCurrentSession();
-        String hql = "FROM Plan";
-        Query query = session.createQuery(hql);
-        List<Plan> planes = query.list();
-        return planes;
-    }
-
-    @Override
-    public Plan obtenerPlanPorCodigoPlan(String identificador) {
-        Session session = sessionFactory.getCurrentSession();
-        String hql = "From  Plan where identificador=:identificador";
-        Query query = session.createQuery(hql);
-        query.setString("identificador", identificador);
-        Plan carrera = (Plan) query.uniqueResult();
-        return carrera;
+            String hql = "FROM Carrera";
+            Query query = session.createQuery(hql);
+            List<Plan> planes = query.list();
+            return planes;
     }
     
-    @Autowired
+    @Transactional
+    @Override
+    public Plan obtenerPlanPorCodigoPlan(String identificador) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    
+     @Autowired
     public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }

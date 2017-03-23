@@ -21,6 +21,12 @@
                     <p>En la base ahora hay  ${alumnos} alumnos</p>                                      
                 </div>
             </div>
+            <div class="jumbotron">
+                <div class="container" >
+                    <h1>Planes</h1>
+                    <p>En la base ahora hay  ${plan} planes</p>                                      
+                </div>
+            </div>
         </section>
     </body>
 </html>
