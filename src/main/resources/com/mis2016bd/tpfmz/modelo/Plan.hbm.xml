@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.mis2016bd.tpfmz.modelo">
+    <class name="Plan" table="Plan">
+        <id name="identificador" type="string">
+            <column name="identificador" length="50" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="nombre" length="50" />
+        </property>
+        <property name="nroResolucion" column="nroResolucion" />
+        </property>
+        <property name="descripcion" column="descripcion" />
+        </property>
+        <property name="fechaIni" column="fechaIni" />
+        </property>
+        <property name="fechaFin" column="fechaFin"/>
+        </property>
+    </class>
+</hibernate-mapping>
+
+

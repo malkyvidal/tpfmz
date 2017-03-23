@@ -12,6 +12,7 @@ import com.mis2016bd.tpfmz.servicio.PermisoServicio;
 import com.mis2016bd.tpfmz.servicio.PerfilServicio;
 import com.mis2016bd.tpfmz.servicio.CarreraServicio;
 import com.mis2016bd.tpfmz.servicio.MateriaServicio;
+import com.mis2016bd.tpfmz.servicio.PlanServicio;
 import org.springframework.ui.Model;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,7 +24,8 @@ public class HomeController {
     
   @Autowired
   private AlumnoServicio servicio;
-   
+  //@Autowired
+  private PlanServicio servicio1;
   //  @Autowired
   //private ModuloServicio servicio;
     // @Autowired
@@ -41,6 +43,7 @@ public class HomeController {
     public String welcome(Model model){
       
     model.addAttribute("alumnos", servicio.obtenerTodosLosAlumnos().size());
+    model.addAttribute("plan",servicio1.obtenerTodosLosPlanes().size());
       return "welcome";
         
      // model.addAttribute("modulos", servicio.obtenerTodosLosModulos().size());
