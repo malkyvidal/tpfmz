@@ -128,6 +128,30 @@ ADD CONSTRAINT `fk_estadosMateria_1`
   ON DELETE NO ACTION
   ON UPDATE NO ACTION;
 
+CREATE TABLE `BDTP`.`Mensaje`(
+id SMALLINT NOT NULL AUTO_INCREMENT,
+fecha DATE,
+contenido VARCHAR(255),
+usuarioRemitente INT,
+usuarioDestinatario INT,
+PRIMARY KEY (id)
+);
+
+ALTER TABLE `bdtp`.`mensaje` 
+ADD INDEX `fk_Mensajes_1_idx` (`usuarioRemitente` ASC),
+ADD INDEX `fk_Mensajes_2_idx` (`usuarioDestinatario` ASC);
+ALTER TABLE `bdtp`.`mensaje` 
+ADD CONSTRAINT `fk_Mensajes_1`
+  FOREIGN KEY (`usuarioRemitente`)
+  REFERENCES `bdtp`.`usuario` (`legajo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `fk_Mensajes_2`
+  FOREIGN KEY (`usuarioDestinatario`)
+  REFERENCES `bdtp`.`usuario` (`legajo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
 
 
 
