@@ -88,24 +88,45 @@ PRIMARY KEY (identificador)
 );
 
 CREATE TABLE `BDTP`.`materiasAlumnos`(
+id SMALLINT NOT NULL AUTO_INCREMENT,
 legajo INT,
-codigo VARCHAR(25),
+codigoMateria INT,
 modalidad SMALLINT,
-PRIMARY KEY (legajo,codigo)
-);
+PRIMARY KEY (id)
+ );
+ 
+ALTER TABLE `bdtp`.`materiasalumnos` 
+ADD INDEX `fk_MateriaAlumno_2_idx` (`codigoMateria` ASC);
+ALTER TABLE `bdtp`.`materiasalumnos` 
+ADD CONSTRAINT `fk_MateriaAlumno_1`
+  FOREIGN KEY (`legajo`)
+  REFERENCES `bdtp`.`alumno` (`legajo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `fk_MateriaAlumno_2`
+  FOREIGN KEY (`codigoMateria`)
+  REFERENCES `bdtp`.`materia` (`codMateria`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+    
 
 CREATE TABLE `BDTP`.`estadosMateria`(
-identificador VARCHAR(50),
-legajo INT,
-codigo VARCHAR(25),
+identificador SMALLINT,
 id SMALLINT NOT NULL AUTO_INCREMENT,
 estado VARCHAR(25),
 fecha DATE,
 PRIMARY KEY (id)
 );
 
-INSERT INTO `Carrera` VALUES (1,'Ingenieria Industrial',NULL);
-INSERT INTO `Materia` VALUES (0,'Algebra Lineal',0,1);
+ALTER TABLE `bdtp`.`estadosmateria` 
+ADD INDEX `fk_estadosMateria_1_idx` (`identificador` ASC);
+ALTER TABLE `bdtp`.`estadosmateria` 
+ADD CONSTRAINT `fk_estadosMateria_1`
+  FOREIGN KEY (`identificador`)
+  REFERENCES `bdtp`.`materiasalumnos` (`id`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
 
 
 
