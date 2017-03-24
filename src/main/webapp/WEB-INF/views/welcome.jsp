@@ -32,6 +32,12 @@
                     <h1>Materias Plan</h1>
                     <p>En la base ahora hay  ${materiasAlumno} Materias de Planes</p>                                      
                 </div>
+                <div class="jumbotron">
+                    <div class="container" >
+                        <h1>Mensajes</h1>
+                        <p>En la base ahora hay  ${mensaje} Mensajes</p>                                      
+                 </div>
+            </div>   
             </div>   
         </section>
     </body>

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 24/03/2017 19:53:28 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping package="com.mis2016bd.tpfmz.modelo">
+    <class name="Mensaje" table="mensaje" catalog="bdtp" optimistic-lock="version">
+        <id name="id" type="java.lang.Short">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="usuarioByUsuarioDestinatario" class="Usuario" fetch="select">
+            <column name="usuarioDestinatario" />
+        </many-to-one>
+        <many-to-one name="usuarioByUsuarioRemitente" class="Usuario" fetch="select">
+            <column name="usuarioRemitente" />
+        </many-to-one>
+        <property name="fecha" type="date">
+            <column name="fecha" length="10" />
+        </property>
+        <property name="contenido" type="string">
+            <column name="contenido" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -8,7 +8,7 @@
         </id>
         <property name="contrasenia" column="contrasenia" />
         <property name="codPerfil" column="codPerfil" />
-  
+         
         <joined-subclass name="AdminAlumnado" table="AdminAlumnado">
             <key column="legajo"/>
             <property name="fechaAlta" />
@@ -31,5 +31,6 @@
             
             
         </joined-subclass>
+        
     </class>
 </hibernate-mapping>
