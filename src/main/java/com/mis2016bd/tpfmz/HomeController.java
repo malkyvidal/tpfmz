@@ -11,6 +11,8 @@ import com.mis2016bd.tpfmz.servicio.ModuloServicio;
 import com.mis2016bd.tpfmz.servicio.PermisoServicio;
 import com.mis2016bd.tpfmz.servicio.PerfilServicio;
 import com.mis2016bd.tpfmz.servicio.CarreraServicio;
+import com.mis2016bd.tpfmz.servicio.EstadoMateriaServicio;
+import com.mis2016bd.tpfmz.servicio.MateriaAlumnoServicio;
 import com.mis2016bd.tpfmz.servicio.MateriaServicio;
 import com.mis2016bd.tpfmz.servicio.PlanServicio;
 import org.springframework.ui.Model;
@@ -22,37 +24,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class HomeController {
     
-  //@Autowired
-  //private AlumnoServicio servicio;
+  
   @Autowired
   private PlanServicio servicio1;
-  //  @Autowired
-  //private ModuloServicio servicio;
-    // @Autowired
-  //private PerfilServicio servicio;
-   //@Autowired
-  //private PermisoServicio servicio;
-
-//    @Autowired
-//    private CarreraServicio servicio;
-//  
-    //@Autowired
-    //private MateriaServicio servicio;
+  @Autowired
+  private MateriaAlumnoServicio servicio2;
+  @Autowired
+  private EstadoMateriaServicio servicio3;
+  
   
     @RequestMapping("/")
     public String welcome(Model model){
-      
-    //model.addAttribute("alumnos", servicio.obtenerTodosLosAlumnos().size());
-    model.addAttribute("plan",servicio1.obtenerTodosLosPlanes().size());
-      return "welcome";
-        
-     // model.addAttribute("modulos", servicio.obtenerTodosLosModulos().size());
-     // return "welcome";
-    // model.addAttribute("permisos", servicio.obtenerTodosLosPermisos().size());
-    //  return "welcome";
-      //model.addAttribute("perfiles", servicio.obtenerTodosLosPerfiles().size());
-     // return "welcome";
-      //model.addAttribute("perfiles", servicio.obtenerPerfilPorCodigoPerfil(1).getDescripcion());
-      //return "welcome";
+  
+        model.addAttribute("plan",servicio1.obtenerTodosLosPlanes().size());
+        model.addAttribute("estados",servicio3.obtenerTodasLosEstadoMateria().size());
+        model.addAttribute("materiasAlumno",servicio2.obtenerTodasLasMateriasAlumno().size());
+        return "welcome";
     }
 }

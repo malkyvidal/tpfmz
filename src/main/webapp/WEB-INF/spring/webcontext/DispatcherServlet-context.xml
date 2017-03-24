@@ -46,7 +46,9 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
                 <value>com/mis2016bd/tpfmz/modelo/Perfil.hbm.xml</value>      
                 <value>com/mis2016bd/tpfmz/modelo/Carrera.hbm.xml</value>
                 <value>com/mis2016bd/tpfmz/modelo/Materia.hbm.xml</value>
-                <value>com/mis2016bd/tpfmz/modelo/Plan.hbm.xml</value>		
+                <value>com/mis2016bd/tpfmz/modelo/Plan.hbm.xml</value>
+                <value>com/mis2016bd/tpfmz/modelo/Estadosmateria.hbm.xml</value>
+                <value>com/mis2016bd/tpfmz/modelo/Materiasalumnos.hbm.xml</value>		
             </list>
         </property>
         <property name="hibernateProperties">

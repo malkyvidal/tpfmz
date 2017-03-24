@@ -17,8 +17,8 @@
           <section>
             <div class="jumbotron">
                 <div class="container" >
-                    <h1>Alumnos</h1>
-                    <p>En la base ahora hay  ${alumnos} alumnos</p>                                      
+                    <h1>Estados Materias</h1>
+                    <p>En la base ahora hay  ${estados} Estados</p>                                      
                 </div>
             </div>
             <div class="jumbotron">
@@ -27,6 +27,12 @@
                     <p>En la base ahora hay  ${plan} planes</p>                                      
                 </div>
             </div>
+             <div class="jumbotron">
+                <div class="container" >
+                    <h1>Materias Plan</h1>
+                    <p>En la base ahora hay  ${materiasAlumno} Materias de Planes</p>                                      
+                </div>
+            </div>   
         </section>
     </body>
 </html>

@@ -17,6 +17,12 @@
         <property name="modalidad" type="java.lang.Boolean">
             <column name="modalidad" />
         </property>
+        <set name="materiasalumnos" table="materiasalumnos" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="codigoMateria" />
+            </key>
+            <one-to-many class="Materiasalumnos" />
+        </set>
     </class>
 </hibernate-mapping>
 

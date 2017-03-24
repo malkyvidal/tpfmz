@@ -36,7 +36,7 @@ public class MateriaRepositorioImpl implements MateriaRepositorio{
         
     }
     
-     @Autowired
+    @Autowired
     public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }

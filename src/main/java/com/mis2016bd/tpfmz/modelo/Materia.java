@@ -5,6 +5,9 @@
  */
 package com.mis2016bd.tpfmz.modelo;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  *
  * @author malky
@@ -15,7 +18,8 @@ public class Materia {
     private Carrera carrera;
     private String nombreMateria;
     private Boolean modalidad;
-
+    private Set materiasalumnos = new HashSet(0);
+    
     public Materia() {
     }
 
@@ -61,5 +65,12 @@ public class Materia {
     public void setModalidad(Boolean modalidad) {
         this.modalidad = modalidad;
     }
-
+    
+    public Set getMateriasalumnos() {
+        return this.materiasalumnos;
+    }
+    
+    public void setMateriasalumnos(Set materiasalumnos) {
+        this.materiasalumnos = materiasalumnos;
+    }
 }
