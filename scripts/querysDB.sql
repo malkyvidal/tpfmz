@@ -186,3 +186,18 @@ CREATE TABLE `BDTP`.`Perfil` (
    PRIMARY KEY (codPerfil)  
 );
     
+ALTER TABLE `BDTP`.`Alumno` 
+ADD COLUMN `plan` VARCHAR(45) NULL AFTER `egresado`,
+ADD INDEX `fk_Alumno_plan_idx` (`plan` ASC);
+ALTER TABLE `BDTP`.`Alumno` 
+ADD CONSTRAINT `fk_Alumno_plan`
+  FOREIGN KEY (`plan`)
+  REFERENCES `BDTP`.`Plan` (`identificador`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+
+INSERT INTO `Plan` VALUES ('plan1','plan 1',0,'plan data','2014-05-10','2018-02-01');
+INSERT INTO `Usuario` VALUES (1,'pass',1),(2,'pass',1);
+INSERT INTO `Alumno` VALUES (1,'46546','pe@hmail.con','s','plan1');
