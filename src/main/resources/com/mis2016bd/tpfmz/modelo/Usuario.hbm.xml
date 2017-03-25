@@ -20,7 +20,15 @@
             <property name="telefono" />
             <property name="email" />
             <property name="egresado" />
-            
+            <set name="materias" table="materiasalumnos"
+                    inverse="false" lazy="true" fetch="select" cascade="all" >
+                <key>
+                    <column name="legajo" not-null="true" />
+                </key>
+                <many-to-many entity-name="Materia">
+                    <column name="codigoMateria" not-null="true" />
+                </many-to-many>
+            </set> 
             
         </joined-subclass>
         

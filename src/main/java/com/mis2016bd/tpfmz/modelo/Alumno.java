@@ -5,6 +5,9 @@
  */
 package com.mis2016bd.tpfmz.modelo;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  *
  * @author malky
@@ -14,7 +17,7 @@ public class Alumno extends Usuario{
     String telefono;
     String email;
     char  egresado;
-
+    private Set<Materia> materias = new HashSet<Materia>(0);
   
 
     public String getTelefono() {
@@ -41,5 +44,11 @@ public class Alumno extends Usuario{
         this.egresado = egresado;
     }
     
-    
+    public Set<Materia> getStocks() {
+	return this.materias;
+	}
+
+    public void setStocks(Set<Materia> materias) {
+	this.materias = materias;
+    }
 }
