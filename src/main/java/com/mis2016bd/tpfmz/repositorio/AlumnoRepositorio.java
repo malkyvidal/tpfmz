@@ -10,8 +10,10 @@ package com.mis2016bd.tpfmz.repositorio;
  * @author malky
  */
 import com.mis2016bd.tpfmz.modelo.Alumno;
+import com.mis2016bd.tpfmz.modelo.Materia;
 import java.util.List;
 
 public interface AlumnoRepositorio {
    List<Alumno> obtenerTodosLosAlumnos();
+   List<Materia> ListarMaterias(int legajo);
 }

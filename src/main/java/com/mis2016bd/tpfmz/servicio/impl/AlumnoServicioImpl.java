@@ -6,6 +6,7 @@
 package com.mis2016bd.tpfmz.servicio.impl;
 
 import com.mis2016bd.tpfmz.modelo.Alumno;
+import com.mis2016bd.tpfmz.modelo.Materia;
 import com.mis2016bd.tpfmz.repositorio.AlumnoRepositorio;
 import com.mis2016bd.tpfmz.servicio.AlumnoServicio;
 import java.util.List;
@@ -26,5 +27,11 @@ public class AlumnoServicioImpl implements AlumnoServicio{
     public List<Alumno> obtenerTodosLosAlumnos() {
        return repo.obtenerTodosLosAlumnos();
     }
+
+    @Override
+    public List<Materia> obtenerTodasLasMaterias(int legajo) {
+        return repo.ListarMaterias(legajo);
+    }
+    
     
 }

@@ -5,6 +5,7 @@
  */
 package com.mis2016bd.tpfmz.servicio;
 
+import com.mis2016bd.tpfmz.modelo.Alumno;
 import com.mis2016bd.tpfmz.modelo.Materia;
 import java.util.List;
 
@@ -14,4 +15,5 @@ import java.util.List;
  */
 public interface MateriaServicio {
       public List<Materia> obtenerTodasLasMaterias();
+      public List<Alumno> obtenerTodosLosAlumnos(int codMateria);
 }

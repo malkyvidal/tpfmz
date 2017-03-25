@@ -66,11 +66,11 @@ public class Materia {
         this.modalidad = modalidad;
     }
     
-    public Set getMateriasalumnos() {
+    public Set getAlumnos() {
         return this.alumnos;
     }
     
-    public void setMateriasalumnos(Set alumnos) {
+    public void setAlumnos(Set alumnos) {
         this.alumnos = alumnos;
     }
 }

@@ -44,11 +44,11 @@ public class Alumno extends Usuario{
         this.egresado = egresado;
     }
     
-    public Set<Materia> getStocks() {
+    public Set<Materia> getMaterias() {
 	return this.materias;
 	}
 
-    public void setStocks(Set<Materia> materias) {
+    public void setMaterias(Set<Materia> materias) {
 	this.materias = materias;
     }
 }

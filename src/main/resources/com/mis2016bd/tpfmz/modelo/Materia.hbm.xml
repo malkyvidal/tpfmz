@@ -22,7 +22,7 @@
             <key>
                 <column name="codigoMateria" not-null="true" />
             </key>
-            <many-to-many entity-name="Alumno">
+            <many-to-many entity-name="com.mis2016bd.tpfmz.modelo.Alumno">
                 <column name="legajo" not-null="true" />
             </many-to-many>
         </set>

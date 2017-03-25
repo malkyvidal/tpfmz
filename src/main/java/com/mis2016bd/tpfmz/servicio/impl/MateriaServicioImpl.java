@@ -5,6 +5,7 @@
  */
 package com.mis2016bd.tpfmz.servicio.impl;
 
+import com.mis2016bd.tpfmz.modelo.Alumno;
 import com.mis2016bd.tpfmz.modelo.Materia;
 import com.mis2016bd.tpfmz.servicio.MateriaServicio;
 import com.mis2016bd.tpfmz.repositorio.MateriaRepositorio;
@@ -25,6 +26,11 @@ public class MateriaServicioImpl implements MateriaServicio{
     @Override
     public List<Materia> obtenerTodasLasMaterias() {
         return repo.obtenerTodasLasMaterias();
+    }
+
+    @Override
+    public List<Alumno> obtenerTodosLosAlumnos(int codMateria) {
+        return repo.obtenerTodosLosAlumno(codMateria);
     }
     
 }
