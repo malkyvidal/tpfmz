@@ -38,7 +38,18 @@ public class PlanRepositorioImpl implements PlanRepositorio{
     @Transactional
     @Override
     public Plan obtenerPlanPorCodigoPlan(String identificador) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         Session session = sessionFactory.getCurrentSession();
+         String hql = "FROM Plan where identificador='plan1'";
+         Query query = session.createQuery(hql);
+         //query.setString("identificador", identificador);
+         Plan plan = (Plan)query.uniqueResult();
+         
+         int alumnosdelPlan = plan.getAlumnos().size();
+         
+         System.out.println("alumnos del plan "+alumnosdelPlan);
+         return plan;
+        
+       
     }
     
     

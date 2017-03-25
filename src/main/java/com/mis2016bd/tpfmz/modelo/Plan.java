@@ -3,6 +3,8 @@ package com.mis2016bd.tpfmz.modelo;
 
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * @author franco
@@ -17,7 +19,15 @@ public class Plan {
      private String descripcion;
      private Date fechaIni;
      private Date fechaFin;
+      private Set alumnos = new HashSet(0);
 
+    public Set getAlumnos() {
+        return alumnos;
+    }
+
+    public void setAlumnos(Set alumnos) {
+        this.alumnos = alumnos;
+    }
     public Plan() {
     }
 

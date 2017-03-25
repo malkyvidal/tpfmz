@@ -8,6 +8,7 @@ package com.mis2016bd.tpfmz.repositorio.impl;
 import com.mis2016bd.tpfmz.modelo.Alumno;
 import com.mis2016bd.tpfmz.modelo.Carrera;
 import com.mis2016bd.tpfmz.modelo.Materia;
+import com.mis2016bd.tpfmz.modelo.Plan;
 import com.mis2016bd.tpfmz.repositorio.AlumnoRepositorio;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -35,6 +36,10 @@ public class AlumnoRepositorioImpl implements AlumnoRepositorio{
        String hql = "FROM Alumno";
        Query query = session.createQuery(hql);
        List<Alumno> lista = query.list();
+       Alumno ad = lista.get(0);
+        Plan d = ad.getPlan();
+        System.out.print(d.getDescripcion() + " -ver");
+        
        return lista;
     }
     

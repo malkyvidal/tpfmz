@@ -13,5 +13,12 @@
         <property name="descripcion" column="descripcion" />
         <property name="fechaIni" column="fechaIni" />
         <property name="fechaFin" column="fechaFin"/>
+        
+         <set name="alumnos" table="Alumno" inverse="true" >
+            <key>
+                <column name="plan" length="50" />
+            </key>
+            <one-to-many class="Alumno" />
+        </set>
     </class>
 </hibernate-mapping>

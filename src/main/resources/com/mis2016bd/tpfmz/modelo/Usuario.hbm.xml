@@ -29,6 +29,9 @@
                     <column name="codigoMateria" not-null="true" />
                 </many-to-many>
             </set> 
+             <many-to-one name="plan" class="Plan" fetch="select">
+            <column name="plan" length="50" />
+        </many-to-one>
             
         </joined-subclass>
         

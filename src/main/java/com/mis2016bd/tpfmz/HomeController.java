@@ -6,6 +6,8 @@
 package com.mis2016bd.tpfmz;
 
 
+import com.mis2016bd.tpfmz.modelo.Alumno;
+import com.mis2016bd.tpfmz.modelo.Plan;
 import com.mis2016bd.tpfmz.servicio.AlumnoServicio;
 import com.mis2016bd.tpfmz.servicio.ModuloServicio;
 import com.mis2016bd.tpfmz.servicio.PermisoServicio;
@@ -14,6 +16,7 @@ import com.mis2016bd.tpfmz.servicio.CarreraServicio;
 import com.mis2016bd.tpfmz.servicio.MateriaServicio;
 import com.mis2016bd.tpfmz.servicio.MensajeServicio;
 import com.mis2016bd.tpfmz.servicio.PlanServicio;
+import java.util.List;
 import org.springframework.ui.Model;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -36,7 +39,13 @@ public class HomeController {
     public String welcome(Model model){
         
         //model.addAttribute("plan",servicio1.obtenerTodosLosPlanes().size());
-        model.addAttribute("materias",servicio3.obtenerTodosLosAlumnos(2).size());
+        //int  al = servicio3.obtenerTodosLosAlumnos(2).size();
+       
+        
+        Plan pl = servicio1.obtenerPlanPorCodigoPlan("plan1");
+       
+        
+        model.addAttribute("materias",1);
         //model.addAttribute("alumno",servicio2.obtenerTodasLasMaterias(1).size());
         return "welcome";
     }
