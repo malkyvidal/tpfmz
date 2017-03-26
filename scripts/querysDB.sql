@@ -91,7 +91,7 @@ CREATE TABLE `BDTP`.`materiasAlumnos`(
 id SMALLINT NOT NULL AUTO_INCREMENT,
 legajo INT,
 codigoMateria INT,
-modalidad SMALLINT,
+estadoMateria VARCHAR(100),
 PRIMARY KEY (id)
  );
  
@@ -109,24 +109,6 @@ ADD CONSTRAINT `fk_MateriaAlumno_2`
   ON DELETE NO ACTION
   ON UPDATE NO ACTION;
 
-    
-
-CREATE TABLE `BDTP`.`estadosMateria`(
-identificador SMALLINT,
-id SMALLINT NOT NULL AUTO_INCREMENT,
-estado VARCHAR(25),
-fecha DATE,
-PRIMARY KEY (id)
-);
-
-ALTER TABLE `bdtp`.`estadosmateria` 
-ADD INDEX `fk_estadosMateria_1_idx` (`identificador` ASC);
-ALTER TABLE `bdtp`.`estadosmateria` 
-ADD CONSTRAINT `fk_estadosMateria_1`
-  FOREIGN KEY (`identificador`)
-  REFERENCES `bdtp`.`materiasalumnos` (`id`)
-  ON DELETE NO ACTION
-  ON UPDATE NO ACTION;
 
 CREATE TABLE `BDTP`.`Mensaje`(
 id SMALLINT NOT NULL AUTO_INCREMENT,
