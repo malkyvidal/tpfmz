@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="com.mis2016bd.tpfmz.modelo" >
-<class name="Perfil" table="Perfil" >
+<class name="Perfil" table="perfil" >
 <id name="codPerfil" type="java.lang.Integer">
 <column name="codPerfil" />
 <generator class="identity" />
@@ -12,7 +12,7 @@
 <property name="estado" type="java.lang.Boolean">
             <column name="estado" />
 </property>
-<set name="permisos" table="Permiso" >
+<set name="permisos" table="permiso" >
 <key>
 <column name="codPerfil" />
 </key>

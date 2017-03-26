@@ -9,13 +9,13 @@
         <property name="contrasenia" column="contrasenia" />
         <property name="codPerfil" column="codPerfil" />
          
-        <joined-subclass name="AdminAlumnado" table="AdminAlumnado">
+        <joined-subclass name="AdminAlumnado" table="adminalumnado">
             <key column="legajo"/>
             <property name="fechaAlta" />
             <property name="fechaBaja" />
         </joined-subclass>
        
-        <joined-subclass name="Alumno" table="Alumno">
+        <joined-subclass name="Alumno" table="alumno">
             <key column="legajo" />
             <property name="telefono" />
             <property name="email" />
@@ -32,7 +32,7 @@
             
         </joined-subclass>
         
-             <joined-subclass name="Coordinador" table="Coordinador">
+             <joined-subclass name="Coordinador" table="coordinador">
             <key column="legajo" />
             <property name="especialidad" />
            

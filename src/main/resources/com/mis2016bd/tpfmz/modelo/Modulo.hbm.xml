@@ -3,7 +3,7 @@
 
 
 <hibernate-mapping package="com.mis2016bd.tpfmz.modelo">
-<class name="Modulo" table="Modulo" >
+<class name="Modulo" table="modulo" >
 <id name="codModulo" type="int">
 <column name="codModulo" />
 <generator class="assigned" />

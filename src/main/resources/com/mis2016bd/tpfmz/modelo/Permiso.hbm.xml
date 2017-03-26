@@ -2,7 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping package="com.mis2016bd.tpfmz.modelo" >
-<class name="Permiso" table="Permiso" >
+<class name="Permiso" table="permiso" >
 <id name="codPermiso" type="java.lang.Integer">
 <column name="codPermiso" />
 <generator class="identity" />
@@ -13,7 +13,7 @@
 <many-to-one name="perfil" class="Perfil">
 <column name="codPerfil" />
 </many-to-one>
-<set name="modulos" table="Modulo" >
+<set name="modulos" table="modulo" >
 <key>
 <column name="codPermiso" />
 </key>

@@ -3,7 +3,7 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping package="com.mis2016bd.tpfmz.modelo">
-    <class name="Materia" table="Materia" >
+    <class name="Materia" table="materia" >
         <id name="codMateria" type="int">
             <column name="codMateria" />
             <generator class="assigned" />

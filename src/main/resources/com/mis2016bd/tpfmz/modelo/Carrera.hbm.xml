@@ -3,7 +3,7 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping package="com.mis2016bd.tpfmz.modelo" >
-    <class name="Carrera" table="Carrera" >
+    <class name="Carrera" table="carrera" >
         <id name="codigoCarrera" type="java.lang.Integer">
             <column name="codigoCarrera" />
             <generator class="identity" />
@@ -14,7 +14,7 @@
         <property name="canNivel" type="java.lang.Boolean">
             <column name="canNivel" />
         </property>
-        <set name="materias" table="Materia" >
+        <set name="materias" table="materia" >
             <key>
                 <column name="codCarrera" />
             </key>
