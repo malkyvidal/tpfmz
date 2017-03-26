@@ -15,5 +15,4 @@ import java.util.List;
 
 public interface AlumnoRepositorio {
    List<Alumno> obtenerTodosLosAlumnos();
-   List<Materia> ListarMaterias(int legajo);
 }

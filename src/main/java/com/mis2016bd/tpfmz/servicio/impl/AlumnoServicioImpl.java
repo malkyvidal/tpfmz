@@ -27,11 +27,6 @@ public class AlumnoServicioImpl implements AlumnoServicio{
     public List<Alumno> obtenerTodosLosAlumnos() {
        return repo.obtenerTodosLosAlumnos();
     }
-
-    @Override
-    public List<Materia> obtenerTodasLasMaterias(int legajo) {
-        return repo.ListarMaterias(legajo);
-    }
-    
+   
     
 }

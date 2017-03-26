@@ -13,6 +13,7 @@ import com.mis2016bd.tpfmz.servicio.ModuloServicio;
 import com.mis2016bd.tpfmz.servicio.PermisoServicio;
 import com.mis2016bd.tpfmz.servicio.PerfilServicio;
 import com.mis2016bd.tpfmz.servicio.CarreraServicio;
+import com.mis2016bd.tpfmz.servicio.MateriaAlumnoServicio;
 import com.mis2016bd.tpfmz.servicio.MateriaServicio;
 import com.mis2016bd.tpfmz.servicio.MensajeServicio;
 import com.mis2016bd.tpfmz.servicio.PlanServicio;
@@ -28,25 +29,16 @@ public class HomeController {
     
   @Autowired
   private PlanServicio servicio1;
-  @Autowired
-  private MensajeServicio servicio4;
-  @Autowired
-  private AlumnoServicio servicio2;
-  @Autowired
-  private MateriaServicio servicio3;
+  @Autowired 
+  private MateriaAlumnoServicio servicio2;
   
     @RequestMapping("/")
     public String welcome(Model model){
-        
-        //model.addAttribute("plan",servicio1.obtenerTodosLosPlanes().size());
-        //int  al = servicio3.obtenerTodosLosAlumnos(2).size();
-       
-        
+                 
         Plan pl = servicio1.obtenerPlanPorCodigoPlan("plan1");
+              
+        model.addAttribute("materias",servicio2.obtenerTodasLasMaterias().size());
        
-        
-        model.addAttribute("materias",1);
-        //model.addAttribute("alumno",servicio2.obtenerTodasLasMaterias(1).size());
         return "welcome";
     }
 }

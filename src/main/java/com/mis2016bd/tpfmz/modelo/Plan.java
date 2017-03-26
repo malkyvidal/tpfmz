@@ -20,7 +20,7 @@ public class Plan {
      private Date fechaIni;
      private Date fechaFin;
       private Set alumnos = new HashSet(0);
-
+      
     public Set getAlumnos() {
         return alumnos;
     }
@@ -28,6 +28,7 @@ public class Plan {
     public void setAlumnos(Set alumnos) {
         this.alumnos = alumnos;
     }
+    
     public Plan() {
     }
 
@@ -92,7 +93,7 @@ public class Plan {
         this.fechaFin = fechaFin;
     }
 
-
+  
 
 
 }

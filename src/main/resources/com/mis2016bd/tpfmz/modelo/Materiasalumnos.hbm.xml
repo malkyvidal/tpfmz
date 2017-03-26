@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 26/03/2017 17:07:23 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping package="com.mis2016bd.tpfmz.modelo">
+    <class name="Materiasalumnos" table="materiasalumnos" catalog="bdtp" optimistic-lock="version">
+        <id name="id" type="java.lang.Short">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="alumno" class="Alumno" fetch="select">
+            <column name="legajo" />
+        </many-to-one>
+        <many-to-one name="materia" class="Materia" fetch="select">
+            <column name="codigoMateria" />
+        </many-to-one>
+        <property name="estadoMateria" type="string">
+            <column name="estadoMateria" length="100" />
+        </property>
+    </class>
+</hibernate-mapping>

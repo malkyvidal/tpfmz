@@ -44,9 +44,9 @@ public class PlanRepositorioImpl implements PlanRepositorio{
          //query.setString("identificador", identificador);
          Plan plan = (Plan)query.uniqueResult();
          
-         int alumnosdelPlan = plan.getAlumnos().size();
+        // int alumnosdelPlan = plan.getAlumnos().size();
          
-         System.out.println("alumnos del plan "+alumnosdelPlan);
+         System.out.println("alumnos del plan "+0);
          return plan;
         
        

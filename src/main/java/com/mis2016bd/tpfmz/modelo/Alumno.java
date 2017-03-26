@@ -15,8 +15,9 @@ import java.util.Set;
 public class Alumno extends Usuario{
     
       private Plan plan;
-    String telefono;
-    String email;
+      private String telefono;
+      private String email;
+      private Set materiasalumnoses = new HashSet(0);
 
     public Plan getPlan() {
         return plan;
@@ -26,8 +27,7 @@ public class Alumno extends Usuario{
         this.plan = plan;
     }
     char  egresado;
-    private Set<Materia> materias = new HashSet<Materia>(0);
-  
+     
 
     public String getTelefono() {
         return telefono;
@@ -53,11 +53,11 @@ public class Alumno extends Usuario{
         this.egresado = egresado;
     }
     
-    public Set<Materia> getMaterias() {
-	return this.materias;
-	}
-
-    public void setMaterias(Set<Materia> materias) {
-	this.materias = materias;
+    public Set getMateriasalumnoses() {
+        return this.materiasalumnoses;
+    }
+    
+    public void setMateriasalumnoses(Set materiasalumnoses) {
+        this.materiasalumnoses = materiasalumnoses;
     }
 }

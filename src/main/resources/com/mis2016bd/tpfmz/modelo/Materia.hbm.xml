@@ -17,14 +17,11 @@
         <property name="modalidad" type="java.lang.Boolean">
             <column name="modalidad" />
         </property>
-       <set name="alumnos" table="materiasalumnos"
-        	inverse="false" lazy="true" fetch="select" cascade="all" >
+        <set name="materiasalumnoses" table="materiasalumnos" inverse="true" lazy="true" fetch="select">
             <key>
-                <column name="codigoMateria" not-null="true" />
+                <column name="codigoMateria" />
             </key>
-            <many-to-many entity-name="com.mis2016bd.tpfmz.modelo.Alumno">
-                <column name="legajo" not-null="true" />
-            </many-to-many>
+            <one-to-many class="com.mis2016bd.tpfmz.modelo.Materiasalumnos" />
         </set>
     </class>
 </hibernate-mapping>

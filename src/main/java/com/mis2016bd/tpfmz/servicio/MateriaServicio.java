@@ -15,5 +15,4 @@ import java.util.List;
  */
 public interface MateriaServicio {
       public List<Materia> obtenerTodasLasMaterias();
-      public List<Alumno> obtenerTodosLosAlumnos(int codMateria);
 }

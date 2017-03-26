@@ -20,15 +20,12 @@
             <property name="telefono" />
             <property name="email" />
             <property name="egresado" />
-            <set name="materias" table="materiasalumnos"
-                    inverse="false" lazy="true" fetch="select" cascade="all" >
+            <set name="materiasalumnoses" table="materiasalumnos" inverse="true" lazy="true" fetch="select">
                 <key>
-                    <column name="legajo" not-null="true" />
+                    <column name="legajo" />
                 </key>
-                <many-to-many entity-name="com.mis2016bd.tpfmz.modelo.Materia">
-                    <column name="codigoMateria" not-null="true" />
-                </many-to-many>
-            </set> 
+             <one-to-many class="com.mis2016bd.tpfmz.modelo.Materiasalumnos" />
+            </set>
              <many-to-one name="plan" class="Plan" fetch="select">
             <column name="plan" length="50" />
         </many-to-one>

@@ -18,7 +18,7 @@ public class Materia {
     private Carrera carrera;
     private String nombreMateria;
     private Boolean modalidad;
-    private Set<Alumno> alumnos = new HashSet<Alumno>(0);
+    private Set materiasalumnoses = new HashSet(0);
     
     public Materia() {
     }
@@ -66,11 +66,11 @@ public class Materia {
         this.modalidad = modalidad;
     }
     
-    public Set getAlumnos() {
-        return this.alumnos;
+    public Set getMateriasalumnoses() {
+        return this.materiasalumnoses;
     }
     
-    public void setAlumnos(Set alumnos) {
-        this.alumnos = alumnos;
+    public void setMateriasalumnoses(Set materiasalumnoses) {
+        this.materiasalumnoses = materiasalumnoses;
     }
 }

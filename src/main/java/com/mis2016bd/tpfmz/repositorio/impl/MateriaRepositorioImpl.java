@@ -45,17 +45,5 @@ public class MateriaRepositorioImpl implements MateriaRepositorio{
     public SessionFactory getSessionFactory() {
         return sessionFactory;
     }
-    
-    @Transactional
-    @Override
-    public List<Alumno> obtenerTodosLosAlumno(int codMateria) {
-       Session session = getSessionFactory().getCurrentSession();
-       String hql = "From  Materia where codMateria=:codMateria";
-       Query query = session.createQuery(hql);
-       query.setInteger("codMateria", codMateria);
-       Materia materia = (Materia) query.uniqueResult();
-       List<Alumno> alumnos = new ArrayList<Alumno>(materia.getAlumnos());
-       return alumnos;
-    }
-    
+        
 }

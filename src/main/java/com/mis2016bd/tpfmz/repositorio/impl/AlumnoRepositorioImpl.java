@@ -42,20 +42,7 @@ public class AlumnoRepositorioImpl implements AlumnoRepositorio{
         
        return lista;
     }
-    
-    @Transactional
-    @Override
-    public List<Materia> ListarMaterias(int legajo) {
-       Session session = getSessionFactory().getCurrentSession();
-       String hql = "From  Alumno where legajo=:legajo";
-       Query query = session.createQuery(hql);
-       query.setInteger("legajo", legajo);
-       Alumno alumno = (Alumno) query.uniqueResult();
-       List<Materia> materias = new ArrayList<Materia>(alumno.getMaterias());
-       return materias;
-    }
-    
-    
+        
     @Autowired
     public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
