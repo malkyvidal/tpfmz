@@ -9,18 +9,18 @@
         <property name="contrasenia" column="contrasenia" />
         <property name="codPerfil" column="codPerfil" />
          
-        <joined-subclass name="AdminAlumnado" table="adminalumnado">
+        <joined-subclass name="AdminAlumnado" table="AdminAlumnado">
             <key column="legajo"/>
             <property name="fechaAlta" />
             <property name="fechaBaja" />
         </joined-subclass>
        
-        <joined-subclass name="Alumno" table="alumno">
+        <joined-subclass name="Alumno" table="Alumno">
             <key column="legajo" />
             <property name="telefono" />
             <property name="email" />
             <property name="egresado" />
-            <set name="materiasalumnoses" table="materiasalumnos" inverse="true" lazy="true" fetch="select">
+            <set name="materiasalumnoses" table="materiasAlumnos" inverse="true" lazy="true" fetch="select">
                 <key>
                     <column name="legajo" />
                 </key>
@@ -32,7 +32,7 @@
             
         </joined-subclass>
         
-             <joined-subclass name="Coordinador" table="coordinador">
+             <joined-subclass name="Coordinador" table="Coordinador">
             <key column="legajo" />
             <property name="especialidad" />
            
