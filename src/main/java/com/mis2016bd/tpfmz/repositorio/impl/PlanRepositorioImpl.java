@@ -29,7 +29,7 @@ public class PlanRepositorioImpl implements PlanRepositorio{
     @Override
     public List<Plan> obtenerTodosLosPlanes() {
         Session session = sessionFactory.getCurrentSession();
-            String hql = "FROM Carrera";
+            String hql = "FROM Plan";
             Query query = session.createQuery(hql);
             List<Plan> planes = query.list();
             return planes;

@@ -18,7 +18,7 @@
             <div class="jumbotron">
                 <div class="container" >
                     <h1>Planes</h1>
-                    <p>En la base ahora hay  ${materias} planes</p>                                      
+                    <p>En la base ahora hay  ${planes} planes</p>                                      
                 </div>
             </div>
                

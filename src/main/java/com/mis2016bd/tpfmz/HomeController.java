@@ -28,17 +28,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class HomeController {
     
   @Autowired
-  private PlanServicio servicio1;
+  private PlanServicio servicio1, servicio3;
   @Autowired 
   private MateriaAlumnoServicio servicio2;
   
     @RequestMapping("/")
     public String welcome(Model model){
                  
-        Plan pl = servicio1.obtenerPlanPorCodigoPlan("plan1");
+       Plan pl = servicio1.obtenerPlanPorCodigoPlan("plan1");
               
-        model.addAttribute("materias",servicio2.obtenerTodasLasMaterias().size());
-       
-        return "welcome";
+              model.addAttribute("planes",servicio3.obtenerTodosLosPlanes().size());
+             return "welcome";
     }
 }
