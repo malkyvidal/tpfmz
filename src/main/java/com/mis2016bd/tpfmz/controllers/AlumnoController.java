@@ -3,24 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mis2016bd.tpfmz;
-
-
-
+package com.mis2016bd.tpfmz.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
+
+/**
+ *
+ * @author malky
+ */
 @Controller
-public class HomeController {
+public class AlumnoController {
     
-  
-  
-    @RequestMapping("/")
-    public String welcome(){
-                 
-       
-             return "welcome";
+    @RequestMapping("/Alumnos")
+    
+    public String todoslosAlumnos(){
+        return "alumnos";
     }
 }
