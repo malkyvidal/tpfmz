@@ -54,39 +54,42 @@
                 </nav>
             </div>
             <div class="row">
-                
+
                 <form:form  modelAttribute="nuevoAlumno"  class="form-horizontal">
                     <div class="form-group" >
                         <label class="control-label col-md-2" for="email">Email</label>
-                       
+
                         <form:input 	id="email"	path="email" type="text" class="form:input-large"/>
                     </div>
                     <div class="form-group" >
                         <label class="control-label col-md-2" for="telefono">Telefono</label>
                         <form:input	id="telefono" path="telefono" type="text" class="form:input-large"/>
                     </div>
-                 
-                      <div class="form-group" >
+
+
+                    <div class="form-group" >
                         <label class="control-label col-md-2" for="contrasenia">Password</label>
-                        <form:input	id="contrasenia" path="contrasenia" type="text" class="form:input-large"/>
-                        
+                        <form:input	id="contrasenia" path="contrasenia" type="password" class="form:input-large"/>
+
                     </div>
-                      <div class="form-group" >
-                        <label class="control-label col-md-2"  for="Plan">Plan</label>
-                        <select id="plan">
-                            <option value="1">Plan 1</option>
-                            <option value="2">Plan 2</option>
-                        </select>
-                        
+
+                   
+
+                    <div class="form-group" >
+
+                        <label class="control-label col-md-2" for="plan">Password</label>
+                        <form:select id="plan" path="plan.identificador">
+                            <form:options items="${datosPlanes}" itemLabel="nombre" itemValue="identificador"></form:options>
+                        </form:select>
                     </div>
-                       <div class="form-group" >
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-primary col-md-offset-2" value="Crear"/>
+                        </div>
                         
-                           <input type="submit" class="btn btn-primary col-md-offset-2" value="Crear"/>
-                        
-                    </div>
+                         
                 </form:form >
             </div>
-                                      
+
         </div>
     </body>
 </html>
