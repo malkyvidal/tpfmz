@@ -1,13 +1,13 @@
 <%-- 
-    Document   : alumnos
-    Created on : 28-mar-2017, 21:35:51
+    Document   : nuevoAlumno
+    Created on : 30-mar-2017, 20:31:05
     Author     : malky
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib	prefix="spring"	uri="http://www.springframework.org/tags"%>
-
+<%@	taglib	prefix="form"	uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,8 +16,7 @@
         <script src="${pageContext.request.contextPath}/resources/js/jquery.js" type="text/javascript"></script>
         <script src="${pageContext.request.contextPath}/resources/js/bootstrap.js" type="text/javascript"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-        <title>Alumnos</title>
+        <title>Alumno-Datos</title>
     </head>
     <body>
         <div class="container">
@@ -56,44 +55,38 @@
             </div>
             <div class="row">
                 
-
-                <div >
-                    <div class="col-md-4">
-                        <h4>Todos Los Alumnos</h4>
+                <form:form  modelAttribute="nuevoAlumno"  class="form-horizontal">
+                    <div class="form-group" >
+                        <label class="control-label col-md-2" for="email">Email</label>
+                       
+                        <form:input 	id="email"	path="email" type="text" class="form:input-large"/>
                     </div>
-                    <div class="col-md-offset-10">
-                        <a class="btn btn-primary" href="<spring:url	value="/Alumnos/nuevo"/>"  >Nuevo</a>
+                    <div class="form-group" >
+                        <label class="control-label col-md-2" for="telefono">Telefono</label>
+                        <form:input	id="telefono" path="telefono" type="text" class="form:input-large"/>
                     </div>
-                    
-                </div>
-                 <table class="table table-striped">
-                     
-            <tr>
-                
-                <th>telefono</th>
-                <th>Email</th>
-                <th>Plan</th>
-                <th>Acción</th>
-            </tr>
-            <c:forEach  items="${datos}" var="alumno">
-                <tr>
                  
-                    
-
-                    <td>${alumno.telefono}</td>
-                       <td>${alumno.email}</td>
-                       <td>${alumno.plan.identificador}</td>
-                       <td>
-                           <a class="btn btn-default" href="#">eliminar</a>
-                           <a class="btn btn-default" href="#">editar</a>
-                       </td>
-                </tr>
-            </c:forEach>
-        </table>
-                    
-		
-
+                      <div class="form-group" >
+                        <label class="control-label col-md-2" for="contrasenia">Password</label>
+                        <form:input	id="contrasenia" path="contrasenia" type="text" class="form:input-large"/>
+                        
+                    </div>
+                      <div class="form-group" >
+                        <label class="control-label col-md-2"  for="Plan">Plan</label>
+                        <select id="plan">
+                            <option value="1">Plan 1</option>
+                            <option value="2">Plan 2</option>
+                        </select>
+                        
+                    </div>
+                       <div class="form-group" >
+                        
+                           <input type="submit" class="btn btn-primary col-md-offset-2" value="Crear"/>
+                        
+                    </div>
+                </form:form >
             </div>
+                                      
         </div>
     </body>
 </html>
