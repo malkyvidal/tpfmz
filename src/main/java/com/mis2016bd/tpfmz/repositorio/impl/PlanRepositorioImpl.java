@@ -39,9 +39,10 @@ public class PlanRepositorioImpl implements PlanRepositorio{
     @Override
     public Plan obtenerPlanPorCodigoPlan(String identificador) {
          Session session = sessionFactory.getCurrentSession();
-         String hql = "FROM Plan where identificador='plan1'";
+         //String hql = "FROM Plan where identificador='plan1'";
+         String hql = "FROM Plan where identificador=:identificador'";
          Query query = session.createQuery(hql);
-         //query.setString("identificador", identificador);
+         query.setString("identificador", identificador);
          Plan plan = (Plan)query.uniqueResult();
          
         // int alumnosdelPlan = plan.getAlumnos().size();
