@@ -27,6 +27,21 @@ public class AlumnoServicioImpl implements AlumnoServicio{
     public List<Alumno> obtenerTodosLosAlumnos() {
        return repo.obtenerTodosLosAlumnos();
     }
+
+    @Override
+    public void nuevoAlumno(Alumno al) {
+        repo.nuevoAlumno(al);
+    }
+
+    @Override
+    public void eliminaAlumno(Alumno alumno) {
+        repo.eliminaAlumno(alumno);
+    }
+
+    @Override
+    public Alumno encontrarAlumnoPorLegajo(int legajo) {
+        return  repo.encontrarAlumnoPorLegajo(legajo);
+    }
    
     
 }

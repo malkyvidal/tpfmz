@@ -17,4 +17,7 @@ import java.util.List;
 public interface AlumnoServicio {
     
      List<Alumno> obtenerTodosLosAlumnos();
+     void nuevoAlumno(Alumno al);
+     void eliminaAlumno(Alumno alumno);
+   Alumno encontrarAlumnoPorLegajo(int legajo);
 }

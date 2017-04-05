@@ -51,6 +51,35 @@ public class AlumnoRepositorioImpl implements AlumnoRepositorio{
         return sessionFactory;
     }
 
+    @Transactional
+    @Override
+    public void nuevoAlumno(Alumno al) {
+         Session session = getSessionFactory().getCurrentSession();
+         session.saveOrUpdate(al);
+         
+    }
+
+    @Transactional
+    @Override
+    public void eliminaAlumno(Alumno alumno) {
+        Session session = getSessionFactory().getCurrentSession();
+        session.delete(alumno);
+    }
+
+    @Transactional
+    @Override
+    public Alumno encontrarAlumnoPorLegajo(int legajo) {
+        Session session = getSessionFactory().getCurrentSession();
+        
+        Query query = session.createQuery("from Alumno where legajo="+Integer.toString(legajo));
+        Alumno alumno = (Alumno) query.uniqueResult();
+        return alumno;
+    }
+
+    
+    
+   
+
    
     
 }

@@ -22,6 +22,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 
 
 import com.mis2016bd.tpfmz.servicio.PlanServicio;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 /**
  *
  * @author malky
@@ -65,8 +68,24 @@ public class AlumnoController {
     public String procesaNuevoAlumno(@ModelAttribute("nuevoAlumno") Alumno nuevo){
         
        
-       int g =0;
+       Plan planAsociado = planes.obtenerPlanPorCodigoPlan(nuevo.getPlan().getIdentificador());
+       nuevo.setPlan(planAsociado);
+       servicio.nuevoAlumno(nuevo);
         return "redirect:/Alumnos";
+    }
+    
+    
+     @RequestMapping(value="/Alumnos/eliminar/{id}",method = RequestMethod.GET)
+   
+    public String eliminarAlumno( @PathVariable("id") int id){
+    
+        
+       
+        Alumno al  = servicio.encontrarAlumnoPorLegajo(id);
+        servicio.eliminaAlumno(al);
+        
+       return "redirect:/Alumnos";
+    
     }
     
 }

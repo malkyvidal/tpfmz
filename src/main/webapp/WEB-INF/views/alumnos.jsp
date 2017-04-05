@@ -84,7 +84,8 @@
                        <td>${alumno.email}</td>
                        <td>${alumno.plan.identificador}</td>
                        <td>
-                           <a class="btn btn-default" href="#">eliminar</a>
+
+                           <a class="btn btn-default" onclick="return confirm('Seguro que desea eliminar?')" href="<spring:url	value='/Alumnos/eliminar/${alumno.legajo}'/>">eliminar</a>
                            <a class="btn btn-default" href="#">editar</a>
                        </td>
                 </tr>
