@@ -30,4 +30,19 @@ public class PerfilServicioImpl implements PerfilServicio{
     public Perfil obtenerPerfilPorCodigoPerfil(Integer codigo) {
        return repo.obtenerPerfilPorCodigoPerfil(codigo);
 }
+      @Override
+    public void nuevoPerfil(Perfil al) {
+        repo.nuevoPerfil(al);
+    }
+
+    @Override
+    public void eliminaPerfil(Perfil perfil) {
+        repo.eliminaPerfil(perfil);
+    }
+
+    @Override
+    public Perfil encontrarPerfilPorCodigoPerfil(int perfil) {
+        return  repo.encontrarPerfilPorCodigoPerfil(perfil);
+    }
+   
 }

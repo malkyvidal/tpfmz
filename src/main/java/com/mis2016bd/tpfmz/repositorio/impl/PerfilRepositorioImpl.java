@@ -51,4 +51,29 @@ public class PerfilRepositorioImpl implements PerfilRepositorio{
         return sessionFactory;
     }
     
+    @Transactional
+    @Override
+    public void nuevoPerfil(Perfil al) {
+         Session session = getSessionFactory().getCurrentSession();
+         session.saveOrUpdate(al);
+         
+    }
+
+    @Transactional
+    @Override
+    public void eliminaPerfil(Perfil perfil) {
+        Session session = getSessionFactory().getCurrentSession();
+        session.delete(perfil);
+    }
+
+    @Transactional
+    @Override
+    public Perfil encontrarPerfilPorCodigoPerfil(int codPerfil) {
+        Session session = getSessionFactory().getCurrentSession();
+        
+        Query query = session.createQuery("from Perfil where codPerfil="+Integer.toString(codPerfil));
+        Perfil perfil = (Perfil) query.uniqueResult();
+        return perfil;
+    }
+    
 }

@@ -44,7 +44,9 @@
                                         Alumnos
                                     </a>
                                 </li>
-                                <li><a href="#">Category 2</a>
+                                 <li class="active"><a	href="<spring:url	value="/Perfiles"/>"	>
+                                        Perfiles
+                                    </a>
                                 </li>
                                 <li><a href="#">Category 3</a>
                                 </li>

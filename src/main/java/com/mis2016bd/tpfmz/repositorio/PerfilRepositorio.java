@@ -15,4 +15,7 @@ import java.util.List;
 public interface PerfilRepositorio {
    List<Perfil> obtenerTodosLosPerfiles();
    public Perfil obtenerPerfilPorCodigoPerfil(Integer codigo);
+   void nuevoPerfil(Perfil al);
+   void eliminaPerfil(Perfil perfil);
+   Perfil encontrarPerfilPorCodigoPerfil(int codPerfil);
 }
