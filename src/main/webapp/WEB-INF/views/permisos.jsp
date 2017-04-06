@@ -82,7 +82,8 @@
                 
                 <th>codPermiso</th>
                 <th>codPerfil</th>
-                <th>acción</th>
+                <th>descripción</th>
+                <th>Acción</th>
             </tr>
             <c:forEach  items="${datos}" var="permiso">
                 <tr>

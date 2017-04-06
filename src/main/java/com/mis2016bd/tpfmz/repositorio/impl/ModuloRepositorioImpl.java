@@ -42,4 +42,29 @@ public class ModuloRepositorioImpl implements ModuloRepositorio{
         return sessionFactory;
     }
     
+        @Transactional
+    @Override
+    public void nuevoModulo(Modulo al) {
+         Session session = getSessionFactory().getCurrentSession();
+         session.saveOrUpdate(al);
+         
+    }
+
+    @Transactional
+    @Override
+    public void eliminaModulo(Modulo modulo) {
+        Session session = getSessionFactory().getCurrentSession();
+        session.delete(modulo);
+    }
+
+    @Transactional
+    @Override
+    public Modulo encontrarModuloPorCodModulo(int codModulo) {
+        Session session = getSessionFactory().getCurrentSession();
+        
+        Query query = session.createQuery("from Modulo where codModulo="+Integer.toString(codModulo));
+        Modulo modulo = (Modulo) query.uniqueResult();
+        return modulo;
+    }
+
 }

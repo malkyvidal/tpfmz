@@ -14,6 +14,9 @@ import java.util.List;
 
 public interface ModuloRepositorio {
      List<Modulo> obtenerTodosLosModulos();
+     void nuevoModulo(Modulo al);
+     void eliminaModulo(Modulo modulo);
+     Modulo encontrarModuloPorCodModulo(int codModulo);
 }
 
 

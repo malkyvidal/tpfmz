@@ -1,13 +1,13 @@
 <%-- 
-    Document   : perfiles
-    Created on : Apr 5, 2017, 6:49:43 PM
+    Document   : nuevoModulo
+    Created on : Apr 6, 2017, 3:40:58 PM
     Author     : silvina
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib	prefix="spring"	uri="http://www.springframework.org/tags"%>
-
+<%@	taglib	prefix="form"	uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,8 +16,7 @@
         <script src="${pageContext.request.contextPath}/resources/js/jquery.js" type="text/javascript"></script>
         <script src="${pageContext.request.contextPath}/resources/js/bootstrap.js" type="text/javascript"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-        <title>Perfiles</title>
+        <title>Modulo-Datos</title>
     </head>
     <body>
         <div class="container">
@@ -45,7 +44,7 @@
                                         Alumnos
                                     </a>
                                 </li>
-                                <<li class="active"><a	href="<spring:url	value="/Perfiles"/>"	>
+                                 <li class="active"><a	href="<spring:url	value="/Perfiles"/>"	>
                                         Perfiles
                                     </a>
                                 </li>
@@ -65,45 +64,29 @@
                 </nav>
             </div>
             <div class="row">
-                
 
-                <div >
-                    <div class="col-md-4">
-                        <h4>Todos Los Perfiles</h4>
+                <form:form  modelAttribute="nuevoModulo"  class="form-horizontal">
+                   
+                    <div class="form-group" >
+
+                        <label class="control-label col-md-2" for="permiso">Permiso</label>
+                        <form:select id="permiso" path="permiso.codPermiso">
+                            <form:options items="${datosPermisos}" itemLabel="codPermiso" itemValue="codPermiso"></form:options>
+                        </form:select>
                     </div>
-                    <div class="col-md-offset-10">
-                        <a class="btn btn-primary" href="<spring:url	value="/Perfiles/nuevo"/>"  >Nuevo</a>
+                        <div class="form-group" >
+                        <label class="control-label col-md-2" for="descripcion">Descripción</label>
+
+                        <form:input 	id="descripcion"	path="descripcion" type="text" class="form:input-large"/>
                     </div>
-                    
-                </div>
-                 <table class="table table-striped">
-                     
-            <tr>
-                
-                <th>codPerfil</th>
-                <th>descripcion</th>
-                <th>estado</th>
-                <th>Acción</th>
-                
-            </tr>
-            <c:forEach  items="${datos}" var="perfil">
-                <tr>                                   
-
-                       <td>${perfil.codPerfil}</td>
-                       <td>${perfil.descripcion}</td>
-                       <td>${perfil.estado}</td>
-                       <td>
-
-                           <a class="btn btn-default" onclick="return confirm('Seguro que desea eliminar?')" href="<spring:url	value='/Perfiles/eliminar/${perfil.codPerfil}'/>">eliminar</a>
-                           <a class="btn btn-default" href="#">editar</a>
-                       </td>
-                </tr>
-            </c:forEach>
-        </table>
-                    
-		
-
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-primary col-md-offset-2" value="Crear"/>
+                        </div>
+                        
+                         
+                </form:form >
             </div>
+
         </div>
     </body>
 </html>

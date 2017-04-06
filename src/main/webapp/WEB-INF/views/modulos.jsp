@@ -1,6 +1,6 @@
 <%-- 
-    Document   : perfiles
-    Created on : Apr 5, 2017, 6:49:43 PM
+    Document   : modulos
+    Created on : Apr 6, 2017, 3:35:42 PM
     Author     : silvina
 --%>
 
@@ -17,7 +17,7 @@
         <script src="${pageContext.request.contextPath}/resources/js/bootstrap.js" type="text/javascript"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-        <title>Perfiles</title>
+        <title>Modulos</title>
     </head>
     <body>
         <div class="container">
@@ -45,7 +45,7 @@
                                         Alumnos
                                     </a>
                                 </li>
-                                <<li class="active"><a	href="<spring:url	value="/Perfiles"/>"	>
+                                <li class="active"><a	href="<spring:url	value="/Perfiles"/>"	>
                                         Perfiles
                                     </a>
                                 </li>
@@ -69,10 +69,10 @@
 
                 <div >
                     <div class="col-md-4">
-                        <h4>Todos Los Perfiles</h4>
+                        <h4>Todos Los Modulos</h4>
                     </div>
                     <div class="col-md-offset-10">
-                        <a class="btn btn-primary" href="<spring:url	value="/Perfiles/nuevo"/>"  >Nuevo</a>
+                        <a class="btn btn-primary" href="<spring:url	value="/Modulos/nuevo"/>"  >Nuevo</a>
                     </div>
                     
                 </div>
@@ -80,21 +80,22 @@
                      
             <tr>
                 
-                <th>codPerfil</th>
-                <th>descripcion</th>
-                <th>estado</th>
+                <th>codModulo</th>
+                <th>codPermiso</th>
+                <th>descripción</th>
                 <th>Acción</th>
-                
             </tr>
-            <c:forEach  items="${datos}" var="perfil">
-                <tr>                                   
+            <c:forEach  items="${datos}" var="modulo">
+                <tr>
+                 
+                    
 
-                       <td>${perfil.codPerfil}</td>
-                       <td>${perfil.descripcion}</td>
-                       <td>${perfil.estado}</td>
+                    <td>${modulo.codModulo}</td>
+                       <td>${modulo.permiso.codPermiso}</td>
+                       <td>${modulo.descripcion}</td>
                        <td>
 
-                           <a class="btn btn-default" onclick="return confirm('Seguro que desea eliminar?')" href="<spring:url	value='/Perfiles/eliminar/${perfil.codPerfil}'/>">eliminar</a>
+                           <a class="btn btn-default" onclick="return confirm('Seguro que desea eliminar?')" href="<spring:url	value='/Modulos/eliminar/${modulo.codModulo}'/>">eliminar</a>
                            <a class="btn btn-default" href="#">editar</a>
                        </td>
                 </tr>

@@ -13,6 +13,7 @@ import java.util.List;
  */
 public interface ModuloServicio {
         List<Modulo> obtenerTodosLosModulos();
+         void nuevoModulo(Modulo al);
+     void eliminaModulo(Modulo modulo);
+   Modulo encontrarModuloPorCodModulo(int codModulo);
 }
-
-   

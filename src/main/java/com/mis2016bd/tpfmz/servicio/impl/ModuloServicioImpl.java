@@ -27,4 +27,19 @@ public class ModuloServicioImpl implements ModuloServicio{
        return repo.obtenerTodosLosModulos();
     }
     
+       @Override
+    public void nuevoModulo(Modulo al) {
+        repo.nuevoModulo(al);
+    }
+
+    @Override
+    public void eliminaModulo(Modulo modulo) {
+        repo.eliminaModulo(modulo);
+    }
+
+    @Override
+    public Modulo encontrarModuloPorCodModulo(int codModulo) {
+        return  repo.encontrarModuloPorCodModulo(codModulo);
+    }
+   
 }
