@@ -48,6 +48,14 @@
                                         Perfiles
                                     </a>
                                 </li>
+                                <li class="active"><a	href="<spring:url	value="/Permisos"/>"	>
+                                        Permisos
+                                    </a>
+                                </li>
+                                <li class="active"><a	href="<spring:url	value="/Modulos"/>"	>
+                                        Modulos
+                                    </a>
+                                </li>
                                 <li><a href="#">Category 3</a>
                                 </li>
                             </ul>

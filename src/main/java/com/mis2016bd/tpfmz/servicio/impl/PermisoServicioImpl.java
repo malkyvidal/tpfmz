@@ -30,4 +30,19 @@ public class PermisoServicioImpl implements PermisoServicio{
     public Permiso obtenerPermisoPorCodigoPermiso(Integer codigo) {
        return repo.obtenerPermisoPorCodigoPermiso(codigo);
 }
+       @Override
+    public void nuevoPermiso(Permiso al) {
+        repo.nuevoPermiso(al);
+    }
+
+    @Override
+    public void eliminaPermiso(Permiso permiso) {
+        repo.eliminaPermiso(permiso);
+    }
+
+    @Override
+    public Permiso encontrarPermisoPorCodPermiso(int codPermiso) {
+        return  repo.encontrarPermisoPorCodPermiso(codPermiso);
+    }
+   
 }

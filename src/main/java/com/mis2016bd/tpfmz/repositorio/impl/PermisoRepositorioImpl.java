@@ -50,5 +50,30 @@ public class PermisoRepositorioImpl implements PermisoRepositorio{
     public SessionFactory getSessionFactory() {
         return sessionFactory;
     }
-    
+ 
+        @Transactional
+    @Override
+    public void nuevoPermiso(Permiso al) {
+         Session session = getSessionFactory().getCurrentSession();
+         session.saveOrUpdate(al);
+         
+    }
+
+    @Transactional
+    @Override
+    public void eliminaPermiso(Permiso permiso) {
+        Session session = getSessionFactory().getCurrentSession();
+        session.delete(permiso);
+    }
+
+    @Transactional
+    @Override
+    public Permiso encontrarPermisoPorCodPermiso(int codPermiso) {
+        Session session = getSessionFactory().getCurrentSession();
+        
+        Query query = session.createQuery("from Permiso where codPermiso="+Integer.toString(codPermiso));
+        Permiso permiso = (Permiso) query.uniqueResult();
+        return permiso;
+    }
+
 }

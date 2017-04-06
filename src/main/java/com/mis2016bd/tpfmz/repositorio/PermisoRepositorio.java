@@ -15,4 +15,7 @@ import java.util.List;
 public interface PermisoRepositorio {
    List<Permiso> obtenerTodosLosPermisos();
    public Permiso obtenerPermisoPorCodigoPermiso(Integer codigo);
+    void nuevoPermiso(Permiso al);
+    void eliminaPermiso(Permiso permiso);
+    Permiso encontrarPermisoPorCodPermiso(int codPermiso);
 }

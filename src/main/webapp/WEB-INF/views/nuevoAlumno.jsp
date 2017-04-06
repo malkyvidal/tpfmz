@@ -48,6 +48,14 @@
                                         Perfiles
                                     </a>
                                 </li>
+                                <li class="active"><a	href="<spring:url	value="/Permisos"/>"	>
+                                        Permisos
+                                    </a>
+                                </li>
+                                <li class="active"><a	href="<spring:url	value="/Modulos"/>"	>
+                                        Modulos
+                                    </a>
+                                </li>
                                 <li><a href="#">Category 3</a>
                                 </li>
                             </ul>
@@ -79,7 +87,7 @@
 
                     <div class="form-group" >
 
-                        <label class="control-label col-md-2" for="plan">Password</label>
+                        <label class="control-label col-md-2" for="plan">Plan</label>
                         <form:select id="plan" path="plan.identificador">
                             <form:options items="${datosPlanes}" itemLabel="nombre" itemValue="identificador"></form:options>
                         </form:select>
