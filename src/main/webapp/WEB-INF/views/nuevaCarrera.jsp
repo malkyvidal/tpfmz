@@ -1,6 +1,6 @@
 <%-- 
-    Document   : nuevoPlan
-    Created on : 07/04/2017, 10:56:26
+    Document   : nuevaCarrera
+    Created on : 07/04/2017, 18:12:01
     Author     : franco
 --%>
 
@@ -16,7 +16,7 @@
         <script src="${pageContext.request.contextPath}/resources/js/jquery.js" type="text/javascript"></script>
         <script src="${pageContext.request.contextPath}/resources/js/bootstrap.js" type="text/javascript"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Plan-Datos</title>
+        <title>Carrera-Datos</title>
     </head>
     <body>
         <div class="container">
@@ -44,10 +44,6 @@
                                         Alumnos
                                     </a>
                                 </li>
-                                <li > <a	href="<spring:url	value="/Planes"/>"	>
-                                        Planes
-                                    </a>
-                                </li>
                                  <li class="active"><a	href="<spring:url	value="/Perfiles"/>"	>
                                         Perfiles
                                     </a>
@@ -69,37 +65,17 @@
             </div>
             <div class="row">
 
-                <form:form  modelAttribute="nuevoPlan"  class="form-horizontal">
-                    <h2 align="center"> Agregar Nuevo Plan </h2>
+                <form:form  modelAttribute="nuevaCarrera"  class="form-horizontal">
                     <div class="form-group" >
-                        <label class="control-label col-md-2" for="identificador">Identificador</label>
-                        <form:input	id="identificador" path="identificador" type="text" class="form:input-large"/>
+                        <label class="control-label col-md-2" for="nombre">Nombre</label>
+
+                        <form:input 	id="nombre"	path="nombre" type="text" class="form:input-large"/>
                     </div>
                     <div class="form-group" >
-                        <label class="control-label col-md-2" for="nombre">Nombre Plan</label>
-                        <form:input	id="nombre" path="nombre" type="text" class="form:input-large"/>
+                        <label class="control-label col-md-2" for="canNivel">canNivel</label>
+                        <form:input	id="canNivel" path="canNivel" type="text" class="form:input-large"/>
                     </div>
 
-
-                    <div class="form-group" >
-                        <label class="control-label col-md-2" for="nroResolucion">Resolución de Aprobación</label>
-                        <form:input	id="nroResolucion" path="nroResolucion" class="form:input-large"/>
-                    </div>
-                    
-                    <div class="form-group" >
-                        <label class="control-label col-md-2" for="descripcion">Descripción</label>
-                        <form:input	id="descripcion" path="descripcion" class="form:input-large"/>
-                    </div>
-                    
-                    <div class="form-group" >
-                        <label class="control-label col-md-2" for="fechaIni">Fecha de Inicio</label>
-                        <form:input	id="fechaIni" path="fechaIni" class="form:input-large"/>
-                    </div>
-                    
-                    <div class="form-group" >
-                        <label class="control-label col-md-2" for="fechaFin">Fecha de Finalización</label>
-                        <form:input	id="fechaFin" path="fechaFin" class="form:input-large"/>
-                    </div>
                         <div class="form-group">
                             <input type="submit" class="btn btn-primary col-md-offset-2" value="Crear"/>
                         </div>

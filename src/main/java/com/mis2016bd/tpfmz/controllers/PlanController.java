@@ -23,9 +23,14 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 
 
 import com.mis2016bd.tpfmz.servicio.PlanServicio;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.validation.Valid;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -50,17 +55,22 @@ public class PlanController {
         return "planes";
     }
     
-    @RequestMapping(value="/Planes/nuevo",method = RequestMethod.GET)
-    public String nuevoPlan(Model model){
-    
-      Plan al = new Plan();
+    @RequestMapping(value = { "/Planes/nuevo"}, method = RequestMethod.GET)
+    public String newUser(ModelMap model) {
+	Plan al = new Plan();
        
-      model.addAttribute("nuevoPlan", al);
+        model.addAttribute("nuevoPlan", al);
       
         
         return "nuevoPlan";
     }
     
+    @InitBinder
+    public void initBinder(WebDataBinder binder) {
+        SimpleDateFormat sdf = new SimpleDateFormat("YYYY-MM-DD");
+        sdf.setLenient(true);
+        binder.registerCustomEditor(Date.class, new CustomDateEditor(sdf, true));
+    }
     
     @RequestMapping(value="/Planes/nuevo",method = RequestMethod.POST)
  

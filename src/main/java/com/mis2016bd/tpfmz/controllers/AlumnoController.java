@@ -84,7 +84,8 @@ public class AlumnoController {
        return "redirect:/Alumnos";
     
     }
-      @RequestMapping(value="/Alumnos/update/{id}",method = RequestMethod.GET)
+    
+    @RequestMapping(value="/Alumnos/update/{id}",method = RequestMethod.GET)
     public String updateAlumno(@PathVariable("id") int id, Model model){
     
        Alumno al = servicio.encontrarAlumnoPorLegajo(id);

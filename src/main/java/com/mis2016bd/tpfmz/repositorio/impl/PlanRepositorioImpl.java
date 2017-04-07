@@ -85,7 +85,7 @@ public class PlanRepositorioImpl implements PlanRepositorio{
     @Override
     public void nuevoPlan(Plan pl) {
         Session session = getSessionFactory().getCurrentSession();
-        session.saveOrUpdate(pl);
+        session.save(pl);
     }
     
 }
