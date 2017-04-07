@@ -15,4 +15,7 @@ import java.util.List;
 public interface PlanRepositorio {
     public List<Plan> obtenerTodosLosPlanes();
     public Plan obtenerPlanPorCodigoPlan(String identificador);
+    Plan encontrarPlanPorIdentificador(String id);
+    void eliminarPlan(Plan plan);
+    void nuevoPlan(Plan pl);
 }

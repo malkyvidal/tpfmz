@@ -15,4 +15,7 @@ import java.util.List;
 public interface PlanServicio {
     public List<Plan> obtenerTodosLosPlanes();
     public Plan obtenerPlanPorCodigoPlan(String identificador);
+    Plan encontrarPlanPorIdentificador(String legajo);
+    void eliminaPlan(Plan plan);
+    public void nuevoPlan(Plan pl);
 }

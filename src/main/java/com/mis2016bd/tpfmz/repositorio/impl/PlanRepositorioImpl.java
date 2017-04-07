@@ -62,4 +62,30 @@ public class PlanRepositorioImpl implements PlanRepositorio{
         return sessionFactory;
     }
     
+    @Transactional
+    @Override
+    public Plan encontrarPlanPorIdentificador(String id) {
+        Session session = getSessionFactory().getCurrentSession();
+        
+        String hql = "FROM Plan where identificador=:identificador";
+        Query query = session.createQuery(hql);
+        query.setString("identificador", id);
+        Plan plan = (Plan)query.uniqueResult();
+        return plan;
+    }
+    
+    @Transactional
+    @Override
+    public void eliminarPlan(Plan plan) {
+       Session session = getSessionFactory().getCurrentSession();
+       session.delete(plan); 
+    }
+    
+    @Transactional
+    @Override
+    public void nuevoPlan(Plan pl) {
+        Session session = getSessionFactory().getCurrentSession();
+        session.saveOrUpdate(pl);
+    }
+    
 }

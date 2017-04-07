@@ -30,5 +30,20 @@ public class PlanServicioImpl implements PlanServicio{
     public Plan obtenerPlanPorCodigoPlan(String identificador) {
         return repo.obtenerPlanPorCodigoPlan(identificador);
     }
+
+    @Override
+    public Plan encontrarPlanPorIdentificador(String id) {
+        return repo.encontrarPlanPorIdentificador(id);
+    }
+
+    @Override
+    public void eliminaPlan(Plan plan) {
+        repo.eliminarPlan(plan);
+    }
+
+    @Override
+    public void nuevoPlan(Plan pl) {
+        repo.nuevoPlan(pl);
+    }
     
 }
