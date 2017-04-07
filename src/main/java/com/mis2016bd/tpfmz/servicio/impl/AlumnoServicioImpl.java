@@ -42,6 +42,10 @@ public class AlumnoServicioImpl implements AlumnoServicio{
     public Alumno encontrarAlumnoPorLegajo(int legajo) {
         return  repo.encontrarAlumnoPorLegajo(legajo);
     }
+    @Override
+    public void updateAlumno(Alumno al) {
+        repo.updateAlumno(al);
+    }
    
     
 }

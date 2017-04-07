@@ -87,5 +87,31 @@ public class AlumnoController {
        return "redirect:/Alumnos";
     
     }
+      @RequestMapping(value="/Alumnos/update/{id}",method = RequestMethod.GET)
+    public String updateAlumno(@PathVariable("id") int id, Model model){
+    
+       Alumno al = servicio.encontrarAlumnoPorLegajo(id);
+           
+       
+       List<Plan> pl = planes.obtenerTodosLosPlanes();
+       
+        model.addAttribute("datosPlanes",pl);
+       model.addAttribute("updateAlumno", al);
+      
+        
+        return "updateAlumno";
+    }
+    
+    
+    @RequestMapping(value="/Alumnos/update/{id}",method = RequestMethod.POST)
+ 
+    public String procesaUpdateAlumno(@PathVariable("id") int id, @ModelAttribute("updateAlumno") Alumno nuevo){
+        nuevo.setLegajo(id);
+       
+       Plan planAsociado = planes.obtenerPlanPorCodigoPlan(nuevo.getPlan().getIdentificador());
+       nuevo.setPlan(planAsociado);
+       servicio.updateAlumno(nuevo);
+        return "redirect:/Alumnos";
+    }
     
 }
