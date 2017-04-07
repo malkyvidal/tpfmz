@@ -77,8 +77,12 @@ public class AlumnoRepositorioImpl implements AlumnoRepositorio{
     }
 
     
-    
-   
+     @Transactional
+    @Override
+    public void updateAlumno(Alumno al) {
+         Session session = getSessionFactory().getCurrentSession();
+         session.saveOrUpdate(al);
+    }
 
    
     
