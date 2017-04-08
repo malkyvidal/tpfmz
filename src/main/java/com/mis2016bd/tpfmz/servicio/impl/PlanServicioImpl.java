@@ -27,7 +27,7 @@ public class PlanServicioImpl implements PlanServicio{
     }
 
     @Override
-    public Plan obtenerPlanPorCodigoPlan(String identificador) {
+    public Plan obtenerPlanPorCodigoPlan(int identificador) {
         return repo.obtenerPlanPorCodigoPlan(identificador);
     }
 

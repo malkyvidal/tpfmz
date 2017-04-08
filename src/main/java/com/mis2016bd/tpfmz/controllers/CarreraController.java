@@ -5,7 +5,6 @@
  */
 package com.mis2016bd.tpfmz.controllers;
 
-import com.mis2016bd.tpfmz.modelo.Alumno;
 import com.mis2016bd.tpfmz.modelo.Carrera;
 import com.mis2016bd.tpfmz.servicio.CarreraServicio;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,7 +36,7 @@ public class CarreraController {
     public String eliminarCarrera( @PathVariable("id") int id){
     
         Carrera carrera  = servicio.encontrarCarreraPorCodigo(id);
-        if(carrera.getMaterias().size()==0){
+        if(carrera.getMaterias().isEmpty()){
             servicio.eliminaCarrera(carrera);
         
              return "redirect:/Carreras";

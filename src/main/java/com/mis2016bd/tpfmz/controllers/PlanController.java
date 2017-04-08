@@ -29,12 +29,12 @@ import javax.validation.Valid;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.WebDataBinder;
+import java.text.*;
+import java.util.Date;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-
 
 /**
  *
@@ -55,27 +55,28 @@ public class PlanController {
         return "planes";
     }
     
+     @InitBinder
+    private void dateBinder(WebDataBinder binder) {
+            
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");        
+        CustomDateEditor editor = new CustomDateEditor(dateFormat, true);
+        dateFormat.setLenient(false);
+        binder.registerCustomEditor(Date.class,editor);  
+    }
+    
     @RequestMapping(value = { "/Planes/nuevo"}, method = RequestMethod.GET)
-    public String newUser(ModelMap model) {
+    public String nuevoPlan(ModelMap model) {
 	Plan al = new Plan();
        
         model.addAttribute("nuevoPlan", al);
-      
-        
+
         return "nuevoPlan";
     }
-    
-    @InitBinder
-    public void initBinder(WebDataBinder binder) {
-        SimpleDateFormat sdf = new SimpleDateFormat("YYYY-MM-DD");
-        sdf.setLenient(true);
-        binder.registerCustomEditor(Date.class, new CustomDateEditor(sdf, true));
-    }
-    
+         
     @RequestMapping(value="/Planes/nuevo",method = RequestMethod.POST)
  
     public String procesarNuevoPlan(@ModelAttribute("nuevoPlan") Plan nuevo){
-               
+        
         planes.nuevoPlan(nuevo);
         return "redirect:/Planes";
     }

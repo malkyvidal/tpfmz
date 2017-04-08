@@ -72,10 +72,6 @@
                 <form:form  modelAttribute="nuevoPlan"  class="form-horizontal">
                     <h2 align="center"> Agregar Nuevo Plan </h2>
                     <div class="form-group" >
-                        <label class="control-label col-md-2" for="identificador">Identificador</label>
-                        <form:input	id="identificador" path="identificador" type="text" class="form:input-large"/>
-                    </div>
-                    <div class="form-group" >
                         <label class="control-label col-md-2" for="nombre">Nombre Plan</label>
                         <form:input	id="nombre" path="nombre" type="text" class="form:input-large"/>
                     </div>

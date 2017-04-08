@@ -4,9 +4,9 @@
 
 <hibernate-mapping package="com.mis2016bd.tpfmz.modelo">
     <class name="Plan" table = "Plan">
-        <id name="identificador" type="string">
-            <column name="identificador" length="50" />
-            <generator class="native" />
+         <id name="identificador" type="java.lang.Integer">
+            <column name="identificador" />
+            <generator class="identity" />
         </id>
         <property name="nombre" column="nombre" />
         <property name="nroResolucion" column="nroResolucion" />

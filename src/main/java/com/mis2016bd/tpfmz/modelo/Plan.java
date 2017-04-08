@@ -13,13 +13,13 @@ import java.util.Set;
 public class Plan {
 
 
-     private String identificador;
+     private Integer identificador;
      private String nombre;
-     private Short nroResolucion;
+     private String nroResolucion;
      private String descripcion;
      private Date fechaIni;
      private Date fechaFin;
-      private Set alumnos = new HashSet(0);
+     private Set alumnos = new HashSet(0);
       
     public Set getAlumnos() {
         return alumnos;
@@ -33,10 +33,10 @@ public class Plan {
     }
 
 	
-    public Plan(String identificador) {
+    public Plan(Integer identificador) {
         this.identificador = identificador;
     }
-    public Plan(String identificador, String nombre, Short nroResolucion, String descripcion, Date fechaIni, Date fechaFin) {
+    public Plan(Integer identificador, String nombre, String nroResolucion, String descripcion, Date fechaIni, Date fechaFin) {
        this.identificador = identificador;
        this.nombre = nombre;
        this.nroResolucion = nroResolucion;
@@ -45,11 +45,11 @@ public class Plan {
        this.fechaFin = fechaFin;
     }
    
-    public String getIdentificador() {
+    public Integer getIdentificador() {
         return this.identificador;
     }
     
-    public void setIdentificador(String identificador) {
+    public void setIdentificador(Integer identificador) {
         this.identificador = identificador;
     }
 
@@ -61,11 +61,11 @@ public class Plan {
         this.nombre = nombre;
     }
 
-    public Short getNroResolucion() {
+    public String getNroResolucion() {
         return this.nroResolucion;
     }
     
-    public void setNroResolucion(Short nroResolucion) {
+    public void setNroResolucion(String nroResolucion) {
         this.nroResolucion = nroResolucion;
     }
 
