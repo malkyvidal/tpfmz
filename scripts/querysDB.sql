@@ -183,3 +183,28 @@ ADD CONSTRAINT `fk_Alumno_plan`
 INSERT INTO `Plan` VALUES ('plan1','plan 1',0,'plan data','2014-05-10','2018-02-01');
 INSERT INTO `Usuario` VALUES (1,'pass',1),(2,'pass',1);
 INSERT INTO `Alumno` VALUES (1,'46546','pe@hmail.con','s','plan1');
+
+
+/*Modificaciones a las tablas*/
+
+ALTER TABLE `BDTP`.`Plan`  MODIFY nroresolucion VARCHAR(20);
+
+ALTER TABLE `bdtp`.`alumno` 
+DROP FOREIGN KEY `fk_Alumno_plan`;
+ALTER TABLE `bdtp`.`alumno` 
+DROP INDEX `fk_Alumno_plan_idx` ;
+
+
+alter table	`BDTP`.`Plan`  Modify identificador INT auto_increment ;
+alter table `BDTP`.`Alumno` modify plan int; 
+
+
+ALTER TABLE `bdtp`.`alumno` 
+ADD INDEX `fk_Alumno_plan_idx` (`plan` ASC);
+ALTER TABLE `bdtp`.`alumno` 
+ADD CONSTRAINT `fk_Alumno_plan`
+  FOREIGN KEY (`plan`)
+  REFERENCES `bdtp`.`plan` (`identificador`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
