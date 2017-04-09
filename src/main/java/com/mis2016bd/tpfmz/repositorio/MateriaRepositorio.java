@@ -15,4 +15,6 @@ import java.util.List;
  */
 public interface MateriaRepositorio {
     public List<Materia> obtenerTodasLasMaterias();
+
+    public Materia encontrarMateriaPorCodigo(int id);
 }

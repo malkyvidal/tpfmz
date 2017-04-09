@@ -73,7 +73,7 @@ public class CarreraRepositorioImpl implements CarreraRepositorio{
     @Override
     public void nuevaCarrera(Carrera nueva) {
         Session session = getSessionFactory().getCurrentSession();
-         session.saveOrUpdate(nueva);
+        session.saveOrUpdate(nueva);
     }
     
     @Transactional
