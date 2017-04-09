@@ -6,7 +6,6 @@
 package com.mis2016bd.tpfmz.repositorio.impl;
 
 import com.mis2016bd.tpfmz.modelo.Materiasalumnos;
-import com.mis2016bd.tpfmz.modelo.Mensaje;
 import com.mis2016bd.tpfmz.repositorio.MateriaAlumnoRepositorio;
 import java.util.List;
 import org.hibernate.Query;
@@ -41,5 +40,29 @@ public class MateriaAlumnoRepositorioImpl implements MateriaAlumnoRepositorio{
     }
     public SessionFactory getSessionFactory() {
         return sessionFactory;
+    }
+
+    @Transactional
+    @Override
+    public Materiasalumnos encontrarMateriaAlumnoPorCodigo(int id) {
+        Session session = getSessionFactory().getCurrentSession();
+        
+        Query query = session.createQuery("from Materiasalumnos where id="+Integer.toString(id));
+        Materiasalumnos al = (Materiasalumnos) query.uniqueResult();
+        return al;
+    }
+    
+    @Transactional
+    @Override
+    public void eliminaMateriaAlumno(Materiasalumnos al) {
+        Session session = getSessionFactory().getCurrentSession();
+        session.delete(al);
+    }
+    
+    @Transactional
+    @Override
+    public void nuevaMateriaAlumno(Materiasalumnos nuevo) {
+        Session session = getSessionFactory().getCurrentSession();
+        session.saveOrUpdate(nuevo);
     }
 }

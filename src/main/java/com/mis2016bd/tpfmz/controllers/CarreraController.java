@@ -7,7 +7,6 @@ package com.mis2016bd.tpfmz.controllers;
 
 import com.mis2016bd.tpfmz.modelo.Carrera;
 import com.mis2016bd.tpfmz.servicio.CarreraServicio;
-import com.mis2016bd.tpfmz.servicio.MateriaServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,9 +23,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class CarreraController {
     @Autowired
     private CarreraServicio servicio;
-    @Autowired
-    private MateriaServicio materia;
-    
+       
     @RequestMapping("/Carreras")
     public String todoslosAlumnos(Model model){
       

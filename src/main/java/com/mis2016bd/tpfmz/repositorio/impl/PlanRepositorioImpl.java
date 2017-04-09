@@ -12,7 +12,6 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -59,13 +58,12 @@ public class PlanRepositorioImpl implements PlanRepositorio{
     
     @Transactional
     @Override
-    public Plan encontrarPlanPorIdentificador(String id) {
+    public Plan encontrarPlanPorIdentificador(int id) {
         Session session = getSessionFactory().getCurrentSession();
         
-        String hql = "FROM Plan where identificador=:identificador";
-        Query query = session.createQuery(hql);
-        query.setString("identificador", id);
+        Query query = session.createQuery("FROM Plan where identificador="+Integer.toString(id));
         Plan plan = (Plan)query.uniqueResult();
+        
         return plan;
     }
     
@@ -81,6 +79,13 @@ public class PlanRepositorioImpl implements PlanRepositorio{
     public void nuevoPlan(Plan pl) {
         Session session = getSessionFactory().getCurrentSession();
         session.save(pl);
+    }
+
+    @Transactional
+    @Override
+    public void updatePlan(Plan nuevo) {
+        Session session = getSessionFactory().getCurrentSession();
+        session.saveOrUpdate(nuevo);
     }
     
 }

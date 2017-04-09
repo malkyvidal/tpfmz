@@ -26,5 +26,20 @@ public class MateriasalumnosServicioImpl implements MateriaAlumnoServicio{
     public List<Materiasalumnos> obtenerTodasLasMaterias() {
         return repo.obtenerTodasLasMaterias();
     }
+
+    @Override
+    public Materiasalumnos encontrarMateriaAlumnoPorCodigo(int id) {
+        return repo.encontrarMateriaAlumnoPorCodigo(id);
+    }
+
+    @Override
+    public void eliminaMateriaAlumno(Materiasalumnos al) {
+        repo.eliminaMateriaAlumno(al);
+    }
+
+    @Override
+    public void nuevaMateriaAlumno(Materiasalumnos nuevo) {
+        repo.nuevaMateriaAlumno(nuevo);
+    }
     
 }

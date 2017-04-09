@@ -1,6 +1,6 @@
 <%-- 
-    Document   : planes
-    Created on : 05/04/2017, 17:56:45
+    Document   : materiaalumno
+    Created on : 09/04/2017, 19:17:31
     Author     : franco
 --%>
 
@@ -17,9 +17,9 @@
         <script src="${pageContext.request.contextPath}/resources/js/bootstrap.js" type="text/javascript"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-        <title>Planes Vigentes</title>
+        <title>Materias - Alumnos</title>
     </head>
-<body>
+    <body>
         <div class="container">
             <div class="row">
                 <nav class="navbar navbar-inverse navbar-static-top"
@@ -41,7 +41,7 @@
 
                         <div class="navbar-collapse collapse" id="ts-top-menu">
                             <ul class="nav navbar-nav">
-                                  <li class="active"><a	href="<spring:url	value="/Alumnos"/>"	>
+                                <li class="active"><a	href="<spring:url	value="/Alumnos"/>"	>
                                         Alumnos
                                     </a>
                                 </li>
@@ -53,11 +53,15 @@
                                         Planes
                                     </a>
                                 </li>
+                                <li class="active"><a	href="<spring:url	value="/MateriaAlumno"/>"	>
+                                        Materia - Alumno
+                                    </a>
+                                </li>
                                 <li class="active"><a	href="<spring:url	value="/Perfiles"/>"	>
                                         Perfiles
                                     </a>
                                 </li>
-                               <li class="active"><a	href="<spring:url	value="/Permisos"/>"	>
+                                <li class="active"><a	href="<spring:url	value="/Permisos"/>"	>
                                         Permisos
                                     </a>
                                 </li>
@@ -77,10 +81,10 @@
 
                 <div >
                     <div class="col-md-4">
-                        <h4>Todos Los Planes</h4>
+                        <h4>Todos Las Materias - Alumnos</h4>
                     </div>
                     <div class="col-md-offset-10">
-                        <a class="btn btn-primary" href="<spring:url	value="/Planes/nuevo"/>"  >Nuevo</a>
+                        <a class="btn btn-primary" href="<spring:url	value="/MateriaAlumno/nuevo"/>"  >Nuevo</a>
                     </div>
                     
                 </div>
@@ -88,27 +92,24 @@
                      
             <tr>
                 
-                <th>Identificador</th>
-                <th>Nombre</th>
-                <th>Resolución</th>
-                <th>Descripción</th>
-                <th>Fecha Inicio</th>
-                <th>Fecha Fin</th>
+                <th>Materia</th>
+                <th>Alumno</th>
+                <th>Estado</th>
                 <th>Acción</th>
             </tr>
-            <c:forEach  items="${planes}" var="plan">
+            <c:forEach  items="${datos}" var="materiaalumno">
                 <tr>
-                       <td>${plan.identificador}</td>
-                       <td>${plan.nombre}</td>
-                       <td>${plan.nroResolucion}</td>
-                       <td>${plan.descripcion}</td>
-                       <td>${plan.fechaIni}</td>
-                       <td>${plan.fechaFin}</td>
+                 
+                    
+
+                       <td>${materiaalumno.materia.codMateria}</td>
+                       <td>${materiaalumno.alumno.legajo}</td>
+                       <td>${materiaalumno.estadoMateria}</td>
                        <td>
 
-                           <a class="btn btn-danger custom-width" onclick="return confirm('Seguro que desea eliminar?')" href="<spring:url	value='/Planes/eliminar/${plan.identificador}'/>">Eliminar</a>
-                           <a class="btn btn-success custom-width" href="<spring:url	value='/Planes/update/${plan.identificador}'/>">Editar</a>
-                       </td>
+                           <a class="btn btn-danger custom-width" onclick="return confirm('Seguro que desea eliminar?')" href="<spring:url	value='/MateriaAlumno/eliminar/${materiaalumno.id}'/>">Eliminar</a>
+                           <a class="btn btn-success custom-width" href="<spring:url	value='/Planes/update/${materiaalumno.id}'/>">Editar</a>
+                        </td>
                 </tr>
             </c:forEach>
         </table>

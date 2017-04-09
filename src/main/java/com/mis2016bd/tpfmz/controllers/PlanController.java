@@ -6,32 +6,20 @@
 package com.mis2016bd.tpfmz.controllers;
 
 
-import java.util.ArrayList;
-import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.ui.Model;
-import com.mis2016bd.tpfmz.modelo.Alumno;
 import com.mis2016bd.tpfmz.modelo.Plan;
-
-
-import com.mis2016bd.tpfmz.servicio.AlumnoServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMethod;
-
 import org.springframework.web.bind.annotation.ModelAttribute;
 
 
 import com.mis2016bd.tpfmz.servicio.PlanServicio;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import javax.validation.Valid;
-import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.ui.ModelMap;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.WebDataBinder;
-import java.text.*;
 import java.util.Date;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -82,12 +70,34 @@ public class PlanController {
     }
        
     @RequestMapping(value="/Planes/eliminar/{id}",method = RequestMethod.GET)
-    public String eliminarPlan( @PathVariable("id") String id){
+    public String eliminarPlan( @PathVariable("id") int id){
     
         Plan plan  = planes.encontrarPlanPorIdentificador(id);
         planes.eliminaPlan(plan);
         
        return "redirect:/Planes";
     
+    }
+    
+    @RequestMapping(value="/Planes/update/{id}",method = RequestMethod.GET)
+    public String updatePlan(@PathVariable("id") int id, Model model){
+                
+       Plan plan = planes.encontrarPlanPorIdentificador(id);
+      
+       model.addAttribute("updatePlan", plan);
+      
+        
+        return "updatePlan";
+    }
+    
+    
+    @RequestMapping(value="/Planes/update/{id}",method = RequestMethod.POST)
+ 
+    public String procesarUpdatePlan(@PathVariable("id") int id, @ModelAttribute("updatePlan") Plan nuevo){
+       nuevo.setIdentificador(id);
+             
+       planes.updatePlan(nuevo);
+       
+       return "redirect:/Planes";
     }
 }

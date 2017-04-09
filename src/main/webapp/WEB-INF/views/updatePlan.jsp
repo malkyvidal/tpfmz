@@ -1,13 +1,13 @@
 <%-- 
-    Document   : planes
-    Created on : 05/04/2017, 17:56:45
+    Document   : updatePlan
+    Created on : 09/04/2017, 18:45:38
     Author     : franco
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib	prefix="spring"	uri="http://www.springframework.org/tags"%>
-
+<%@	taglib	prefix="form"	uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,10 +16,9 @@
         <script src="${pageContext.request.contextPath}/resources/js/jquery.js" type="text/javascript"></script>
         <script src="${pageContext.request.contextPath}/resources/js/bootstrap.js" type="text/javascript"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-        <title>Planes Vigentes</title>
+        <title>Plan-Datos</title>
     </head>
-<body>
+    <body>
         <div class="container">
             <div class="row">
                 <nav class="navbar navbar-inverse navbar-static-top"
@@ -41,23 +40,16 @@
 
                         <div class="navbar-collapse collapse" id="ts-top-menu">
                             <ul class="nav navbar-nav">
-                                  <li class="active"><a	href="<spring:url	value="/Alumnos"/>"	>
+                                
+                                <li class="active"><a	href="<spring:url	value="/Alumnos"/>"	>
                                         Alumnos
                                     </a>
                                 </li>
-                                <li class="active"><a	href="<spring:url	value="/Carreras"/>"	>
-                                        Carreras
-                                    </a>
-                                </li>
-                                <li class="active"><a	href="<spring:url	value="/Planes"/>"	>
-                                        Planes
-                                    </a>
-                                </li>
-                                <li class="active"><a	href="<spring:url	value="/Perfiles"/>"	>
+                                 <li class="active"><a	href="<spring:url	value="/Perfiles"/>"	>
                                         Perfiles
                                     </a>
                                 </li>
-                               <li class="active"><a	href="<spring:url	value="/Permisos"/>"	>
+                                <li class="active"><a	href="<spring:url	value="/Permisos"/>"	>
                                         Permisos
                                     </a>
                                 </li>
@@ -74,48 +66,46 @@
             </div>
             <div class="row">
                 
-
-                <div >
-                    <div class="col-md-4">
-                        <h4>Todos Los Planes</h4>
+                <form:form  modelAttribute="updatePlan"  class="form-horizontal">
+                    <h2 align="center"> Modificar Datos de Plan </h2>
+                    <div class="form-group" >
+                        
+                        <label class="control-label col-md-2" for="nombre">Nombre</label>
+                        <td>${alumno.nombre}</td>
+                        <form:input 	id="nombre"	path="nombre" type="text" class="form:input-large"/>
                     </div>
-                    <div class="col-md-offset-10">
-                        <a class="btn btn-primary" href="<spring:url	value="/Planes/nuevo"/>"  >Nuevo</a>
+                    <div class="form-group" >
+                        
+                        <label class="control-label col-md-2" for="nroResolucion">Resolución</label>
+                        <td>${alumno.nroResolucion}</td>
+                        <form:input	id="nroResolucion" path="nroResolucion" type="text" class="form:input-large"/>
                     </div>
-                    
-                </div>
-                 <table class="table table-striped">
-                     
-            <tr>
-                
-                <th>Identificador</th>
-                <th>Nombre</th>
-                <th>Resolución</th>
-                <th>Descripción</th>
-                <th>Fecha Inicio</th>
-                <th>Fecha Fin</th>
-                <th>Acción</th>
-            </tr>
-            <c:forEach  items="${planes}" var="plan">
-                <tr>
-                       <td>${plan.identificador}</td>
-                       <td>${plan.nombre}</td>
-                       <td>${plan.nroResolucion}</td>
-                       <td>${plan.descripcion}</td>
-                       <td>${plan.fechaIni}</td>
-                       <td>${plan.fechaFin}</td>
-                       <td>
-
-                           <a class="btn btn-danger custom-width" onclick="return confirm('Seguro que desea eliminar?')" href="<spring:url	value='/Planes/eliminar/${plan.identificador}'/>">Eliminar</a>
-                           <a class="btn btn-success custom-width" href="<spring:url	value='/Planes/update/${plan.identificador}'/>">Editar</a>
-                       </td>
-                </tr>
-            </c:forEach>
-        </table>
-                    
-		
-
+                     <div class="form-group" >
+                        
+                        <label class="control-label col-md-2" for="descripcion">Descripción</label>
+                        <td>${alumno.descripcion}</td>
+                        <form:input	id="descripcion" path="descripcion" type="text" class="form:input-large"/>
+                    </div>    
+                    <div class="form-group" >
+                        
+                        <label class="control-label col-md-2" for="fechaIni">Fecha Inicio</label>
+                        <td>${alumno.fechaIni}</td>
+                        <form:input	id="fechaIni" path="fechaIni" type="text" class="form:input-large"/>
+                    </div>  
+                       <div class="form-group" >
+                        
+                        <label class="control-label col-md-2" for="fechaFin">Fecha Finalización</label>
+                        <td>${alumno.fechaFin}</td>
+                        <form:input	id="fechaFin" path="fechaFin" type="text" class="form:input-large"/>
+                    </div> 
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-primary col-md-offset-2" value="Actualizar"/>
+                        </div>
+                        
+                         
+                </form:form >
             </div>
+
         </div>
     </body>
 </html>

@@ -53,6 +53,10 @@
                                         Planes
                                     </a>
                                 </li>
+                                 <li class="active"><a	href="<spring:url	value="/MateriaAlumno"/>"	>
+                                        Materia - Alumno
+                                    </a>
+                                </li>
                                 <li > <a	href="<spring:url	value="/Perfiles"/>"	>
                                         Perfiles
                                     </a>

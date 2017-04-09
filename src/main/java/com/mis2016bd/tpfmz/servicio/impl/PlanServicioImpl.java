@@ -32,7 +32,7 @@ public class PlanServicioImpl implements PlanServicio{
     }
 
     @Override
-    public Plan encontrarPlanPorIdentificador(String id) {
+    public Plan encontrarPlanPorIdentificador(int id) {
         return repo.encontrarPlanPorIdentificador(id);
     }
 
@@ -44,6 +44,11 @@ public class PlanServicioImpl implements PlanServicio{
     @Override
     public void nuevoPlan(Plan pl) {
         repo.nuevoPlan(pl);
+    }
+
+    @Override
+    public void updatePlan(Plan nuevo) {
+        repo.updatePlan(nuevo);
     }
     
 }
