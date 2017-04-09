@@ -41,11 +41,29 @@
 
                         <div class="navbar-collapse collapse" id="ts-top-menu">
                             <ul class="nav navbar-nav">
+                                  <li class="active"><a	href="<spring:url	value="/Alumnos"/>"	>
+                                        Alumnos
+                                    </a>
+                                </li>
+                                <li class="active"><a	href="<spring:url	value="/Carreras"/>"	>
+                                        Carreras
+                                    </a>
+                                </li>
                                 <li class="active"><a	href="<spring:url	value="/Planes"/>"	>
                                         Planes
                                     </a>
                                 </li>
-                                <li><a href="#">Category 2</a>
+                                <li class="active"><a	href="<spring:url	value="/Perfiles"/>"	>
+                                        Perfiles
+                                    </a>
+                                </li>
+                               <li class="active"><a	href="<spring:url	value="/Permisos"/>"	>
+                                        Permisos
+                                    </a>
+                                </li>
+                                <li class="active"><a	href="<spring:url	value="/Modulos"/>"	>
+                                        Modulos
+                                    </a>
                                 </li>
                                 <li><a href="#">Category 3</a>
                                 </li>

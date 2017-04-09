@@ -49,6 +49,10 @@
                                         Carreras
                                     </a>
                                 </li>
+                                <li class="active"><a	href="<spring:url	value="/Planes"/>"	>
+                                        Planes
+                                    </a>
+                                </li>
                                 <li class="active"><a	href="<spring:url	value="/Perfiles"/>"	>
                                         Perfiles
                                     </a>
