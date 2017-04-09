@@ -45,5 +45,16 @@ public class MateriaRepositorioImpl implements MateriaRepositorio{
     public SessionFactory getSessionFactory() {
         return sessionFactory;
     }
+
+    @Transactional
+    @Override
+    public Materia encontrarMateriaPorCodigo(int id) {
+        Session session = getSessionFactory().getCurrentSession();
         
+        Query query = session.createQuery("from Materia where codMateria="+Integer.toString(id));
+        Materia materia = (Materia) query.uniqueResult();
+        return materia;
+    }
+
+           
 }

@@ -1,7 +1,7 @@
 <%-- 
-    Document   : alumnos
-    Created on : 28-mar-2017, 21:35:51
-    Author     : malky
+    Document   : carreras
+    Created on : 07/04/2017, 17:40:12
+    Author     : franco
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -17,7 +17,7 @@
         <script src="${pageContext.request.contextPath}/resources/js/bootstrap.js" type="text/javascript"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-        <title>Alumnos</title>
+        <title>Carreras</title>
     </head>
     <body>
         <div class="container">
@@ -45,10 +45,6 @@
                                         Alumnos
                                     </a>
                                 </li>
-                                <li class="active"><a	href="<spring:url	value="/Carreras"/>"	>
-                                        Carreras
-                                    </a>
-                                </li>
                                 <li class="active"><a	href="<spring:url	value="/Perfiles"/>"	>
                                         Perfiles
                                     </a>
@@ -73,10 +69,10 @@
 
                 <div >
                     <div class="col-md-4">
-                        <h4>Todos Los Alumnos</h4>
+                        <h4>Todas Las Carreras</h4>
                     </div>
                     <div class="col-md-offset-10">
-                        <a class="btn btn-primary" href="<spring:url	value="/Alumnos/nuevo"/>"  >Nuevo</a>
+                        <a class="btn btn-primary" href="<spring:url	value="/Carreras/nuevo"/>"  >Nuevo</a>
                     </div>
                     
                 </div>
@@ -84,23 +80,23 @@
                      
             <tr>
                 
-                <th>telefono</th>
-                <th>Email</th>
-                <th>Plan</th>
+                <th>Código</th>
+                <th>Nombre</th>
+                <th>CanNivel</th>
                 <th>Acción</th>
             </tr>
-            <c:forEach  items="${datos}" var="alumno">
+            <c:forEach  items="${datos}" var="carrera">
                 <tr>
                  
                     
 
-                    <td>${alumno.telefono}</td>
-                       <td>${alumno.email}</td>
-                       <td>${alumno.plan.identificador}</td>
+                    <td>${carrera.codigoCarrera}</td>
+                       <td>${carrera.nombre}</td>
+                       <td>${carrera.canNivel}</td>
                        <td>
 
-                           <a class="btn btn-default" onclick="return confirm('Seguro que desea eliminar?')" href="<spring:url	value='/Alumnos/eliminar/${alumno.legajo}'/>">eliminar</a>
-                           <a class="btn btn-default" href="<spring:url	value='/Alumnos/update/${alumno.legajo}'/>">editar</a>
+                           <a class="btn btn-danger custom-width" onclick="return confirm('Seguro que desea eliminar?')" href="<spring:url	value='/Carreras/eliminar/${carrera.codigoCarrera}'/>">Eliminar</a>
+                           <a class="btn btn-success custom-width" href="<spring:url	value='/Carreras/update/${carrera.codigoCarrera}'/>">Editar</a>
                        </td>
                 </tr>
             </c:forEach>

@@ -54,6 +54,7 @@ public class Carrera {
     public void setCanNivel(Boolean canNivel) {
         this.canNivel = canNivel;
     }
+    
     public Set getMaterias() {
         return this.materias;
     }

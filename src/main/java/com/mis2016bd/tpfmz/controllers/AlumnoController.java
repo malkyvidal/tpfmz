@@ -55,11 +55,11 @@ public class AlumnoController {
        
        List<Plan> pl = planes.obtenerTodosLosPlanes();
        
-        model.addAttribute("datosPlanes",pl);
+       model.addAttribute("datosPlanes",pl);
        model.addAttribute("nuevoAlumno", al);
       
         
-        return "nuevoAlumno";
+       return "nuevoAlumno";
     }
     
     
@@ -71,23 +71,21 @@ public class AlumnoController {
        Plan planAsociado = planes.obtenerPlanPorCodigoPlan(nuevo.getPlan().getIdentificador());
        nuevo.setPlan(planAsociado);
        servicio.nuevoAlumno(nuevo);
-        return "redirect:/Alumnos";
+       return "redirect:/Alumnos";
     }
     
     
-     @RequestMapping(value="/Alumnos/eliminar/{id}",method = RequestMethod.GET)
-   
+    @RequestMapping(value="/Alumnos/eliminar/{id}",method = RequestMethod.GET)
     public String eliminarAlumno( @PathVariable("id") int id){
     
-        
-       
         Alumno al  = servicio.encontrarAlumnoPorLegajo(id);
         servicio.eliminaAlumno(al);
         
        return "redirect:/Alumnos";
     
     }
-      @RequestMapping(value="/Alumnos/update/{id}",method = RequestMethod.GET)
+    
+    @RequestMapping(value="/Alumnos/update/{id}",method = RequestMethod.GET)
     public String updateAlumno(@PathVariable("id") int id, Model model){
     
        Alumno al = servicio.encontrarAlumnoPorLegajo(id);

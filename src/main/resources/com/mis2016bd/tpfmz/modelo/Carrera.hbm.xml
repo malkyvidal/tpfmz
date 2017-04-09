@@ -14,7 +14,7 @@
         <property name="canNivel" type="java.lang.Boolean">
             <column name="canNivel" />
         </property>
-        <set name="materias" table="Materia" >
+        <set name="materias" cascade="delete" table="Materia" >
             <key>
                 <column name="codCarrera" />
             </key>

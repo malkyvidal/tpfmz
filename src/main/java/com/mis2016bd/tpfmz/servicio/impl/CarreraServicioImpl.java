@@ -31,5 +31,25 @@ public class CarreraServicioImpl implements CarreraServicio{
     public Carrera obtenerCarreraPorCodigoCarrera(Integer codigoCarrera) {
        return repo.obtenerCarreraPorCodigoCarrera(codigoCarrera);
     }
+
+    @Override
+    public Carrera encontrarCarreraPorCodigo(int id) {
+        return repo.encontrarCarreraPorCodigo(id);
+    }
+
+    @Override
+    public void eliminaCarrera(Carrera carrera) {
+        repo.eliminarCarrera(carrera);
+    }
+
+    @Override
+    public void nuevaCarrera(Carrera nueva) {
+        repo.nuevaCarrera(nueva);
+    }
+
+    @Override
+    public void updateCarrera(Carrera nuevo) {
+        repo.updateCarrera(nuevo);
+    }
     
 }

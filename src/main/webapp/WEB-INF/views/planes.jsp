@@ -1,7 +1,7 @@
 <%-- 
-    Document   : alumnos
-    Created on : 28-mar-2017, 21:35:51
-    Author     : malky
+    Document   : planes
+    Created on : 05/04/2017, 17:56:45
+    Author     : franco
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -17,9 +17,9 @@
         <script src="${pageContext.request.contextPath}/resources/js/bootstrap.js" type="text/javascript"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-        <title>Alumnos</title>
+        <title>Planes Vigentes</title>
     </head>
-    <body>
+<body>
         <div class="container">
             <div class="row">
                 <nav class="navbar navbar-inverse navbar-static-top"
@@ -41,25 +41,11 @@
 
                         <div class="navbar-collapse collapse" id="ts-top-menu">
                             <ul class="nav navbar-nav">
-                                <li class="active"><a	href="<spring:url	value="/Alumnos"/>"	>
-                                        Alumnos
+                                <li class="active"><a	href="<spring:url	value="/Planes"/>"	>
+                                        Planes
                                     </a>
                                 </li>
-                                <li class="active"><a	href="<spring:url	value="/Carreras"/>"	>
-                                        Carreras
-                                    </a>
-                                </li>
-                                <li class="active"><a	href="<spring:url	value="/Perfiles"/>"	>
-                                        Perfiles
-                                    </a>
-                                </li>
-                                <li class="active"><a	href="<spring:url	value="/Permisos"/>"	>
-                                        Permisos
-                                    </a>
-                                </li>
-                                <li class="active"><a	href="<spring:url	value="/Modulos"/>"	>
-                                        Modulos
-                                    </a>
+                                <li><a href="#">Category 2</a>
                                 </li>
                                 <li><a href="#">Category 3</a>
                                 </li>
@@ -73,10 +59,10 @@
 
                 <div >
                     <div class="col-md-4">
-                        <h4>Todos Los Alumnos</h4>
+                        <h4>Todos Los Planes</h4>
                     </div>
                     <div class="col-md-offset-10">
-                        <a class="btn btn-primary" href="<spring:url	value="/Alumnos/nuevo"/>"  >Nuevo</a>
+                        <a class="btn btn-primary" href="<spring:url	value="/Planes/nuevo"/>"  >Nuevo</a>
                     </div>
                     
                 </div>
@@ -84,23 +70,26 @@
                      
             <tr>
                 
-                <th>telefono</th>
-                <th>Email</th>
-                <th>Plan</th>
+                <th>Identificador</th>
+                <th>Nombre</th>
+                <th>Resolución</th>
+                <th>Descripción</th>
+                <th>Fecha Inicio</th>
+                <th>Fecha Fin</th>
                 <th>Acción</th>
             </tr>
-            <c:forEach  items="${datos}" var="alumno">
+            <c:forEach  items="${planes}" var="plan">
                 <tr>
-                 
-                    
-
-                    <td>${alumno.telefono}</td>
-                       <td>${alumno.email}</td>
-                       <td>${alumno.plan.identificador}</td>
+                       <td>${plan.identificador}</td>
+                       <td>${plan.nombre}</td>
+                       <td>${plan.nroResolucion}</td>
+                       <td>${plan.descripcion}</td>
+                       <td>${plan.fechaIni}</td>
+                       <td>${plan.fechaFin}</td>
                        <td>
 
-                           <a class="btn btn-default" onclick="return confirm('Seguro que desea eliminar?')" href="<spring:url	value='/Alumnos/eliminar/${alumno.legajo}'/>">eliminar</a>
-                           <a class="btn btn-default" href="<spring:url	value='/Alumnos/update/${alumno.legajo}'/>">editar</a>
+                           <a class="btn btn-danger custom-width" onclick="return confirm('Seguro que desea eliminar?')" href="<spring:url	value='/Planes/eliminar/${plan.identificador}'/>">Eliminar</a>
+                           <a class="btn btn-success custom-width" href="#">Editar</a>
                        </td>
                 </tr>
             </c:forEach>

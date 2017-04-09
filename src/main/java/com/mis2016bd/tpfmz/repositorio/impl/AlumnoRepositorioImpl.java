@@ -81,7 +81,14 @@ public class AlumnoRepositorioImpl implements AlumnoRepositorio{
     @Override
     public void updateAlumno(Alumno al) {
          Session session = getSessionFactory().getCurrentSession();
-         session.saveOrUpdate(al);
+        Query query = session.createQuery("from Alumno where legajo="+Integer.toString(al.getLegajo()));
+        Alumno alumno = (Alumno) query.uniqueResult();
+        alumno.setCodPerfil(al.getCodPerfil());
+        alumno.setContrasenia(al.getContrasenia());
+        alumno.setEgresado(al.getEgresado());
+        alumno.setEmail(al.getEmail());
+        alumno.setPlan(al.getPlan());
+        alumno.setTelefono(al.getTelefono());
     }
 
    

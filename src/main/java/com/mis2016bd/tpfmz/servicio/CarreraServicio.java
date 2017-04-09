@@ -15,4 +15,12 @@ import java.util.List;
 public interface CarreraServicio {
     public List<Carrera> obtenerTodasLasCarreras();
     public Carrera obtenerCarreraPorCodigoCarrera(Integer codigoCarrera);
+
+    public Carrera encontrarCarreraPorCodigo(int id);
+
+    public void eliminaCarrera(Carrera carrera);
+
+    public void nuevaCarrera(Carrera nueva);
+
+    public void updateCarrera(Carrera nuevo);
 }

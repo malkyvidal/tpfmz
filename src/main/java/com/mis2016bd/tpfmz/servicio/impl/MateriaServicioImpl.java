@@ -27,5 +27,10 @@ public class MateriaServicioImpl implements MateriaServicio{
     public List<Materia> obtenerTodasLasMaterias() {
         return repo.obtenerTodasLasMaterias();
     }
+
+    @Override
+    public Materia encontrarMateriaPorCodigo(int id) {
+        return repo.encontrarMateriaPorCodigo(id);
+    }
     
 }

@@ -15,5 +15,13 @@ import java.util.List;
 public interface CarreraRepositorio {
     public List<Carrera> obtenerTodasLasCarreras();
     public Carrera obtenerCarreraPorCodigoCarrera(Integer codigoCarrera);
+
+    public Carrera encontrarCarreraPorCodigo(int id);
+
+    public void eliminarCarrera(Carrera carrera);
+
+    public void nuevaCarrera(Carrera nueva);
+
+    public void updateCarrera(Carrera nuevo);
     
 }

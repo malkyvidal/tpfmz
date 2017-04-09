@@ -8,7 +8,7 @@
             <column name="codMateria" />
             <generator class="assigned" />
         </id>
-        <many-to-one name="carrera" class="Carrera" >
+        <many-to-one name="carrera" class="Carrera">
             <column name="codCarrera" />
         </many-to-one>
         <property name="nombreMateria" type="string">

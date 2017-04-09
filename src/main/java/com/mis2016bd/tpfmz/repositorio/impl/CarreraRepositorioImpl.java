@@ -44,11 +44,48 @@ public class CarreraRepositorioImpl implements CarreraRepositorio{
         return carrera;
     }
     
-     @Autowired
+    @Autowired
     public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
     public SessionFactory getSessionFactory() {
         return sessionFactory;
     }
+
+    @Transactional
+    @Override
+    public Carrera encontrarCarreraPorCodigo(int id) {
+        Session session = getSessionFactory().getCurrentSession();
+        
+        Query query = session.createQuery("from Carrera where codigoCarrera="+Integer.toString(id));
+        Carrera carrera = (Carrera) query.uniqueResult();
+        return carrera;
+    }
+    
+    @Transactional
+    @Override
+    public void eliminarCarrera(Carrera carrera) {
+        Session session = getSessionFactory().getCurrentSession();
+        session.delete(carrera);
+    }
+    
+    @Transactional
+    @Override
+    public void nuevaCarrera(Carrera nueva) {
+        Session session = getSessionFactory().getCurrentSession();
+        session.saveOrUpdate(nueva);
+    }
+    
+    @Transactional
+    @Override
+    public void updateCarrera(Carrera al) {
+        Session session = getSessionFactory().getCurrentSession();
+        String hql = "From  Carrera where codigoCarrera=:codigoCarrera";
+        Query query = session.createQuery(hql);
+        query.setInteger("codigoCarrera", al.getCodigoCarrera());
+        Carrera carrera = (Carrera) query.uniqueResult();
+        carrera.setCanNivel(al.getCanNivel());
+        carrera.setNombre(al.getNombre());
+    }
+    
 }
