@@ -86,5 +86,32 @@ public class ModuloController {
        return "redirect:/Modulos";
     
     }
+       @RequestMapping(value="/Modulos/update/{id}",method = RequestMethod.GET)
+    public String updateModulo(@PathVariable("id") int id, Model model){
+    
+       Modulo al = servicio.encontrarModuloPorCodModulo(id);
+           
+       
+       List<Permiso> pl = permisos.obtenerTodosLosPermisos();
+       
+        model.addAttribute("datosPermisos",pl);
+       model.addAttribute("updateModulo", al);
+      
+        
+        return "updateModulo";
+    }
+    
+    
+    @RequestMapping(value="/Modulos/update/{id}",method = RequestMethod.POST)
+ 
+    public String procesaUpdateModulo(@PathVariable("id") int id, @ModelAttribute("updateModulo") Modulo nuevo){
+        nuevo.setCodModulo(id);
+       
+       Permiso permisoAsociado = permisos.obtenerPermisoPorCodigoPermiso(nuevo.getPermiso().getCodPermiso());
+       nuevo.setPermiso(permisoAsociado);
+       servicio.updateModulo(nuevo);
+        return "redirect:/Modulos";
+    }
+    
     
 }

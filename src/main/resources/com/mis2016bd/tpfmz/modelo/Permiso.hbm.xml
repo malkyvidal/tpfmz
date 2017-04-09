@@ -13,11 +13,12 @@
 <many-to-one name="perfil" class="Perfil">
 <column name="codPerfil" />
 </many-to-one>
+
 <set name="modulos" table="Modulo" >
 <key>
 <column name="codPermiso" />
 </key>
-<one-to-many class="Modulo" />
+<one-to-many class="com.mis2016bd.tpfmz.modelo.Modulo" />
 </set>
 </class>
 </hibernate-mapping>

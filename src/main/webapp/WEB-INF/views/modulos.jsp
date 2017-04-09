@@ -45,6 +45,14 @@
                                         Alumnos
                                     </a>
                                 </li>
+                                <li class="active"><a	href="<spring:url	value="/Carreras"/>"	>
+                                        Carreras
+                                    </a>
+                                </li>
+                                <li class="active"><a	href="<spring:url	value="/Planes"/>"	>
+                                        Planes
+                                    </a>
+                                </li>
                                 <li class="active"><a	href="<spring:url	value="/Perfiles"/>"	>
                                         Perfiles
                                     </a>
@@ -96,7 +104,7 @@
                        <td>
 
                            <a class="btn btn-default" onclick="return confirm('Seguro que desea eliminar?')" href="<spring:url	value='/Modulos/eliminar/${modulo.codModulo}'/>">eliminar</a>
-                           <a class="btn btn-default" href="#">editar</a>
+                           <a class="btn btn-default" href="<spring:url	value='/Modulos/update/${modulo.codModulo}'/>">editar</a>
                        </td>
                 </tr>
             </c:forEach>

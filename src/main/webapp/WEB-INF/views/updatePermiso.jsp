@@ -1,6 +1,6 @@
 <%-- 
-    Document   : nuevoPermiso
-    Created on : Apr 6, 2017, 2:13:03 PM
+    Document   : updatePermiso
+    Created on : Apr 8, 2017, 10:27:51 AM
     Author     : silvina
 --%>
 
@@ -44,7 +44,7 @@
                                         Alumnos
                                     </a>
                                 </li>
-                                <li class="active"><a	href="<spring:url	value="/Carreras"/>"	>
+                                   <li class="active"><a	href="<spring:url	value="/Carreras"/>"	>
                                         Carreras
                                     </a>
                                 </li>
@@ -73,23 +73,27 @@
             </div>
             <div class="row">
 
-                <form:form  modelAttribute="nuevoPermiso"  class="form-horizontal">
-                                 
-                    <div class="form-group" >
-
+                <form:form  modelAttribute="updatePermiso"  class="form-horizontal">
+                    
+                     <div class="form-group" >
                         <label class="control-label col-md-2" for="perfil">Perfil</label>
+                       <td>${permiso.perfil.codPerfil}</td>
                         <form:select id="perfil" path="perfil.codPerfil">
                             <form:options items="${datosPerfiles}" itemLabel="codPerfil" itemValue="codPerfil"></form:options>
                         </form:select>
-                    </div>
-                        <div class="form-group" >
-                        <label class="control-label col-md-2" for="accion">accion</label>
-
-                        <form:input 	id="accion"	path="accion" type="text" class="form:input-large"/>
+                                             
                     </div>
                         
+                    <div class="form-group" >
+                        <label class="control-label col-md-2" for="accion">acción</label>
+                        <td>${permiso.accion}</td>
+                        <form:input 	id="accion"	path="accion" type="text" class="form:input-large"/>
+                        
+                    </div>
+                                 
+
                     <div class="form-group">
-                            <input type="submit" class="btn btn-primary col-md-offset-2" value="Crear"/>
+                            <input type="submit" class="btn btn-primary col-md-offset-2" value="Actualizar"/>
                     </div>
                         
                          

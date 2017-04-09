@@ -18,5 +18,5 @@ public interface PerfilServicio {
           void nuevoPerfil(Perfil al);
    void eliminaPerfil(Perfil perfil);
    Perfil encontrarPerfilPorCodigoPerfil(int codPerfil);
-   
+   void updatePerfil(Perfil al);
 }

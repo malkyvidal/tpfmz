@@ -33,6 +33,15 @@ public class ModuloRepositorioImpl implements ModuloRepositorio{
        List<Modulo> modulos = query.list();
        return modulos;
     }
+    @Transactional
+    @Override
+    public List<Modulo> obtenerTodosLosModulosPorPermiso(int codPermiso) {
+        Session session = getSessionFactory().getCurrentSession();
+        String hql = "FROM Modulo WHERE codPermiso=" +Integer.toString(codPermiso);
+       Query query = session.createQuery(hql);
+       List<Modulo> modulos = query.list();
+       return modulos;
+    }
     
      @Autowired
     public void setSessionFactory(SessionFactory sessionFactory) {
@@ -66,5 +75,13 @@ public class ModuloRepositorioImpl implements ModuloRepositorio{
         Modulo modulo = (Modulo) query.uniqueResult();
         return modulo;
     }
+    
+     @Transactional
+    @Override
+    public void updateModulo(Modulo al) {
+         Session session = getSessionFactory().getCurrentSession();
+         session.saveOrUpdate(al);
+    }
+
 
 }

@@ -52,21 +52,21 @@ insert into Perfil (`descripcion`,`estado`) values ('usuario1',1);
 insert into Perfil (`descripcion`,`estado`) values ('usuario2',1);
 
 
-insert into `Permiso` (`codPerfil`,`accion`) values (1,'alta1');
-insert into `Permiso` (`codPerfil`,`accion`) values (1,'baja1');
-insert into `Permiso` (`codPerfil`,`accion`) values (2,'alta2');
-insert into `Permiso` (`codPerfil`,`accion`) values (2,'alta2');
-insert into `Permiso` (`codPerfil`,`accion`) values (2,'update2');
+insert into `Permiso` (`codPerfil`,`accion`) values (3,'alta1');
+insert into `Permiso` (`codPerfil`,`accion`) values (3,'baja1');
+insert into `Permiso` (`codPerfil`,`accion`) values (4,'alta2');
+insert into `Permiso` (`codPerfil`,`accion`) values (4,'alta2');
+insert into `Permiso` (`codPerfil`,`accion`) values (4,'update2');
 
 
 
-insert into `Modulo` (`codPermiso`,`descripcion`) values (1, 'funcion1:Incorporar alumno a plan');
-insert into `Modulo` (`codPermiso`,`descripcion`) values (1, 'funcion5:Incorporar alumno a carrera');
-insert into `Modulo` (`codPermiso`,`descripcion`) values (1, 'funcion2:agregar coordinador');
+insert into `Modulo` (`codPermiso`,`descripcion`) values (16, 'funcion1:Incorporar alumno a plan');
+insert into `Modulo` (`codPermiso`,`descripcion`) values (16, 'funcion5:Incorporar alumno a carrera');
+insert into `Modulo` (`codPermiso`,`descripcion`) values (16, 'funcion2:agregar coordinador');
 
-insert into `Modulo` (`codPermiso`,`descripcion`) values (2, 'funcion3:consultar planes');
+insert into `Modulo` (`codPermiso`,`descripcion`) values (18, 'funcion3:consultar planes');
 
-insert into `Modulo` (`codPermiso`,`descripcion`) values (3, 'funcion4: actualizar estado de materia');
+insert into `Modulo` (`codPermiso`,`descripcion`) values (20, 'funcion4: actualizar estado de materia');
 
 
 

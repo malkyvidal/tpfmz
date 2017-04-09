@@ -76,4 +76,12 @@ public class PerfilRepositorioImpl implements PerfilRepositorio{
         return perfil;
     }
     
+       @Transactional
+    @Override
+    public void updatePerfil(Perfil al) {
+         Session session = getSessionFactory().getCurrentSession();
+         session.saveOrUpdate(al);
+    }
+
+    
 }
