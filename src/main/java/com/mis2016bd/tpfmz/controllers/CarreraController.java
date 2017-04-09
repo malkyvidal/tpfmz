@@ -6,7 +6,6 @@
 package com.mis2016bd.tpfmz.controllers;
 
 import com.mis2016bd.tpfmz.modelo.Carrera;
-import com.mis2016bd.tpfmz.modelo.Materia;
 import com.mis2016bd.tpfmz.servicio.CarreraServicio;
 import com.mis2016bd.tpfmz.servicio.MateriaServicio;
 import java.util.List;
