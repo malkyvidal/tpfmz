@@ -44,5 +44,9 @@ public class PerfilServicioImpl implements PerfilServicio{
     public Perfil encontrarPerfilPorCodigoPerfil(int perfil) {
         return  repo.encontrarPerfilPorCodigoPerfil(perfil);
     }
+   @Override
+    public void updatePerfil(Perfil al) {
+        repo.updatePerfil(al);
+    }
    
 }

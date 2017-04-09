@@ -1,9 +1,8 @@
 <%-- 
-    Document   : permisos
-    Created on : Apr 6, 2017, 2:04:38 PM
+    Document   : borrarPermiso
+    Created on : Apr 8, 2017, 6:42:50 PM
     Author     : silvina
 --%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib	prefix="spring"	uri="http://www.springframework.org/tags"%>
@@ -17,7 +16,7 @@
         <script src="${pageContext.request.contextPath}/resources/js/bootstrap.js" type="text/javascript"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-        <title>Permisos</title>
+        <title>Eliminación de un Permiso</title>
     </head>
     <body>
         <div class="container">
@@ -67,42 +66,37 @@
             <div class="row">
                 
 
-                <div >
+               
                     <div class="col-md-4">
-                        <h4>Todos Los Permisos</h4>
+                        <h4>Todos Los Modulos que serán eliminados</h4>
                     </div>
-                    <div class="col-md-offset-10">
-                        <a class="btn btn-primary" href="<spring:url	value="/Permisos/nuevo"/>"  >Nuevo</a>
-                    </div>
-                    
-                </div>
+                       <a class="btn btn-default" onclick="return confirm('Seguro que desea eliminar?')" href="<spring:url value='/Permisos/borrar/${codPermi}'/>">eliminar</a>
                  <table class="table table-striped">
                      
             <tr>
                 
+                <th>codModulo</th>
                 <th>codPermiso</th>
-                <th>codPerfil</th>
                 <th>descripción</th>
-                <th>Acción</th>
+                
             </tr>
-            <c:forEach  items="${datos}" var="permiso">
+            <c:forEach  items="${detalleModulos}" var="modulo">
                 <tr>
-                 
-                    
+                                     
+                    <td>${modulo.codModulo}</td>
+                       <td>${modulo.permiso.codPermiso}</td>
+                       <td>${modulo.descripcion}</td>
 
-                    <td>${permiso.codPermiso}</td>
-                       <td>${permiso.perfil.codPerfil}</td>
-                       <td>${permiso.accion}</td>
-                       <td>
-
-                           <a class="btn btn-default" onclick="return confirm('Seguro que desea eliminar?')" href="<spring:url	value='/Permisos/eliminar/${permiso.codPermiso}'/>">eliminar</a>
-                           <a class="btn btn-default" href="<spring:url	value='/Permisos/update/${permiso.codPermiso}'/>">editar</a>
+                           
+       
                        </td>
                 </tr>
             </c:forEach>
+                
         </table>
                     
 	    </div>
         </div>
     </body>
 </html>
+

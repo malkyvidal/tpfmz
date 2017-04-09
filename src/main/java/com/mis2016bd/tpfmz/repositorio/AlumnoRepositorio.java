@@ -19,4 +19,5 @@ public interface AlumnoRepositorio {
    void eliminaAlumno(Alumno alumno);
    Alumno encontrarAlumnoPorLegajo(int legajo);
    void updateAlumno(Alumno al);
+   
 }

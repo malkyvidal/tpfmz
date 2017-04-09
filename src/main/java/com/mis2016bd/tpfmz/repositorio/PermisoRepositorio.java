@@ -18,4 +18,6 @@ public interface PermisoRepositorio {
     void nuevoPermiso(Permiso al);
     void eliminaPermiso(Permiso permiso);
     Permiso encontrarPermisoPorCodPermiso(int codPermiso);
+     void updatePermiso(Permiso al);
+     List<Permiso> obtenerTodosLosPermisosPorPerfil(int codPerfil);
 }

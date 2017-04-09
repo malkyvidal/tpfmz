@@ -42,4 +42,14 @@ public class ModuloServicioImpl implements ModuloServicio{
         return  repo.encontrarModuloPorCodModulo(codModulo);
     }
    
+      @Override
+    public void updateModulo(Modulo al) {
+        repo.updateModulo(al);
+    }
+    
+     @Override
+    public List<Modulo> obtenerTodosLosModulosPorPermiso(int codPermiso){
+        return repo.obtenerTodosLosModulosPorPermiso(codPermiso);
+    }
+    
 }

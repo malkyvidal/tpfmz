@@ -1,13 +1,14 @@
 <%-- 
-    Document   : permisos
-    Created on : Apr 6, 2017, 2:04:38 PM
+    Document   : updatePerfil
+    Created on : Apr 8, 2017, 9:13:16 AM
     Author     : silvina
 --%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib	prefix="spring"	uri="http://www.springframework.org/tags"%>
-
+<%@	taglib	prefix="form"	uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,8 +17,7 @@
         <script src="${pageContext.request.contextPath}/resources/js/jquery.js" type="text/javascript"></script>
         <script src="${pageContext.request.contextPath}/resources/js/bootstrap.js" type="text/javascript"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-        <title>Permisos</title>
+        <title>Perfil-Datos</title>
     </head>
     <body>
         <div class="container">
@@ -45,11 +45,11 @@
                                         Alumnos
                                     </a>
                                 </li>
-                                <li class="active"><a	href="<spring:url	value="/Perfiles"/>"	>
+                                 <li class="active"><a	href="<spring:url	value="/Perfiles"/>"	>
                                         Perfiles
                                     </a>
                                 </li>
-                               <li class="active"><a	href="<spring:url	value="/Permisos"/>"	>
+                                <li class="active"><a	href="<spring:url	value="/Permisos"/>"	>
                                         Permisos
                                     </a>
                                 </li>
@@ -65,44 +65,29 @@
                 </nav>
             </div>
             <div class="row">
-                
 
-                <div >
-                    <div class="col-md-4">
-                        <h4>Todos Los Permisos</h4>
+                <form:form  modelAttribute="updatePerfil"  class="form-horizontal">
+                    <div class="form-group" >
+                        
+                        <label class="control-label col-md-2" for="descripcion">descripción</label>
+                        <td>${perfil.descripcion}</td>
+                        <form:input	id="descripcion" path="descripcion" type="text" class="form:input-large"/>
+                        
                     </div>
-                    <div class="col-md-offset-10">
-                        <a class="btn btn-primary" href="<spring:url	value="/Permisos/nuevo"/>"  >Nuevo</a>
+                    <div class="form-group" >
+                        <label class="control-label col-md-2" for="estado">estado</label>
+                        <td>${perfil.estado}</td>
+                        <form:input	id="estado" path="estado" type="text" class="form:input-large"/>
+                        
                     </div>
-                    
-                </div>
-                 <table class="table table-striped">
-                     
-            <tr>
-                
-                <th>codPermiso</th>
-                <th>codPerfil</th>
-                <th>descripción</th>
-                <th>Acción</th>
-            </tr>
-            <c:forEach  items="${datos}" var="permiso">
-                <tr>
-                 
-                    
+                         <div class="form-group">
+                            <input type="submit" class="btn btn-primary col-md-offset-2" value="Actualizar"/>
+                        </div>    
 
-                    <td>${permiso.codPermiso}</td>
-                       <td>${permiso.perfil.codPerfil}</td>
-                       <td>${permiso.accion}</td>
-                       <td>
+                        
+                </form:form >
+            </div>
 
-                           <a class="btn btn-default" onclick="return confirm('Seguro que desea eliminar?')" href="<spring:url	value='/Permisos/eliminar/${permiso.codPermiso}'/>">eliminar</a>
-                           <a class="btn btn-default" href="<spring:url	value='/Permisos/update/${permiso.codPermiso}'/>">editar</a>
-                       </td>
-                </tr>
-            </c:forEach>
-        </table>
-                    
-	    </div>
         </div>
     </body>
 </html>

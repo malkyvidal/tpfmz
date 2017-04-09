@@ -16,4 +16,6 @@ public interface ModuloServicio {
          void nuevoModulo(Modulo al);
      void eliminaModulo(Modulo modulo);
    Modulo encontrarModuloPorCodModulo(int codModulo);
+   void updateModulo(Modulo al);
+   List<Modulo> obtenerTodosLosModulosPorPermiso(int codPermiso);
 }
