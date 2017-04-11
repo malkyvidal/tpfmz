@@ -5,7 +5,6 @@
  */
 package com.mis2016bd.tpfmz.repositorio;
 
-import com.mis2016bd.tpfmz.modelo.Alumno;
 import com.mis2016bd.tpfmz.modelo.Materia;
 import java.util.List;
 
@@ -17,4 +16,6 @@ public interface MateriaRepositorio {
     public List<Materia> obtenerTodasLasMaterias();
 
     public Materia encontrarMateriaPorCodigo(int id);
+
+    public Materia obtenerMateriaPorCodigo(int codMateria);
 }

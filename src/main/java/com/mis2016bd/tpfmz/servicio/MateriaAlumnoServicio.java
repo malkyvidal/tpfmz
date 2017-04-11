@@ -14,4 +14,10 @@ import java.util.List;
  */
 public interface MateriaAlumnoServicio {
     List<Materiasalumnos> obtenerTodasLasMaterias();
+
+    public Materiasalumnos encontrarMateriaAlumnoPorCodigo(int id);
+
+    public void eliminaMateriaAlumno(Materiasalumnos al);
+
+    public void nuevaMateriaAlumno(Materiasalumnos nuevo);
 }

@@ -5,10 +5,8 @@
  */
 package com.mis2016bd.tpfmz.repositorio.impl;
 
-import com.mis2016bd.tpfmz.modelo.Alumno;
 import com.mis2016bd.tpfmz.modelo.Materia;
 import com.mis2016bd.tpfmz.repositorio.MateriaRepositorio;
-import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -52,6 +50,16 @@ public class MateriaRepositorioImpl implements MateriaRepositorio{
         Session session = getSessionFactory().getCurrentSession();
         
         Query query = session.createQuery("from Materia where codMateria="+Integer.toString(id));
+        Materia materia = (Materia) query.uniqueResult();
+        return materia;
+    }
+    
+    @Transactional
+    @Override
+    public Materia obtenerMateriaPorCodigo(int codMateria) {
+        Session session = getSessionFactory().getCurrentSession();
+        
+        Query query = session.createQuery("from Materia where codMateria="+Integer.toString(codMateria));
         Materia materia = (Materia) query.uniqueResult();
         return materia;
     }

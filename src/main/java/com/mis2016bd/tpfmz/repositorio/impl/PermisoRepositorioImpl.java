@@ -89,7 +89,7 @@ public class PermisoRepositorioImpl implements PermisoRepositorio{
         return permiso;
     }
     
-     @Transactional
+    @Transactional
     @Override
     public void updatePermiso(Permiso al) {
          Session session = getSessionFactory().getCurrentSession();
