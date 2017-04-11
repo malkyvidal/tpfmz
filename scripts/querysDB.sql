@@ -40,6 +40,7 @@ CREATE TABLE `BDTP`.`Coordinador` (
     `Coordinador`.`fechaAlta`,
     `Coordinador`.`fechaBaja`
 FROM `BDTP`.`Coordinador`;
+ALTER TABLE `BDTP`.`Coordinador`  MODIFY nroResolucion VARCHAR(20);
 
 
 CREATE TABLE `BDTP`.`Alumno` (
@@ -199,12 +200,12 @@ alter table	`BDTP`.`Plan`  Modify identificador INT auto_increment ;
 alter table `BDTP`.`Alumno` modify plan int; 
 
 
-ALTER TABLE `bdtp`.`alumno` 
+ALTER TABLE `bdtp`.`Alumno` 
 ADD INDEX `fk_Alumno_plan_idx` (`plan` ASC);
-ALTER TABLE `bdtp`.`alumno` 
+ALTER TABLE `bdtp`.`Alumno` 
 ADD CONSTRAINT `fk_Alumno_plan`
   FOREIGN KEY (`plan`)
-  REFERENCES `bdtp`.`plan` (`identificador`)
+  REFERENCES `bdtp`.`Plan` (`identificador`)
   ON DELETE NO ACTION
   ON UPDATE NO ACTION;
 

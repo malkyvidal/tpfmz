@@ -48,6 +48,41 @@ CONSTRAINT `fk_Mensajes_2`
   ON UPDATE NO ACTION);
 
 
+CREATE TABLE `BDTP`.`Alumno` (
+  `legajo` INT NOT NULL,
+  `telefono` VARCHAR(45) NULL,
+  `email` VARCHAR(45) NULL,
+  `egresado` CHAR(1) NULL,
+  `plan` INT NULL,
+  PRIMARY KEY (`legajo`),
+  INDEX `fk_Alumno_plan_idx` (`plan` ASC),
+    CONSTRAINT `fk_Alumno_usuario`
+    FOREIGN KEY (`legajo`)
+    REFERENCES `BDTP`.`Usuario` (`legajo`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION),
+CONSTRAINT `fk_Alumno_plan`
+  FOREIGN KEY (`plan`)
+  REFERENCES `BDTP`.`Plan` (`identificador`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+CREATE TABLE `BDTP`.`Plan` (
+identificador INT NOT NULL AUTO_INCREMENT,
+nombre VARCHAR(50),
+nroResolucion VARCHAR(20),
+descripcion VARCHAR(255),
+fechaIni DATE,
+fechaFin DATE,
+PRIMARY KEY (identificador)  
+);
+
+
+
+
+
+
 insert into Perfil (`descripcion`,`estado`) values ('usuario1',1);
 insert into Perfil (`descripcion`,`estado`) values ('usuario2',1);
 
@@ -82,4 +117,17 @@ insert into `Materia`  (`codMateria`,`nombreMateria`, `modalidad`, `codCarrera`)
 insert into `Materia`  (`codMateria`,`nombreMateria`, `modalidad`, `codCarrera`) values (035, 'SySL', 1, 1);
 
 insert into `Materia`  (`codMateria`,`nombreMateria`, `modalidad`, `codCarrera`) values (041, 'Planeamiento', 0, 2);
+
+insert into `Plan` (`nombre`, `nroResolucion`, `descripcion`) values ('Plan x','ca2011', 'plan volver a la universidad');
+
+insert into `Plan` (`nombre`, `nroResolucion`, `descripcion`) values ('Plan y','ca2012', 'plan Egresar');
+
+insert into `Alumno` (`legajo`, `telefono`,`email`) values (1,'16309999','gmail');
+insert into `Alumno` (`legajo`, `telefono`,`email`) values (2,'0342246690','snabte@frsf.utn.edu.ar');
+insert into `Alumno` (`legajo`, `telefono`,`email`) values (3,'0342642200','nLuz@frsf.utn.edu.ar');
+
+INSERT INTO `Usuario` VALUES (4,'pass',4);
+INSERT INTO `Usuario` VALUES (5,'pass',5);
+insert into `Coordinador` (`legajo`, `nroResolucion`,`especialidad`, `plan`) values (4, 0094,'civil','volver');
+insert into `Coordinador` (`legajo`, `nroResolucion`,`especialidad`, `plan`) values (5, 0093,'mecánica','egreesar');
 

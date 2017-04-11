@@ -12,17 +12,17 @@ package com.mis2016bd.tpfmz.modelo;
 import java.util.Date;
 public class Coordinador extends Usuario{
     
-   int nroResolucion;
+   String nroResolucion;
    String especialidad;
    String plan;
     Date fechaAlta;
     Date fechaBaja;
 
-    public int getNroResolucion() {
+    public String getNroResolucion() {
         return nroResolucion;
     }
 
-    public void setNroResolucion(int nroResolucion) {
+    public void setNroResolucion(String nroResolucion) {
         this.nroResolucion = nroResolucion;
     }
 

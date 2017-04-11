@@ -34,9 +34,11 @@
         
              <joined-subclass name="Coordinador" table="Coordinador">
             <key column="legajo" />
+            <property name="nroResolucion" />
             <property name="especialidad" />
-           
-            
+            <property name="plan" />
+            <property name="fechaAlta" />
+            <property name="fechaBaja" />
             
         </joined-subclass>
         

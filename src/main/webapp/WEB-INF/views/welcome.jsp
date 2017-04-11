@@ -45,6 +45,10 @@
                                         Alumnos
                                     </a>
                                 </li>
+                                <li > <a	href="<spring:url	value="/Coordinadores"/>"	>
+                                        Coordinadores
+                                    </a>
+                                </li>
                                 <li class="active"><a	href="<spring:url	value="/Carreras"/>"	>
                                         Carreras
                                     </a>
