@@ -20,4 +20,6 @@ public interface MateriaAlumnoServicio {
     public void eliminaMateriaAlumno(Materiasalumnos al);
 
     public void nuevaMateriaAlumno(Materiasalumnos nuevo);
+
+    public void updateMateriaAlumno(Materiasalumnos nuevo);
 }

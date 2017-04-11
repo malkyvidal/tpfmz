@@ -41,5 +41,10 @@ public class MateriasalumnosServicioImpl implements MateriaAlumnoServicio{
     public void nuevaMateriaAlumno(Materiasalumnos nuevo) {
         repo.nuevaMateriaAlumno(nuevo);
     }
+
+    @Override
+    public void updateMateriaAlumno(Materiasalumnos nuevo) {
+        repo.updateMateriaAlumno(nuevo);
+    }
     
 }

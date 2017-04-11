@@ -65,4 +65,11 @@ public class MateriaAlumnoRepositorioImpl implements MateriaAlumnoRepositorio{
         Session session = getSessionFactory().getCurrentSession();
         session.saveOrUpdate(nuevo);
     }
+    
+    @Transactional
+    @Override
+    public void updateMateriaAlumno(Materiasalumnos nuevo) {
+        Session session = getSessionFactory().getCurrentSession();
+        session.saveOrUpdate(nuevo);
+    }
 }

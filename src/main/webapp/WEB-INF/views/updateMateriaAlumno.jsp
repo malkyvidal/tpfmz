@@ -1,13 +1,14 @@
 <%-- 
-    Document   : materiaalumno
-    Created on : 09/04/2017, 19:17:31
+    Document   : updateMateriaAlumno
+    Created on : 10/04/2017, 19:27:12
     Author     : franco
 --%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib	prefix="spring"	uri="http://www.springframework.org/tags"%>
-
+<%@	taglib	prefix="form"	uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,8 +17,7 @@
         <script src="${pageContext.request.contextPath}/resources/js/jquery.js" type="text/javascript"></script>
         <script src="${pageContext.request.contextPath}/resources/js/bootstrap.js" type="text/javascript"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-        <title>Materias - Alumnos</title>
+        <title>Alumno-Datos</title>
     </head>
     <body>
         <div class="container">
@@ -45,19 +45,7 @@
                                         Alumnos
                                     </a>
                                 </li>
-                                <li class="active"><a	href="<spring:url	value="/Carreras"/>"	>
-                                        Carreras
-                                    </a>
-                                </li>
-                                <li class="active"><a	href="<spring:url	value="/Planes"/>"	>
-                                        Planes
-                                    </a>
-                                </li>
-                                <li class="active"><a	href="<spring:url	value="/MateriaAlumno"/>"	>
-                                        Materia - Alumno
-                                    </a>
-                                </li>
-                                <li class="active"><a	href="<spring:url	value="/Perfiles"/>"	>
+                                 <li class="active"><a	href="<spring:url	value="/Perfiles"/>"	>
                                         Perfiles
                                     </a>
                                 </li>
@@ -77,46 +65,42 @@
                 </nav>
             </div>
             <div class="row">
-                
 
-                <div >
-                    <div class="col-md-4">
-                        <h4>Todos Las Materias - Alumnos</h4>
-                    </div>
-                    <div class="col-md-offset-10">
-                        <a class="btn btn-primary" href="<spring:url	value="/MateriaAlumno/nuevo"/>"  >Nuevo</a>
-                    </div>
-                    
-                </div>
-                 <table class="table table-striped">
-                     
-            <tr>
-                
-                <th>Materia</th>
-                <th>Alumno</th>
-                <th>Estado</th>
-                <th>Acción</th>
-            </tr>
-            <c:forEach  items="${datos}" var="materiaalumno">
-                <tr>
-                 
-                    
-
-                       <td>${materiaalumno.materia.codMateria}</td>
+                <form:form  modelAttribute="updateMateriaAlumno"  class="form-horizontal">
+                    <div class="form-group" >
+                        
+                        <label class="control-label col-md-2" for="alumno">Alumno</label>
                        <td>${materiaalumno.alumno.legajo}</td>
-                       <td>${materiaalumno.estadoMateria}</td>
-                       <td>
-
-                           <a class="btn btn-danger custom-width" onclick="return confirm('Seguro que desea eliminar?')" href="<spring:url	value='/MateriaAlumno/eliminar/${materiaalumno.id}'/>">Eliminar</a>
-                           <a class="btn btn-success custom-width" href="<spring:url	value='/MateriaAlumno/update/${materiaalumno.id}'/>">Editar</a>
-                        </td>
-                </tr>
-            </c:forEach>
-        </table>
+                        <form:select id="alumno" path="alumno.legajo">
+                            <form:options items="${datosAlumnos}" itemLabel="legajo" itemValue="legajo"></form:options>
+                        </form:select>
+                    </div>
+                     <div class="form-group" >
+                        
+                        <label class="control-label col-md-2" for="materia">Materia</label>
+                       <td>${materiaalumno.materia.codMateria}</td>
+                        <form:select id="materia" path="materia.codMateria">
+                            <form:options items="${datosMaterias}" itemLabel="nombreMateria" itemValue="codMateria"></form:options>
+                        </form:select>
+                    </div>    
                     
-		
+                    <div class="form-group" >
+                        
+                        <label class="control-label col-md-2" for="estadoMateria">Estado</label>
+                        <td>${materiaalumno.estadoMateria}</td>
+                        <form:input	id="estadoMateria" path="estadoMateria" type="text" class="form:input-large"/>
+                    </div>
+                 
 
+                   
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-primary col-md-offset-2" value="Actualizar"/>
+                        </div>
+                        
+                         
+                </form:form >
             </div>
+
         </div>
     </body>
 </html>
