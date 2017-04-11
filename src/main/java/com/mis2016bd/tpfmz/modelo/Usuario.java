@@ -22,7 +22,7 @@ public class Usuario {
 
     
     String contrasenia;
-    int codPerfil=0;
+    int codPerfil;
 
 
     public String getContrasenia() {

@@ -45,7 +45,15 @@
                                         Alumnos
                                     </a>
                                 </li>
-                                                             <li class="active"><a	href="<spring:url	value="/Carreras"/>"	>
+                                <li > <a	href="<spring:url	value="/Coordinadores"/>"	>
+                                        Coordinadores
+                                    </a>
+                                </li>
+                                <li > <a	href="<spring:url	value="/AdminAlumno"/>"	>
+                                        Admnistrador Alumno
+                                    </a>
+                                </li>
+                                <li class="active"><a	href="<spring:url	value="/Carreras"/>"	>
                                         Carreras
                                     </a>
                                 </li>

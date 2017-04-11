@@ -1,7 +1,7 @@
 <%-- 
-    Document   : alumnos
-    Created on : 28-mar-2017, 21:35:51
-    Author     : malky
+    Document   : adminalumno
+    Created on : 11/04/2017, 19:21:53
+    Author     : franco
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -17,7 +17,7 @@
         <script src="${pageContext.request.contextPath}/resources/js/bootstrap.js" type="text/javascript"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-        <title>Alumnos</title>
+        <title>Administrador Alumnos</title>
     </head>
     <body>
         <div class="container">
@@ -81,10 +81,10 @@
 
                 <div >
                     <div class="col-md-4">
-                        <h4>Todos Los Alumnos</h4>
+                        <h4>Todos Los Administradores</h4>
                     </div>
                     <div class="col-md-offset-10">
-                        <a class="btn btn-primary" href="<spring:url	value="/Alumnos/nuevo"/>"  >Nuevo</a>
+                        <a class="btn btn-primary" href="<spring:url	value="/AdminAlumno/nuevo"/>"  >Nuevo</a>
                     </div>
                     
                 </div>
@@ -92,23 +92,25 @@
                      
             <tr>
                 
-                <th>telefono</th>
-                <th>Email</th>
-                <th>Plan</th>
+                <th>Legajo</th>
+                <th>Fecha Alta</th>
+                <th>Fecha Baja</th>
+                <th>Código Perfil</th>
                 <th>Acción</th>
             </tr>
-            <c:forEach  items="${datos}" var="alumno">
+            <c:forEach  items="${datos}" var="admin">
                 <tr>
                  
                     
 
-                    <td>${alumno.telefono}</td>
-                       <td>${alumno.email}</td>
-                       <td>${alumno.plan.identificador}</td>
+                       <td>${admin.legajo}</td>
+                       <td>${admin.fechaAlta}</td>
+                       <td>${admin.fechaBaja}</td>
+                       <td>${admin.codPerfil}</td>
                        <td>
 
-                           <a class="btn btn-default" onclick="return confirm('Seguro que desea eliminar?')" href="<spring:url	value='/Alumnos/eliminar/${alumno.legajo}'/>">eliminar</a>
-                           <a class="btn btn-default" href="<spring:url	value='/Alumnos/update/${alumno.legajo}'/>">editar</a>
+                           <a class="btn btn-danger custom-width" onclick="return confirm('Seguro que desea eliminar?')" href="<spring:url	value='/AdminAlumno/eliminar/${admin.legajo}'/>">Eliminar</a>
+                           <a class="btn btn-success custom-width" href="<spring:url	value='/AdminAlumno/update/${admin.legajo}'/>">Editar</a>
                        </td>
                 </tr>
             </c:forEach>

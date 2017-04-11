@@ -97,6 +97,13 @@
                             <form:options items="${datosPlanes}" itemLabel="nombre" itemValue="identificador"></form:options>
                         </form:select>
                     </div>
+                    <div class="form-group" >
+
+                        <label class="control-label col-md-2" for="codPerfil">Perfil</label>
+                        <form:select id="codPerfil" path="codPerfil">
+                            <form:options items="${datosPerfiles}" itemLabel="descripcion" itemValue="codPerfil"></form:options>
+                        </form:select>
+                    </div>     
                         <div class="form-group">
                             <input type="submit" class="btn btn-primary col-md-offset-2" value="Actualizar"/>
                         </div>
