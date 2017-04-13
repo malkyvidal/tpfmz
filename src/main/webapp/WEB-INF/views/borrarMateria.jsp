@@ -1,8 +1,9 @@
 <%-- 
-    Document   : borrarPermiso
-    Created on : Apr 8, 2017, 6:42:50 PM
+    Document   : borrarMateria
+    Created on : Apr 12, 2017, 7:00:27 PM
     Author     : silvina
 --%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib	prefix="spring"	uri="http://www.springframework.org/tags"%>
@@ -16,7 +17,7 @@
         <script src="${pageContext.request.contextPath}/resources/js/bootstrap.js" type="text/javascript"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-        <title>Eliminación de un Permiso</title>
+        <title>Eliminación de una Materia</title>
     </head>
     <body>
         <div class="container">
@@ -85,27 +86,27 @@
 
                
                     <div class="col-md-4">
-                        <h4>Todos Los Modulos que serán eliminados</h4>
+                        <h4>Todas Las MateriasAlumnos que serán eliminadas</h4>
                     </div>
-                       <a class="btn btn-default" onclick="return confirm('Seguro que desea eliminar?')" href="<spring:url value='/Permisos/borrar/${codPermi}'/>">eliminar</a>
+                       <a class="btn btn-default" onclick="return confirm('Seguro que desea eliminar?')" href="<spring:url value='/Materias/borrar/${codMateria}'/>">eliminar</a>
                  <table class="table table-striped">
                      
             <tr>
                 
-                <th>codModulo</th>
-                <th>codPermiso</th>
-                <th>descripción</th>
+                <th>Id</th>
+                <th>legajoAlumno</th>
+                <th>codMateria</th>
+                <th>estadoMateria</th>
                 
             </tr>
-            <c:forEach  items="${detalleModulos}" var="modulo">
+            <c:forEach  items="${detalleMateriasAlumnos}" var="materiasAlumno">
                 <tr>
                                      
-                    <td>${modulo.codModulo}</td>
-                       <td>${modulo.permiso.codPermiso}</td>
-                       <td>${modulo.descripcion}</td>
-
-                           
-       
+                    <td>${materiasAlumnos.id}</td>
+                       <td>${materiasAlumnos.alumno.legajo}</td>
+                       <td>${materiasAlumnos.materia.codigoMateria}</td>
+                       <td>${materiasAlumnos.estadoMateria}</td>
+    
                        </td>
                 </tr>
             </c:forEach>
@@ -116,4 +117,3 @@
         </div>
     </body>
 </html>
-

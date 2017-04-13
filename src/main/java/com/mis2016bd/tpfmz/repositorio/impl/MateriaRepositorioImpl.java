@@ -64,5 +64,31 @@ public class MateriaRepositorioImpl implements MateriaRepositorio{
         return materia;
     }
 
+      @Transactional
+    @Override
+    public void nuevaMateria(Materia al) {
+         Session session = getSessionFactory().getCurrentSession();
+         session.saveOrUpdate(al);
+         
+    }
+
+    @Transactional
+    @Override
+    public void eliminaMateria(Materia materia) {
+        Session session = getSessionFactory().getCurrentSession();
+        session.delete(materia);
+    }
            
+     @Transactional
+    @Override
+    public void updateMateria(Materia al) {
+         Session session = getSessionFactory().getCurrentSession();
+        Query query = session.createQuery("from Materia where codMateria="+Integer.toString(al.getCodMateria()));
+        Materia materia = (Materia) query.uniqueResult();
+        materia.setCodMateria(al.getCodMateria());
+        materia.setCarrera(al.getCarrera());
+        materia.setNombreMateria(al.getNombreMateria());
+        materia.setModalidad(al.getModalidad());
+    }
+
 }

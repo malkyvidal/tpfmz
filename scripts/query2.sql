@@ -110,13 +110,13 @@ insert into `Carrera` (`nombre`, `canNivel`) values ('Civil', 5);
 
 
 
-insert into `Materia`  (`codMateria`,`nombreMateria`, `modalidad`, `codCarrera`) values (033, 'Arquitectura de Computadoras', 0, 1);
+insert into `Materia`  (`nombreMateria`, `modalidad`, `codCarrera`) values ('Arquitectura de Computadoras', 2, 3);
 
-insert into `Materia`  (`codMateria`,`nombreMateria`, `modalidad`, `codCarrera`) values (034, 'Analisis de Sistemas', 0, 1);
+insert into `Materia`  (`nombreMateria`, `modalidad`, `codCarrera`) values ('Analisis de Sistemas', 0, 3);
 
-insert into `Materia`  (`codMateria`,`nombreMateria`, `modalidad`, `codCarrera`) values (035, 'SySL', 1, 1);
+insert into `Materia`  (`nombreMateria`, `modalidad`, `codCarrera`) values ('SySL', 1, 3);
 
-insert into `Materia`  (`codMateria`,`nombreMateria`, `modalidad`, `codCarrera`) values (041, 'Planeamiento', 0, 2);
+insert into `Materia`  (`nombreMateria`, `modalidad`, `codCarrera`) values ('Planeamiento', 0, 2);
 
 insert into `Plan` (`nombre`, `nroResolucion`, `descripcion`) values ('Plan x','ca2011', 'plan volver a la universidad');
 

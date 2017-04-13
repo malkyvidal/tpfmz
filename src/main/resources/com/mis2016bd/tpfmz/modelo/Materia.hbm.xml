@@ -4,9 +4,9 @@
 
 <hibernate-mapping package="com.mis2016bd.tpfmz.modelo">
     <class name="Materia" table="Materia" >
-        <id name="codMateria" type="int">
+        <id name="codMateria" type="java.lang.Integer">
             <column name="codMateria" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <many-to-one name="carrera" class="Carrera">
             <column name="codCarrera" />
@@ -14,10 +14,10 @@
         <property name="nombreMateria" type="string">
             <column name="nombreMateria" length="45" />
         </property>
-        <property name="modalidad" type="java.lang.Boolean">
+        <property name="modalidad" type="java.lang.Integer">
             <column name="modalidad" />
         </property>
-        <set name="materiasalumnoses" table="materiasalumnos" inverse="true" lazy="true" fetch="select">
+        <set name="materiasalumnoses" table="materiasAlumnos" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="codigoMateria" />
             </key>

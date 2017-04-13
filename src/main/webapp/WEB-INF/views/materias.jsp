@@ -1,8 +1,9 @@
 <%-- 
-    Document   : borrarPermiso
-    Created on : Apr 8, 2017, 6:42:50 PM
+    Document   : materias
+    Created on : Apr 11, 2017, 6:18:56 PM
     Author     : silvina
 --%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib	prefix="spring"	uri="http://www.springframework.org/tags"%>
@@ -16,10 +17,10 @@
         <script src="${pageContext.request.contextPath}/resources/js/bootstrap.js" type="text/javascript"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-        <title>Eliminación de un Permiso</title>
+        <title>Materias</title>
     </head>
     <body>
-        <div class="container">
+      <div class="container">
             <div class="row">
                 <nav class="navbar navbar-inverse navbar-static-top"
                      role="navigation">
@@ -48,7 +49,6 @@
                                         Coordinadores
                                     </a>
                                 </li>
-                                
                                 <li class="active"><a	href="<spring:url	value="/Carreras"/>"	>
                                         Carreras
                                     </a>
@@ -65,7 +65,7 @@
                                         Perfiles
                                     </a>
                                 </li>
-                               <li class="active"><a	href="<spring:url	value="/Permisos"/>"	>
+                                <li class="active"><a	href="<spring:url	value="/Permisos"/>"	>
                                         Permisos
                                     </a>
                                 </li>
@@ -83,37 +83,46 @@
             <div class="row">
                 
 
-               
+                <div >
                     <div class="col-md-4">
-                        <h4>Todos Los Modulos que serán eliminados</h4>
+                        <h4>Todas Las Materias</h4>
                     </div>
-                       <a class="btn btn-default" onclick="return confirm('Seguro que desea eliminar?')" href="<spring:url value='/Permisos/borrar/${codPermi}'/>">eliminar</a>
+                    <div class="col-md-offset-10">
+                        <a class="btn btn-primary" href="<spring:url	value="/Materias/nueva"/>"  >Nuevo</a>
+                    </div>
+                    
+                </div>
                  <table class="table table-striped">
                      
             <tr>
                 
-                <th>codModulo</th>
-                <th>codPermiso</th>
-                <th>descripción</th>
-                
+                <th>codMateria</th>
+                <th>nombre</th>
+                <th>codCarrera</th>
+                <th>modalidad</th>
+                <th>Acción</th>
             </tr>
-            <c:forEach  items="${detalleModulos}" var="modulo">
+            <c:forEach  items="${datos}" var="materia">
                 <tr>
-                                     
-                    <td>${modulo.codModulo}</td>
-                       <td>${modulo.permiso.codPermiso}</td>
-                       <td>${modulo.descripcion}</td>
+                 
+                    
 
-                           
-       
+                       <td>${materia.codMateria}</td>
+                       <td>${materia.nombreMateria}</td>
+                       <td>${materia.carrera.codigoCarrera}</td>
+                       <td>${materia.modalidad}</td>
+                       <td>
+
+                           <a class="btn btn-default" onclick="return confirm('Seguro que desea eliminar?')" href="<spring:url	value='/Materias/eliminar/${materia.codMateria}'/>">eliminar</a>
+                           <a class="btn btn-default" href="<spring:url	value='/Materias/update/${materia.codMateria}'/>">editar</a>
                        </td>
                 </tr>
             </c:forEach>
-                
         </table>
                     
-	    </div>
+		
+
+            </div>
         </div>
     </body>
 </html>
-

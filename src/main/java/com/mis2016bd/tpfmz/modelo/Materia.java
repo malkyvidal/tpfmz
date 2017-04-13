@@ -17,7 +17,7 @@ public class Materia {
     private int codMateria;
     private Carrera carrera;
     private String nombreMateria;
-    private Boolean modalidad;
+    private int modalidad;
     private Set materiasalumnoses = new HashSet(0);
     
     public Materia() {
@@ -27,7 +27,7 @@ public class Materia {
         this.codMateria = codMateria;
     }
 
-    public Materia(int codMateria, Carrera carrera, String nombreMateria, Boolean modalidad) {
+    public Materia(int codMateria, Carrera carrera, String nombreMateria, int modalidad) {
         this.codMateria = codMateria;
         this.carrera = carrera;
         this.nombreMateria = nombreMateria;
@@ -58,11 +58,11 @@ public class Materia {
         this.nombreMateria = nombreMateria;
     }
 
-    public Boolean getModalidad() {
+    public int getModalidad() {
         return this.modalidad;
     }
 
-    public void setModalidad(Boolean modalidad) {
+    public void setModalidad(int modalidad) {
         this.modalidad = modalidad;
     }
     

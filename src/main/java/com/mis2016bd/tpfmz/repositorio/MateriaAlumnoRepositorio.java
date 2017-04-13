@@ -20,4 +20,6 @@ public interface MateriaAlumnoRepositorio {
     public void eliminaMateriaAlumno(Materiasalumnos al);
 
     public void nuevaMateriaAlumno(Materiasalumnos nuevo);
+    
+    public List<Materiasalumnos> obtenerTodasLasMateriasAlumnosPorCodMateria(int codMateria);
 }

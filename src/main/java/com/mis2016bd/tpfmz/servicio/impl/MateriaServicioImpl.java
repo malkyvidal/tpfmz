@@ -37,4 +37,18 @@ public class MateriaServicioImpl implements MateriaServicio{
        return repo.obtenerMateriaPorCodigo(codMateria);
     }
     
+    @Override
+    public void nuevaMateria(Materia al){
+         repo.nuevaMateria(al);
+    }
+    
+      @Override
+    public void eliminaMateria(Materia materia){
+     repo.eliminaMateria(materia);
+    }
+    
+    @Override
+    public void updateMateria(Materia al){
+       repo.updateMateria(al);
+}
 }

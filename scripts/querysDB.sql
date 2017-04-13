@@ -75,6 +75,22 @@ CREATE TABLE `BDTP`.`Materia` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
     
+###(deSilvina)alterar tabla Materia para poner codMateria como int auto_increment hacer :
+
+ALTER TABLE materiasAlumnos 
+DROP FOREIGN KEY fk_MateriaAlumno_2;
+
+alter table `BDTP`.`Materia`  Modify codMateria INT auto_increment ;
+
+ALTER TABLE `bdtp`.`materiasAlumnos
+ADD CONSTRAINT `fk_MateriaAlumno_2`
+  FOREIGN KEY (`codigoMateria`)
+  REFERENCES `bdtp`.`materia` (`codMateria`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+###
+
     
  /* Agrego la parte de Plan, Materias y estados - Franco - */   
 

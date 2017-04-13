@@ -1,12 +1,13 @@
 <%-- 
-    Document   : borrarPermiso
-    Created on : Apr 8, 2017, 6:42:50 PM
+    Document   : updateMateria
+    Created on : Apr 12, 2017, 6:53:17 PM
     Author     : silvina
 --%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib	prefix="spring"	uri="http://www.springframework.org/tags"%>
-
+<%@	taglib	prefix="form"	uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -15,8 +16,7 @@
         <script src="${pageContext.request.contextPath}/resources/js/jquery.js" type="text/javascript"></script>
         <script src="${pageContext.request.contextPath}/resources/js/bootstrap.js" type="text/javascript"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-        <title>Eliminación de un Permiso</title>
+        <title>Materia-Datos</title>
     </head>
     <body>
         <div class="container">
@@ -44,16 +44,15 @@
                                         Alumnos
                                     </a>
                                 </li>
-                                <li class="active"><a	href="<spring:url	value="/Coordinadores"/>"	>
+                                    <li class="active"><a	href="<spring:url	value="/Coordinadores"/>"	>
                                         Coordinadores
                                     </a>
                                 </li>
-                                
                                 <li class="active"><a	href="<spring:url	value="/Carreras"/>"	>
                                         Carreras
                                     </a>
                                 </li>
-                                <li class="active"><a	href="<spring:url	value="/Materias"/>"	>
+                                 <li class="active"><a	href="<spring:url	value="/Materias"/>"	>
                                         Materias
                                     </a>
                                 </li>
@@ -61,11 +60,11 @@
                                         Planes
                                     </a>
                                 </li>
-                                <li class="active"><a	href="<spring:url	value="/Perfiles"/>"	>
+                                 <li class="active"><a	href="<spring:url	value="/Perfiles"/>"	>
                                         Perfiles
                                     </a>
                                 </li>
-                               <li class="active"><a	href="<spring:url	value="/Permisos"/>"	>
+                                <li class="active"><a	href="<spring:url	value="/Permisos"/>"	>
                                         Permisos
                                     </a>
                                 </li>
@@ -81,39 +80,36 @@
                 </nav>
             </div>
             <div class="row">
-                
 
-               
-                    <div class="col-md-4">
-                        <h4>Todos Los Modulos que serán eliminados</h4>
+                <form:form  modelAttribute="updateMateria"  class="form-horizontal">
+                    <div class="form-group" >
+                        
+                        <label class="control-label col-md-2" for="nombreMateria">Nombre</label>
+                        <td>${materia.nombreMateria}</td>
+                        <form:input 	id="nombreMateria"	path="nombreMateria" type="text" class="form:input-large"/>
                     </div>
-                       <a class="btn btn-default" onclick="return confirm('Seguro que desea eliminar?')" href="<spring:url value='/Permisos/borrar/${codPermi}'/>">eliminar</a>
-                 <table class="table table-striped">
-                     
-            <tr>
-                
-                <th>codModulo</th>
-                <th>codPermiso</th>
-                <th>descripción</th>
-                
-            </tr>
-            <c:forEach  items="${detalleModulos}" var="modulo">
-                <tr>
-                                     
-                    <td>${modulo.codModulo}</td>
-                       <td>${modulo.permiso.codPermiso}</td>
-                       <td>${modulo.descripcion}</td>
-
-                           
-       
-                       </td>
-                </tr>
-            </c:forEach>
-                
-        </table>
                     
-	    </div>
+                     <div class="form-group" >
+
+                        <label class="control-label col-md-2" for="carrera">Carrera</label>
+                        <form:select id="carrera" path="carrera.codigoCarrera">
+                            <form:options items="${datosCarrera}" itemLabel="nombre" itemValue="codigoCarrera"></form:options>
+                        </form:select>
+                    </div>
+                    <div class="form-group" >
+                                               
+                        <label class="control-label col-md-2" for="telefono">Modalidad</label>
+                        <td>${materia.modalidad}</td>
+                        <form:input	id="modalidad" path="modalidad" type="number" name="quantity" min="0" max="2"/>
+                    </div>
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-primary col-md-offset-2" value="Actualizar"/>
+                        </div>
+                        
+                         
+                </form:form >
+            </div>
+
         </div>
     </body>
 </html>
-
