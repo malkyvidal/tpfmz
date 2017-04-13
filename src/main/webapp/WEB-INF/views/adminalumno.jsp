@@ -1,14 +1,13 @@
 <%-- 
-    Document   : updateAlumno
-    Created on : Apr 7, 2017, 9:12:26 AM
-    Author     : silvina
+    Document   : adminalumno
+    Created on : 11/04/2017, 19:21:53
+    Author     : franco
 --%>
-
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib	prefix="spring"	uri="http://www.springframework.org/tags"%>
-<%@	taglib	prefix="form"	uri="http://www.springframework.org/tags/form"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -17,7 +16,8 @@
         <script src="${pageContext.request.contextPath}/resources/js/jquery.js" type="text/javascript"></script>
         <script src="${pageContext.request.contextPath}/resources/js/bootstrap.js" type="text/javascript"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Alumno-Datos</title>
+
+        <title>Administrador Alumnos</title>
     </head>
     <body>
         <div class="container">
@@ -45,7 +45,7 @@
                                         Alumnos
                                     </a>
                                 </li>
-                                    <li class="active"><a	href="<spring:url	value="/Coordinadores"/>"	>
+                                <li class="active"><a	href="<spring:url	value="/Coordinadores"/>"	>
                                         Coordinadores
                                     </a>
                                 </li>
@@ -53,15 +53,11 @@
                                         Carreras
                                     </a>
                                 </li>
-                                 <li class="active"><a	href="<spring:url	value="/Materias"/>"	>
-                                        Materias
-                                    </a>
-                                </li>
                                 <li class="active"><a	href="<spring:url	value="/Planes"/>"	>
                                         Planes
                                     </a>
                                 </li>
-                                 <li class="active"><a	href="<spring:url	value="/Perfiles"/>"	>
+                                <li class="active"><a	href="<spring:url	value="/Perfiles"/>"	>
                                         Perfiles
                                     </a>
                                 </li>
@@ -81,53 +77,48 @@
                 </nav>
             </div>
             <div class="row">
+                
 
-                <form:form  modelAttribute="updateAlumno"  class="form-horizontal">
-                    <div class="form-group" >
-                        
-                        <label class="control-label col-md-2" for="email">Email</label>
-                        <td>${alumno.email}</td>
-                        <form:input 	id="email"	path="email" type="text" class="form:input-large"/>
+                <div >
+                    <div class="col-md-4">
+                        <h4>Todos Los Administradores</h4>
                     </div>
-                    <div class="form-group" >
-                        
-                        <label class="control-label col-md-2" for="telefono">Telefono</label>
-                        <td>${alumno.telefono}</td>
-                        <form:input	id="telefono" path="telefono" type="text" class="form:input-large"/>
+                    <div class="col-md-offset-10">
+                        <a class="btn btn-primary" href="<spring:url	value="/AdminAlumno/nuevo"/>"  >Nuevo</a>
                     </div>
+                    
+                </div>
+                 <table class="table table-striped">
+                     
+            <tr>
+                
+                <th>Legajo</th>
+                <th>Fecha Alta</th>
+                <th>Fecha Baja</th>
+                <th>Código Perfil</th>
+                <th>Acción</th>
+            </tr>
+            <c:forEach  items="${datos}" var="admin">
+                <tr>
+                 
+                    
 
+                       <td>${admin.legajo}</td>
+                       <td>${admin.fechaAlta}</td>
+                       <td>${admin.fechaBaja}</td>
+                       <td>${admin.codPerfil}</td>
+                       <td>
 
-                    <div class="form-group" >
-                        <label class="control-label col-md-2" for="contrasenia">Password</label>
-                        <form:input	id="contrasenia" path="contrasenia" type="password" class="form:input-large"/>
+                           <a class="btn btn-danger custom-width" onclick="return confirm('Seguro que desea eliminar?')" href="<spring:url	value='/AdminAlumno/eliminar/${admin.legajo}'/>">Eliminar</a>
+                           <a class="btn btn-success custom-width" href="<spring:url	value='/AdminAlumno/update/${admin.legajo}'/>">Editar</a>
+                       </td>
+                </tr>
+            </c:forEach>
+        </table>
+                    
+		
 
-                    </div>
-
-                   
-
-                    <div class="form-group" >
-                        
-                        <label class="control-label col-md-2" for="plan">Plan</label>
-                       <td>${alumno.plan.identificador}</td>
-                        <form:select id="plan" path="plan.identificador">
-                            <form:options items="${datosPlanes}" itemLabel="nombre" itemValue="identificador"></form:options>
-                        </form:select>
-                    </div>
-                    <div class="form-group" >
-
-                        <label class="control-label col-md-2" for="codPerfil">Perfil</label>
-                        <form:select id="codPerfil" path="codPerfil">
-                            <form:options items="${datosPerfiles}" itemLabel="descripcion" itemValue="codPerfil"></form:options>
-                        </form:select>
-                    </div>     
-                        <div class="form-group">
-                            <input type="submit" class="btn btn-primary col-md-offset-2" value="Actualizar"/>
-                        </div>
-                        
-                         
-                </form:form >
             </div>
-
         </div>
     </body>
 </html>

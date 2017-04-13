@@ -81,4 +81,34 @@ public class MateriaAlumnoController {
        return "redirect:/MateriaAlumno";
     }
     
+    
+    @RequestMapping(value="/MateriaAlumno/update/{id}",method = RequestMethod.GET)
+    public String updateMateriaAlumno(@PathVariable("id") int id, Model model){
+    
+       Materiasalumnos ma = servicio.encontrarMateriaAlumnoPorCodigo(id);
+       List<Materia> mat = materia.obtenerTodasLasMaterias();
+       List<Alumno> al = alumno.obtenerTodosLosAlumnos();
+       
+       model.addAttribute("datosMaterias",mat);
+       model.addAttribute("datosAlumnos",al);
+       model.addAttribute("updateMateriaAlumno", ma);
+      
+        
+        return "updateMateriaAlumno";
+    }
+    
+    
+    @RequestMapping(value="/MateriaAlumno/update/{id}",method = RequestMethod.POST)
+ 
+    public String procesaupdateMateriaAlumno(@PathVariable("id") short id, @ModelAttribute("updateMateriaAlumno") Materiasalumnos nuevo){
+       nuevo.setId(id);
+       
+       Materia materiaAsociada = materia.obtenerMateriaPorCodigo(nuevo.getMateria().getCodMateria());
+       Alumno alumnoAsociado = alumno.encontrarAlumnoPorLegajo(nuevo.getAlumno().getLegajo());
+       nuevo.setAlumno(alumnoAsociado);
+       nuevo.setMateria(materiaAsociada);
+       servicio.updateMateriaAlumno(nuevo);
+       
+       return "redirect:/MateriaAlumno";
+    }
 }

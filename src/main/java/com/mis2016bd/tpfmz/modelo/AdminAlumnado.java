@@ -14,6 +14,7 @@ import java.util.Date;
 public class AdminAlumnado extends Usuario{
     
     Date fechaAlta ;
+    Date fechaBaja;
 
     public Date getFechaAlta() {
         return fechaAlta;
@@ -30,5 +31,5 @@ public class AdminAlumnado extends Usuario{
     public void setFechaBaja(Date fechaBaja) {
         this.fechaBaja = fechaBaja;
     }
-    Date fechaBaja;
+    
 }

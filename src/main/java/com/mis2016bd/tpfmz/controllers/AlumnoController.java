@@ -10,10 +10,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.ui.Model;
 import com.mis2016bd.tpfmz.modelo.Alumno;
+import com.mis2016bd.tpfmz.modelo.Perfil;
 import com.mis2016bd.tpfmz.modelo.Plan;
 
 
 import com.mis2016bd.tpfmz.servicio.AlumnoServicio;
+import com.mis2016bd.tpfmz.servicio.PerfilServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -34,6 +36,9 @@ public class AlumnoController {
     private AlumnoServicio servicio;
     @Autowired
     private PlanServicio planes;
+    @Autowired
+   private PerfilServicio perfil;
+    
     
     @RequestMapping("/Alumnos")
     
@@ -52,10 +57,11 @@ public class AlumnoController {
        Alumno al = new Alumno();
        
        List<Plan> pl = planes.obtenerTodosLosPlanes();
+       List<Perfil> perfiles = perfil.obtenerTodosLosPerfiles();
        
        model.addAttribute("datosPlanes",pl);
        model.addAttribute("nuevoAlumno", al);
-      
+        model.addAttribute("datosPerfiles",perfiles);
         
        return "nuevoAlumno";
     }
@@ -90,8 +96,10 @@ public class AlumnoController {
            
        
        List<Plan> pl = planes.obtenerTodosLosPlanes();
+        List<Perfil> perfiles = perfil.obtenerTodosLosPerfiles();
        
         model.addAttribute("datosPlanes",pl);
+         model.addAttribute("datosPerfiles",perfiles);
        model.addAttribute("updateAlumno", al);
       
         

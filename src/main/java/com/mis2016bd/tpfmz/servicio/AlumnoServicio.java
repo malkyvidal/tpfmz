@@ -6,7 +6,6 @@
 package com.mis2016bd.tpfmz.servicio;
 
 import com.mis2016bd.tpfmz.modelo.Alumno;
-import com.mis2016bd.tpfmz.modelo.Materia;
 import java.util.List;
 
 /**

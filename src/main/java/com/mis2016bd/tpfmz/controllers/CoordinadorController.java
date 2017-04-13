@@ -12,9 +12,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.ui.Model;
 import com.mis2016bd.tpfmz.modelo.Coordinador;
+import com.mis2016bd.tpfmz.modelo.Perfil;
 
 
 import com.mis2016bd.tpfmz.servicio.CoordinadorServicio;
+import com.mis2016bd.tpfmz.servicio.PerfilServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -39,6 +41,8 @@ public class CoordinadorController {
     
     @Autowired
     private CoordinadorServicio servicio;
+    @Autowired
+    private PerfilServicio perfil;
         
     @RequestMapping("/Coordinadores")
     
@@ -62,7 +66,10 @@ public class CoordinadorController {
     public String nuevoCoordinador(Model model){
     
        Coordinador al = new Coordinador();
+       List<Perfil> perfiles = perfil.obtenerTodosLosPerfiles();
        
+       
+       model.addAttribute("datosPerfiles",perfiles);
        model.addAttribute("nuevoCoordinador", al);
              
        return "nuevoCoordinador";
@@ -91,7 +98,9 @@ public class CoordinadorController {
     public String updateCoordinador(@PathVariable("id") int id, Model model){
     
        Coordinador al = servicio.encontrarCoordinadorPorLegajo(id);
+        List<Perfil> perfiles = perfil.obtenerTodosLosPerfiles();
    
+       model.addAttribute("datosPerfiles",perfiles);
        model.addAttribute("updateCoordinador", al);
              
        return "updateCoordinador";

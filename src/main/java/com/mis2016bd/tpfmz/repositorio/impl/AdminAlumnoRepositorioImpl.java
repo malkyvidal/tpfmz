@@ -5,8 +5,9 @@
  */
 package com.mis2016bd.tpfmz.repositorio.impl;
 
-import com.mis2016bd.tpfmz.modelo.Materiasalumnos;
-import com.mis2016bd.tpfmz.repositorio.MateriaAlumnoRepositorio;
+import com.mis2016bd.tpfmz.modelo.AdminAlumnado;
+import com.mis2016bd.tpfmz.modelo.Usuario;
+import com.mis2016bd.tpfmz.repositorio.AdminAlumnoRepositorio;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -20,19 +21,21 @@ import org.springframework.transaction.annotation.Transactional;
  * @author franco
  */
 @Repository
-public class MateriaAlumnoRepositorioImpl implements MateriaAlumnoRepositorio{
+public class AdminAlumnoRepositorioImpl implements AdminAlumnoRepositorio{
     
     private SessionFactory sessionFactory;
-
+    
     @Transactional
     @Override
-    public List<Materiasalumnos> obtenerTodasLasMaterias() {
-        Session session = sessionFactory.getCurrentSession();
-        String hql = "FROM Materiasalumnos";
-        Query query = session.createQuery(hql);
-        List<Materiasalumnos> materias = query.list();
-        return  materias;
+    public List<AdminAlumnado> obtenerTodosLosAdminAlumno() {
+       Session session = getSessionFactory().getCurrentSession();
+       String hql = "FROM AdminAlumnado";
+       Query query = session.createQuery(hql);
+       List<AdminAlumnado> lista = query.list();
+       
+       return lista;
     }
+    
     
     @Autowired
     public void setSessionFactory(SessionFactory sessionFactory) {
@@ -41,44 +44,36 @@ public class MateriaAlumnoRepositorioImpl implements MateriaAlumnoRepositorio{
     public SessionFactory getSessionFactory() {
         return sessionFactory;
     }
+    
+    @Transactional
+    @Override
+    public AdminAlumnado encontrarAdministradorPorLegajo(int id) {
+        Session session = getSessionFactory().getCurrentSession();
+        
+        Query query = session.createQuery("from AdminAlumnado where legajo="+Integer.toString(id));
+        AdminAlumnado aa = (AdminAlumnado) query.uniqueResult();
+        return aa;
+    }
 
     @Transactional
     @Override
-    public Materiasalumnos encontrarMateriaAlumnoPorCodigo(int id) {
+    public void eliminarAdministrador(AdminAlumnado aa) {
         Session session = getSessionFactory().getCurrentSession();
+        session.delete(aa);
+    }
+
+    @Transactional
+    @Override
+    public void nuevoAdminAlumno(AdminAlumnado nuevo) {
+        Session session = getSessionFactory().getCurrentSession();
+        session.saveOrUpdate(nuevo);
+    }
+
+    @Transactional
+    @Override
+    public void updateAdminAlumno(AdminAlumnado nuevo) {
+        Session session = getSessionFactory().getCurrentSession();
+        session.saveOrUpdate(nuevo);
+    }
         
-        Query query = session.createQuery("from Materiasalumnos where id="+Integer.toString(id));
-        Materiasalumnos al = (Materiasalumnos) query.uniqueResult();
-        return al;
-    }
-    
-    @Transactional
-    @Override
-    public void eliminaMateriaAlumno(Materiasalumnos al) {
-        Session session = getSessionFactory().getCurrentSession();
-        session.delete(al);
-    }
-    
-    @Transactional
-    @Override
-    public void nuevaMateriaAlumno(Materiasalumnos nuevo) {
-        Session session = getSessionFactory().getCurrentSession();
-        session.saveOrUpdate(nuevo);
-    }
-    
-    @Transactional
-    @Override
-    public List<Materiasalumnos> obtenerTodasLasMateriasAlumnosPorCodMateria(int codMateria) {
-        Session session = sessionFactory.getCurrentSession();
-        String hql = "FROM materiasAlumnos where codigoMateria="+Integer.toString(codMateria);
-        Query query = session.createQuery(hql);
-        List<Materiasalumnos> matAlumn = query.list();
-        return  matAlumn;
-    }
-    @Transactional
-    @Override 
-    public void updateMateriaAlumno(Materiasalumnos nuevo) {
-        Session session = getSessionFactory().getCurrentSession();
-        session.saveOrUpdate(nuevo);
-    }
 }

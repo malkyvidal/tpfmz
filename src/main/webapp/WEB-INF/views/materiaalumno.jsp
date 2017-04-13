@@ -108,7 +108,7 @@
                        <td>
 
                            <a class="btn btn-danger custom-width" onclick="return confirm('Seguro que desea eliminar?')" href="<spring:url	value='/MateriaAlumno/eliminar/${materiaalumno.id}'/>">Eliminar</a>
-                           <a class="btn btn-success custom-width" href="<spring:url	value='/Planes/update/${materiaalumno.id}'/>">Editar</a>
+                           <a class="btn btn-success custom-width" href="<spring:url	value='/MateriaAlumno/update/${materiaalumno.id}'/>">Editar</a>
                         </td>
                 </tr>
             </c:forEach>

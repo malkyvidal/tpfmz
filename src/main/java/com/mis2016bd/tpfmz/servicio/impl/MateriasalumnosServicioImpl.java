@@ -45,5 +45,10 @@ public class MateriasalumnosServicioImpl implements MateriaAlumnoServicio{
 public List<Materiasalumnos> obtenerTodasLasMateriasAlumnosPorCodMateria(int codMateria){
     return repo.obtenerTodasLasMateriasAlumnosPorCodMateria(codMateria);
 }
+
+    @Override
+    public void updateMateriaAlumno(Materiasalumnos nuevo) {
+        repo.updateMateriaAlumno(nuevo);
+    }
     
 }

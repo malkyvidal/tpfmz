@@ -1,7 +1,7 @@
 <%-- 
-    Document   : updateAlumno
-    Created on : Apr 7, 2017, 9:12:26 AM
-    Author     : silvina
+    Document   : updateMateriaAlumno
+    Created on : 10/04/2017, 19:27:12
+    Author     : franco
 --%>
 
 
@@ -45,22 +45,6 @@
                                         Alumnos
                                     </a>
                                 </li>
-                                    <li class="active"><a	href="<spring:url	value="/Coordinadores"/>"	>
-                                        Coordinadores
-                                    </a>
-                                </li>
-                                <li class="active"><a	href="<spring:url	value="/Carreras"/>"	>
-                                        Carreras
-                                    </a>
-                                </li>
-                                 <li class="active"><a	href="<spring:url	value="/Materias"/>"	>
-                                        Materias
-                                    </a>
-                                </li>
-                                <li class="active"><a	href="<spring:url	value="/Planes"/>"	>
-                                        Planes
-                                    </a>
-                                </li>
                                  <li class="active"><a	href="<spring:url	value="/Perfiles"/>"	>
                                         Perfiles
                                     </a>
@@ -82,44 +66,33 @@
             </div>
             <div class="row">
 
-                <form:form  modelAttribute="updateAlumno"  class="form-horizontal">
+                <form:form  modelAttribute="updateMateriaAlumno"  class="form-horizontal">
                     <div class="form-group" >
                         
-                        <label class="control-label col-md-2" for="email">Email</label>
-                        <td>${alumno.email}</td>
-                        <form:input 	id="email"	path="email" type="text" class="form:input-large"/>
+                        <label class="control-label col-md-2" for="alumno">Alumno</label>
+                       <td>${materiaalumno.alumno.legajo}</td>
+                        <form:select id="alumno" path="alumno.legajo">
+                            <form:options items="${datosAlumnos}" itemLabel="legajo" itemValue="legajo"></form:options>
+                        </form:select>
                     </div>
+                     <div class="form-group" >
+                        
+                        <label class="control-label col-md-2" for="materia">Materia</label>
+                       <td>${materiaalumno.materia.codMateria}</td>
+                        <form:select id="materia" path="materia.codMateria">
+                            <form:options items="${datosMaterias}" itemLabel="nombreMateria" itemValue="codMateria"></form:options>
+                        </form:select>
+                    </div>    
+                    
                     <div class="form-group" >
                         
-                        <label class="control-label col-md-2" for="telefono">Telefono</label>
-                        <td>${alumno.telefono}</td>
-                        <form:input	id="telefono" path="telefono" type="text" class="form:input-large"/>
+                        <label class="control-label col-md-2" for="estadoMateria">Estado</label>
+                        <td>${materiaalumno.estadoMateria}</td>
+                        <form:input	id="estadoMateria" path="estadoMateria" type="text" class="form:input-large"/>
                     </div>
-
-
-                    <div class="form-group" >
-                        <label class="control-label col-md-2" for="contrasenia">Password</label>
-                        <form:input	id="contrasenia" path="contrasenia" type="password" class="form:input-large"/>
-
-                    </div>
+                 
 
                    
-
-                    <div class="form-group" >
-                        
-                        <label class="control-label col-md-2" for="plan">Plan</label>
-                       <td>${alumno.plan.identificador}</td>
-                        <form:select id="plan" path="plan.identificador">
-                            <form:options items="${datosPlanes}" itemLabel="nombre" itemValue="identificador"></form:options>
-                        </form:select>
-                    </div>
-                    <div class="form-group" >
-
-                        <label class="control-label col-md-2" for="codPerfil">Perfil</label>
-                        <form:select id="codPerfil" path="codPerfil">
-                            <form:options items="${datosPerfiles}" itemLabel="descripcion" itemValue="codPerfil"></form:options>
-                        </form:select>
-                    </div>     
                         <div class="form-group">
                             <input type="submit" class="btn btn-primary col-md-offset-2" value="Actualizar"/>
                         </div>

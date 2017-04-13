@@ -26,8 +26,8 @@ public class PerfilRepositorioImpl implements PerfilRepositorio{
     @Transactional
     @Override
     public List<Perfil> obtenerTodosLosPerfiles() {
-        Session session = getSessionFactory().getCurrentSession();
-         String hql = "FROM Perfil";
+      Session session = getSessionFactory().getCurrentSession();
+       String hql = "FROM Perfil";
        Query query = session.createQuery(hql);
        List<Perfil> lista = query.list();
        return lista;

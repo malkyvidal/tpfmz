@@ -21,4 +21,6 @@ public interface MateriaAlumnoServicio {
 
     public void nuevaMateriaAlumno(Materiasalumnos nuevo);
      public List<Materiasalumnos> obtenerTodasLasMateriasAlumnosPorCodMateria(int codMateria);
+
+    public void updateMateriaAlumno(Materiasalumnos nuevo);
 }

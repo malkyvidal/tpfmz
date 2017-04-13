@@ -1,10 +1,8 @@
 <%-- 
-    Document   : updateAlumno
-    Created on : Apr 7, 2017, 9:12:26 AM
-    Author     : silvina
---%>
-
-
+    Document   : updateAdminAlumno
+    Created on : 12/04/2017, 19:45:57
+    Author     : franco
+--%> 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib	prefix="spring"	uri="http://www.springframework.org/tags"%>
@@ -17,7 +15,7 @@
         <script src="${pageContext.request.contextPath}/resources/js/jquery.js" type="text/javascript"></script>
         <script src="${pageContext.request.contextPath}/resources/js/bootstrap.js" type="text/javascript"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Alumno-Datos</title>
+        <title>Admnistrador Alumnado -Datos</title>
     </head>
     <body>
         <div class="container">
@@ -45,16 +43,8 @@
                                         Alumnos
                                     </a>
                                 </li>
-                                    <li class="active"><a	href="<spring:url	value="/Coordinadores"/>"	>
-                                        Coordinadores
-                                    </a>
-                                </li>
                                 <li class="active"><a	href="<spring:url	value="/Carreras"/>"	>
                                         Carreras
-                                    </a>
-                                </li>
-                                 <li class="active"><a	href="<spring:url	value="/Materias"/>"	>
-                                        Materias
                                     </a>
                                 </li>
                                 <li class="active"><a	href="<spring:url	value="/Planes"/>"	>
@@ -82,44 +72,31 @@
             </div>
             <div class="row">
 
-                <form:form  modelAttribute="updateAlumno"  class="form-horizontal">
+                <form:form  modelAttribute="updateAdminAlumno"  class="form-horizontal">
                     <div class="form-group" >
                         
-                        <label class="control-label col-md-2" for="email">Email</label>
-                        <td>${alumno.email}</td>
-                        <form:input 	id="email"	path="email" type="text" class="form:input-large"/>
+                        <label class="control-label col-md-2" for="fechaAlta">Fecha Alta</label>
+                        <td>${adminalumno.fechaAlta}</td>
+                        <form:input 	id="fechaAlta"	path="fechaAlta" type="text" class="form:input-large"/>
                     </div>
                     <div class="form-group" >
                         
-                        <label class="control-label col-md-2" for="telefono">Telefono</label>
-                        <td>${alumno.telefono}</td>
-                        <form:input	id="telefono" path="telefono" type="text" class="form:input-large"/>
+                        <label class="control-label col-md-2" for="fechaBaja">Fecha Baja</label>
+                        <td>${adminalumno.fechaBaja}</td>
+                        <form:input 	id="fechaBaja"	path="fechaBaja" type="text" class="form:input-large"/>
                     </div>
-
-
-                    <div class="form-group" >
-                        <label class="control-label col-md-2" for="contrasenia">Password</label>
-                        <form:input	id="contrasenia" path="contrasenia" type="password" class="form:input-large"/>
-
-                    </div>
-
+                                                        
                    
-
-                    <div class="form-group" >
-                        
-                        <label class="control-label col-md-2" for="plan">Plan</label>
-                       <td>${alumno.plan.identificador}</td>
-                        <form:select id="plan" path="plan.identificador">
-                            <form:options items="${datosPlanes}" itemLabel="nombre" itemValue="identificador"></form:options>
-                        </form:select>
-                    </div>
-                    <div class="form-group" >
+                     <div class="form-group" >
 
                         <label class="control-label col-md-2" for="codPerfil">Perfil</label>
                         <form:select id="codPerfil" path="codPerfil">
                             <form:options items="${datosPerfiles}" itemLabel="descripcion" itemValue="codPerfil"></form:options>
                         </form:select>
-                    </div>     
+                    </div>       
+                   
+
+                    
                         <div class="form-group">
                             <input type="submit" class="btn btn-primary col-md-offset-2" value="Actualizar"/>
                         </div>
@@ -131,3 +108,4 @@
         </div>
     </body>
 </html>
+
