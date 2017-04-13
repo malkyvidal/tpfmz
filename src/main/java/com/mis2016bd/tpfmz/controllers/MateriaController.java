@@ -77,41 +77,13 @@ public class MateriaController {
     }
     
     
-   @RequestMapping(value="/Materias/eliminar/{id}",method = RequestMethod.GET)
-    public String borrarMateria(@PathVariable("id") int id, Model model){
-       
-       Materia al = servicio.encontrarMateriaPorCodigo(id);
-           
-      List<Materiasalumnos> pl = matAlumnos.obtenerTodasLasMateriasAlumnosPorCodMateria(id); 
-       int size = pl.size();
-       
-       model.addAttribute("cantMatAlum",size);
-       model.addAttribute("detalleMateriasAlumnos",pl);
-       model.addAttribute("borrarMateria", al);
-       model.addAttribute("codMateria", id);
-      
-        return "borrarMateria";
-    }
+    @RequestMapping(value="/Materias/eliminar/{id}",method = RequestMethod.GET)
+    public String eliminarMateriao( @PathVariable("id") int id){
     
-        
-     @RequestMapping(value="/Materias/borrar/{id}",method = RequestMethod.GET)
-
-    public String procesaBorrarPermiso(@PathVariable("id") int id){
-           
-       Materia al  = servicio.encontrarMateriaPorCodigo(id);
-       int codMateria = al.getCodMateria();
-       
-       
-       List<Materiasalumnos> lista = matAlumnos.obtenerTodasLasMateriasAlumnosPorCodMateria(id); 
-        
-       ListIterator<Materiasalumnos> it = lista.listIterator();
-       while(it.hasNext()) {
-         Materiasalumnos next = it.next();
-         matAlumnos.eliminaMateriaAlumno(next);
-       }
+        Materia al  = servicio.encontrarMateriaPorCodigo(id);
         servicio.eliminaMateria(al);
-                       
-      return "redirect:/Materias";
+        
+       return "redirect:/Materias";
     
     }
     

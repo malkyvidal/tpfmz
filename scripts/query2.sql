@@ -131,3 +131,10 @@ INSERT INTO `Usuario` VALUES (5,'pass',5);
 insert into `Coordinador` (`legajo`, `nroResolucion`,`especialidad`, `plan`) values (4, 0094,'civil','volver');
 insert into `Coordinador` (`legajo`, `nroResolucion`,`especialidad`, `plan`) values (5, 0093,'mecánica','egreesar');
 
+legajo INT,
+codigoMateria INT,
+estadoMateria VARCHAR(100),
+insert into `materiasAlumnos` (`legajo`, `codigoMateria`,`estadoMateria`) values (1,6,'regular');
+insert into `materiasAlumnos` (`legajo`, `codigoMateria`,`estadoMateria`) values (1,9,'libre');
+insert into `materiasAlumnos` (`legajo`, `codigoMateria`,`estadoMateria`) values (1,10,'libre');
+insert into `materiasAlumnos` (`legajo`, `codigoMateria`,`estadoMateria`) values (3,8,'regular');

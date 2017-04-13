@@ -17,12 +17,12 @@
         <property name="modalidad" type="java.lang.Integer">
             <column name="modalidad" />
         </property>
-        <set name="materiasalumnoses" table="materiasAlumnos" inverse="true" lazy="true" fetch="select">
-            <key>
+        <set name="materiasalumnoses" table="MateriasAlumnos">
+            <key>         
                 <column name="codigoMateria" />
             </key>
-            <one-to-many class="com.mis2016bd.tpfmz.modelo.Materiasalumnos" />
+            <one-to-many class="Materiasalumnos" />
         </set>
-    </class>
+       </class>
 </hibernate-mapping>
 

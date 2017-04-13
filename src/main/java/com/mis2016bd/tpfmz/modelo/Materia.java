@@ -18,7 +18,7 @@ public class Materia {
     private Carrera carrera;
     private String nombreMateria;
     private int modalidad;
-    private Set materiasalumnoses = new HashSet(0);
+    private Set<Materiasalumnos> materiasalumnoses = new HashSet(0);
     
     public Materia() {
     }
