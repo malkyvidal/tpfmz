@@ -34,6 +34,16 @@ public class CoordinadorRepositorioImpl implements CoordinadorRepositorio{
              
        return lista;
     }
+     @Transactional
+    @Override
+    public List<Coordinador> obtenerTodosLosCoordinadoresPorPlan(int codPlan) {
+       Session session = getSessionFactory().getCurrentSession();
+       String hql = "FROM Coordinador where plan="+Integer.toString(codPlan);
+       Query query = session.createQuery(hql);
+       List<Coordinador> lista = query.list();
+             
+       return lista;
+    }
         
     @Autowired
     public void setSessionFactory(SessionFactory sessionFactory) {

@@ -10,12 +10,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.ui.Model;
 import com.mis2016bd.tpfmz.modelo.Plan;
+import com.mis2016bd.tpfmz.modelo.Coordinador;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ModelAttribute;
-
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ListIterator;
 
 import com.mis2016bd.tpfmz.servicio.PlanServicio;
+import com.mis2016bd.tpfmz.servicio.CoordinadorServicio;
+
 import java.text.SimpleDateFormat;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.InitBinder;
@@ -34,6 +39,8 @@ public class PlanController {
     
     @Autowired
     private PlanServicio planes;
+     @Autowired
+    private CoordinadorServicio servCoord;
     
     @RequestMapping("/Planes")
     public String todosLosPlanes(Model model){
@@ -73,6 +80,15 @@ public class PlanController {
     public String eliminarPlan( @PathVariable("id") int id){
     
         Plan plan  = planes.encontrarPlanPorIdentificador(id);
+        
+        int codPlan = plan.getIdentificador();
+         
+         List<Coordinador>  listCoord = servCoord.obtenerTodosLosCoordinadoresPorPlan(codPlan);
+         ListIterator<Coordinador> itCoord = listCoord.listIterator();
+         while(itCoord.hasNext()) {
+             Coordinador nextCoord = itCoord.next();
+             servCoord.eliminaCoordinador(nextCoord);
+         }
         planes.eliminaPlan(plan);
         
        return "redirect:/Planes";
