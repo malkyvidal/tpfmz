@@ -43,4 +43,28 @@ public class MensajesRepositorioImpl implements MensajesRepositorio{
         return sessionFactory;
     }
     
+    @Transactional
+    @Override
+    public Mensaje encontrarMensajePorId(int id) {
+        Session session = getSessionFactory().getCurrentSession();
+        
+        Query query = session.createQuery("from Mensaje where id="+Integer.toString(id));
+        Mensaje mensaje = (Mensaje) query.uniqueResult();
+        return mensaje;
+    }
+
+    @Transactional
+    @Override
+    public void eliminarMensaje(Mensaje aa) {
+        Session session = getSessionFactory().getCurrentSession();
+        session.delete(aa);
+    }
+    
+    @Transactional
+    @Override
+    public void nuevoMensaje(Mensaje mensaje) {
+        Session session = getSessionFactory().getCurrentSession();
+        session.saveOrUpdate(mensaje);
+    }
+    
 }

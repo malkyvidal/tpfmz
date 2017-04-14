@@ -31,8 +31,8 @@ public class MateriaRepositorioImpl implements MateriaRepositorio{
         Session session = sessionFactory.getCurrentSession();
         String hql = "FROM Materia";
         Query query = session.createQuery(hql);
-        List<Materia> materias = query.list();
-        return  materias;
+        List<Materia> lista = query.list();
+        return  lista;
         
     }
     
