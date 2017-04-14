@@ -17,7 +17,8 @@ public class Alumno extends Usuario{
       private Plan plan;
       private String telefono;
       private String email;
-      private Set materiasalumnoses = new HashSet(0);
+      private String  egresado;
+      private Set<Materiasalumnos> materiasalumnoses = new HashSet(0);
 
     public Plan getPlan() {
         return plan;
@@ -26,7 +27,7 @@ public class Alumno extends Usuario{
     public void setPlan(Plan plan) {
         this.plan = plan;
     }
-    char  egresado;
+  
      
 
     public String getTelefono() {
@@ -45,11 +46,11 @@ public class Alumno extends Usuario{
         this.email = email;
     }
 
-    public char getEgresado() {
+    public String getEgresado() {
         return egresado;
     }
 
-    public void setEgresado(char egresado) {
+    public void setEgresado(String egresado) {
         this.egresado = egresado;
     }
     

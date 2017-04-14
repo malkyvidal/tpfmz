@@ -95,20 +95,22 @@
                  <table class="table table-striped">
                      
             <tr>
-                
+                <th>legajo</th>
                 <th>telefono</th>
                 <th>Email</th>
                 <th>Plan</th>
+                <th>perfil</th>
                 <th>Acción</th>
             </tr>
             <c:forEach  items="${datos}" var="alumno">
                 <tr>
-                 
-                    
-
+                       
+                    <td>${alumno.legajo}</td>   
                     <td>${alumno.telefono}</td>
-                       <td>${alumno.email}</td>
-                       <td>${alumno.plan.identificador}</td>
+                    <td>${alumno.email}</td>
+                    <td>${alumno.plan.identificador}</td>
+                    <td>${alumno.perfil.codPerfil}</td>
+                       
                        <td>
 
                            <a class="btn btn-default" onclick="return confirm('Seguro que desea eliminar?')" href="<spring:url	value='/Alumnos/eliminar/${alumno.legajo}'/>">eliminar</a>

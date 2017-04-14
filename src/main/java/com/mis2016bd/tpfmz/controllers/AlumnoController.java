@@ -12,10 +12,15 @@ import org.springframework.ui.Model;
 import com.mis2016bd.tpfmz.modelo.Alumno;
 import com.mis2016bd.tpfmz.modelo.Perfil;
 import com.mis2016bd.tpfmz.modelo.Plan;
+import com.mis2016bd.tpfmz.modelo.Materiasalumnos;
+import java.util.List;
+import java.util.ListIterator;
 
 
 import com.mis2016bd.tpfmz.servicio.AlumnoServicio;
 import com.mis2016bd.tpfmz.servicio.PerfilServicio;
+import com.mis2016bd.tpfmz.servicio.MateriaAlumnoServicio;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -39,6 +44,8 @@ public class AlumnoController {
     @Autowired
    private PerfilServicio perfil;
     
+     @Autowired
+   private MateriaAlumnoServicio matAlum;
     
     @RequestMapping("/Alumnos")
     
@@ -83,6 +90,15 @@ public class AlumnoController {
     public String eliminarAlumno( @PathVariable("id") int id){
     
         Alumno al  = servicio.encontrarAlumnoPorLegajo(id);
+        
+          int legajo = al.getLegajo();
+         
+         List<Materiasalumnos>  lista = matAlum.obtenerTodasLasMateriasAlumnosPorLegajo(legajo);
+         ListIterator<Materiasalumnos> it = lista.listIterator();
+         while(it.hasNext()) {
+             Materiasalumnos next = it.next();
+             matAlum.eliminaMateriaAlumno(next);
+         }
         servicio.eliminaAlumno(al);
         
        return "redirect:/Alumnos";
