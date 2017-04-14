@@ -53,6 +53,10 @@
                                         Carreras
                                     </a>
                                 </li>
+                                <li class="active"><a	href="<spring:url	value="/Materias"/>"	>
+                                        Materias 
+                                    </a>
+                                </li>
                                 <li class="active"><a	href="<spring:url	value="/Planes"/>"	>
                                         Planes
                                     </a>
@@ -96,6 +100,7 @@
                 <th>nroResolución</th>
                 <th>especialidad</th>
                 <th>plan</th>
+                <th>perfil</th>
                 <th>fechaAlta</th>
                 <th>fechaBaja</th>
                 <th>Acción</th>
@@ -106,7 +111,8 @@
                     <td>${coordinador.legajo}</td>
                     <td>${coordinador.nroResolucion}</td>
                     <td>${coordinador.especialidad}</td>
-                    <td>${coordinador.plan}</td>
+                    <td>${coordinador.plan.identificador}</td>
+                    <td>${coordinador.perfil.codPerfil}</td>
                     <td>${coordinador.fechaAlta}</td>
                     <td>${coordinador.fechaBaja}</td>
                        <td>

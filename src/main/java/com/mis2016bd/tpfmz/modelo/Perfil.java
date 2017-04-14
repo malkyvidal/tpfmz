@@ -21,6 +21,7 @@ public class Perfil {
     private boolean estado;
     
     private Set<Permiso> permisos = new HashSet(0);
+    private Set<Usuario> usuarios = new HashSet(0);
     
    
     public void updateUsuario(int legajo){
@@ -57,10 +58,17 @@ public class Perfil {
     public Set<Permiso> getPermisos() {
         return permisos;
     }
-
+   
     public void setPermisos(Set<Permiso> permisos) {
         this.permisos = permisos;
     }
+     public Set<Usuario> getUsuarios() {
+        return usuarios;
+    }
+     public void setUsuarios(Set<Usuario> usuarios) {
+        this.usuarios = usuarios;
+    }
+
 
     
 

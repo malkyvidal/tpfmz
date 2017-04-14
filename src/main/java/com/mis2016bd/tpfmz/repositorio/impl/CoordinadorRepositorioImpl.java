@@ -75,7 +75,7 @@ public class CoordinadorRepositorioImpl implements CoordinadorRepositorio{
          Session session = getSessionFactory().getCurrentSession();
         Query query = session.createQuery("from Coordinador where legajo="+Integer.toString(al.getLegajo()));
         Coordinador coordinador = (Coordinador) query.uniqueResult();
-        coordinador.setCodPerfil(al.getCodPerfil());
+        coordinador.setPerfil(al.getPerfil());
         coordinador.setContrasenia(al.getContrasenia());
         coordinador.setNroResolucion(al.getNroResolucion());
         coordinador.setEspecialidad(al.getEspecialidad());

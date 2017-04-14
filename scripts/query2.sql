@@ -128,8 +128,8 @@ insert into `Alumno` (`legajo`, `telefono`,`email`) values (3,'0342642200','nLuz
 
 INSERT INTO `Usuario` VALUES (4,'pass',4);
 INSERT INTO `Usuario` VALUES (5,'pass',5);
-insert into `Coordinador` (`legajo`, `nroResolucion`,`especialidad`, `plan`) values (4, 0094,'civil','volver');
-insert into `Coordinador` (`legajo`, `nroResolucion`,`especialidad`, `plan`) values (5, 0093,'mecánica','egreesar');
+insert into `Coordinador` (`legajo`, `nroResolucion`,`especialidad`, `plan`) values (4, 0094,'civil',1);
+insert into `Coordinador` (`legajo`, `nroResolucion`,`especialidad`, `plan`) values (5, 0093,'mecánica',2);
 
 legajo INT,
 codigoMateria INT,

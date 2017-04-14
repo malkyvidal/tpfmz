@@ -87,9 +87,18 @@
                         <label class="control-label col-md-2" for="especialidad">Especialidad</label>
                         <form:input	id="especialidad" path="especialidad" type="text" class="form:input-large"/>
                     </div>
-                    <div class="form-group" >
+                     <div class="form-group" >
+
                         <label class="control-label col-md-2" for="plan">Plan</label>
-                        <form:input	id="plan" path="plan" type="text" class="form:input-large"/>
+                        <form:select id="plan" path="plan.identificador">
+                            <form:options items="${datosPlanes}" itemLabel="identificador" itemValue="identificador"></form:options>
+                        </form:select>
+                    </div>
+                     <div class="form-group" >
+                        <label class="control-label col-md-2" for="codPerfil">Perfil</label>
+                        <form:select id="codPerfil" path="perfil.codPerfil">
+                            <form:options items="${datosPerfiles}" itemLabel="descripcion" itemValue="codPerfil"></form:options>
+                        </form:select>
                     </div>
                     <div class="form-group" >
                         <label class="control-label col-md-2" for="contrasenia">Password</label>
@@ -102,13 +111,7 @@
                         <form:input	id="fechaAlta" path="fechaAlta" class="form:input-large"/>
                     </div>
                     
-                    <div class="form-group" >
-
-                        <label class="control-label col-md-2" for="codPerfil">Perfil</label>
-                        <form:select id="codPerfil" path="codPerfil">
-                            <form:options items="${datosPerfiles}" itemLabel="descripcion" itemValue="codPerfil"></form:options>
-                        </form:select>
-                    </div> 
+      
                     
                         <div class="form-group">
                             <input type="submit" class="btn btn-primary col-md-offset-2" value="Crear"/>

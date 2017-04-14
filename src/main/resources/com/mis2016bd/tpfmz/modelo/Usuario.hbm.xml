@@ -7,7 +7,11 @@
             <generator class="native" />
         </id>
         <property name="contrasenia" column="contrasenia" />
-        <property name="codPerfil" column="codPerfil" />
+        
+        <many-to-one name="perfil" class="Perfil">
+            <column name="codPerfil" />
+        </many-to-one>
+        
          
         <joined-subclass name="AdminAlumnado" table="AdminAlumnado">
             <key column="legajo"/>
@@ -27,6 +31,7 @@
              <one-to-many class="com.mis2016bd.tpfmz.modelo.Materiasalumnos" />
             </set>
              <many-to-one name="plan" class="Plan" fetch="select">
+              
             <column name="plan" length="50" />
         </many-to-one>
             
@@ -36,7 +41,10 @@
             <key column="legajo" />
             <property name="nroResolucion" />
             <property name="especialidad" />
-            <property name="plan" />
+          <many-to-one name="plan" class="Plan" fetch="select">
+            <column name="plan" length="50" />
+        </many-to-one>
+           
             <property name="fechaAlta" />
             <property name="fechaBaja" />
             

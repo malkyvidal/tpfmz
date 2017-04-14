@@ -20,5 +20,11 @@
             </key>
             <one-to-many class="Alumno" />
         </set>
-    </class>
+         <set name="coordinadores" table="Coordinador" inverse="true" >
+            <key>
+                <column name="plan" length="50" />
+            </key>
+            <one-to-many class="Coordinador" />
+        </set>
+          </class>
 </hibernate-mapping>

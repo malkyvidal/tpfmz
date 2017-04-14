@@ -18,5 +18,11 @@
 </key>
 <one-to-many class="Permiso" />
 </set>
+<set name="usuarios" table="Usuario" >
+<key>
+<column name="codPerfil" />
+</key>
+<one-to-many class="Usuario" />
+</set>
 </class>
 </hibernate-mapping>

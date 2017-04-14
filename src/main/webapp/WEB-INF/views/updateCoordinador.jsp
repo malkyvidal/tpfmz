@@ -84,11 +84,21 @@
                         <td>${coordinador.especialidad}</td>
                         <form:input	id="especialidad" path="especialidad" type="text" class="form:input-large"/>
                     </div>
-                    <div class="form-group" >
-                        
+                      <div class="form-group" >
+
                         <label class="control-label col-md-2" for="plan">Plan</label>
-                        <td>${coordinador.plan}</td>
-                        <form:input	id="plan" path="plan" type="text" class="form:input-large"/>
+                        <td>${coordinador.plan.identificador}</td>
+                        <form:select id="plan" path="plan.identificador">
+                            <form:options items="${datosPlanes}" itemLabel="identificador" itemValue="identificador"></form:options>
+                        </form:select>
+                    </div>
+                     <div class="form-group" >
+
+                        <label class="control-label col-md-2" for="codPerfil">Perfil</label>
+                        <td>${coordinador.perfil.codPerfil}</td>
+                        <form:select id="codPerfil" path="perfil.codPerfil">
+                            <form:options items="${datosPerfiles}" itemLabel="codPerfil" itemValue="codPerfil"></form:options>
+                        </form:select>
                     </div>
                     <div class="form-group" >
                         
@@ -102,26 +112,13 @@
                         <td>${coordinador.fechaBaja}</td>
                         <form:input	id="fechaBaja" path="fechaBaja"  class="form:input-large"/>
                     </div>
-                    <div class="form-group" >
-                        
-                        <label class="control-label col-md-2" for="codPerfil">codPerfil</label>
-                        <td>${coordinador.codPerfil}</td>
-                        <form:input	id="codPerfil" path="codPerfil" type="text" class="form:input-large"/>
-                    </div>
-
+                    
                     <div class="form-group" >
                         <label class="control-label col-md-2" for="contrasenia">Password</label>
                         <form:input	id="contrasenia" path="contrasenia" type="password" class="form:input-large"/>
 
                     </div>
-                    <div class="form-group" >
-
-                        <label class="control-label col-md-2" for="codPerfil">Perfil</label>
-                        <form:select id="codPerfil" path="codPerfil">
-                            <form:options items="${datosPerfiles}" itemLabel="descripcion" itemValue="codPerfil"></form:options>
-                        </form:select>
-                    </div>  
-                                     
+                         
                         <div class="form-group">
                             <input type="submit" class="btn btn-primary col-md-offset-2" value="Actualizar"/>
                         </div>

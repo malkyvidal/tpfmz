@@ -22,7 +22,7 @@ public class Usuario {
 
     
     String contrasenia;
-    int codPerfil;
+    private Perfil perfil;
 
 
     public String getContrasenia() {
@@ -33,12 +33,12 @@ public class Usuario {
         this.contrasenia = contrasenia;
     }
 
-    public int getCodPerfil() {
-        return codPerfil;
+    public Perfil getPerfil() {
+        return perfil;
     }
 
-    public void setCodPerfil(int codPerfil) {
-        this.codPerfil = codPerfil;
+    public void setPerfil(Perfil p) {
+        this.perfil = p;
     }
     
 }

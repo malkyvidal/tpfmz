@@ -13,10 +13,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.ui.Model;
 import com.mis2016bd.tpfmz.modelo.Coordinador;
 import com.mis2016bd.tpfmz.modelo.Perfil;
+import com.mis2016bd.tpfmz.modelo.Plan;
 
 
 import com.mis2016bd.tpfmz.servicio.CoordinadorServicio;
 import com.mis2016bd.tpfmz.servicio.PerfilServicio;
+import com.mis2016bd.tpfmz.servicio.PlanServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -43,6 +45,9 @@ public class CoordinadorController {
     private CoordinadorServicio servicio;
     @Autowired
     private PerfilServicio perfil;
+    @Autowired
+    private PlanServicio servPlan;
+    
         
     @RequestMapping("/Coordinadores")
     
@@ -67,8 +72,9 @@ public class CoordinadorController {
     
        Coordinador al = new Coordinador();
        List<Perfil> perfiles = perfil.obtenerTodosLosPerfiles();
+        List<Plan> pl = servPlan.obtenerTodosLosPlanes();
        
-       
+        model.addAttribute("datosPlanes",pl);
        model.addAttribute("datosPerfiles",perfiles);
        model.addAttribute("nuevoCoordinador", al);
              
@@ -99,7 +105,9 @@ public class CoordinadorController {
     
        Coordinador al = servicio.encontrarCoordinadorPorLegajo(id);
         List<Perfil> perfiles = perfil.obtenerTodosLosPerfiles();
-   
+        List<Plan> pl = servPlan.obtenerTodosLosPlanes();
+       
+       model.addAttribute("datosPlanes",pl);
        model.addAttribute("datosPerfiles",perfiles);
        model.addAttribute("updateCoordinador", al);
              

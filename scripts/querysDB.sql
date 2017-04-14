@@ -42,6 +42,17 @@ CREATE TABLE `BDTP`.`Coordinador` (
 FROM `BDTP`.`Coordinador`;
 ALTER TABLE `BDTP`.`Coordinador`  MODIFY nroResolucion VARCHAR(20);
 
+###(deSilvina)alterar tabla Coordinador para poner plan como int y establecer relacion con Plan :
+
+alter table `BDTP`.`Coordinador`  Modify plan INT;
+
+ALTER TABLE `BDTP`.`Coordinador` 
+ADD CONSTRAINT `fk_Coordinador_plan`
+  FOREIGN KEY (`plan`)
+  REFERENCES `BDTP`.`Plan` (`identificador`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
 
 CREATE TABLE `BDTP`.`Alumno` (
   `legajo` INT NOT NULL,
@@ -82,10 +93,10 @@ DROP FOREIGN KEY fk_MateriaAlumno_2;
 
 alter table `BDTP`.`Materia`  Modify codMateria INT auto_increment ;
 
-ALTER TABLE `bdtp`.`materiasAlumnos
+ALTER TABLE `bdtp`.`MateriasAlumnos
 ADD CONSTRAINT `fk_MateriaAlumno_2`
   FOREIGN KEY (`codigoMateria`)
-  REFERENCES `bdtp`.`materia` (`codMateria`)
+  REFERENCES `bdtp`.`Materia` (`codMateria`)
   ON DELETE NO ACTION
   ON UPDATE NO ACTION;
 

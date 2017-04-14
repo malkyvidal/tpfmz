@@ -20,7 +20,17 @@ public class Plan {
      private Date fechaIni;
      private Date fechaFin;
      private Set alumnos = new HashSet(0);
-      
+     private Set<Coordinador> coordinadores = new HashSet(0);
+
+    public Set<Coordinador> getCoordinadores() {
+        return coordinadores;
+    }
+
+    public void setCoordinadores(Set<Coordinador> coordinadores) {
+        this.coordinadores = coordinadores;
+    }
+
+         
     public Set getAlumnos() {
         return alumnos;
     }
@@ -36,13 +46,14 @@ public class Plan {
     public Plan(Integer identificador) {
         this.identificador = identificador;
     }
-    public Plan(Integer identificador, String nombre, String nroResolucion, String descripcion, Date fechaIni, Date fechaFin) {
+    public Plan(Integer identificador, String nombre, String nroResolucion, String descripcion, Date fechaIni, Date fechaFin, Set<Coordinador> coordinadores) {
        this.identificador = identificador;
        this.nombre = nombre;
        this.nroResolucion = nroResolucion;
        this.descripcion = descripcion;
        this.fechaIni = fechaIni;
        this.fechaFin = fechaFin;
+       this.coordinadores = coordinadores;
     }
    
     public Integer getIdentificador() {

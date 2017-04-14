@@ -14,7 +14,7 @@ public class Coordinador extends Usuario{
     
    String nroResolucion;
    String especialidad;
-   String plan;
+   private Plan plan;
     Date fechaAlta;
     Date fechaBaja;
 
@@ -34,11 +34,11 @@ public class Coordinador extends Usuario{
         this.especialidad = especialidad;
     }
 
-    public String getPlan() {
+    public Plan getPlan() {
         return plan;
     }
 
-    public void setPlan(String plan) {
+    public void setPlan(Plan plan) {
         this.plan = plan;
     }
 

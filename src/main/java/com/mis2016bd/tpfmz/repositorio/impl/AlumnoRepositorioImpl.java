@@ -83,7 +83,7 @@ public class AlumnoRepositorioImpl implements AlumnoRepositorio{
          Session session = getSessionFactory().getCurrentSession();
         Query query = session.createQuery("from Alumno where legajo="+Integer.toString(al.getLegajo()));
         Alumno alumno = (Alumno) query.uniqueResult();
-        alumno.setCodPerfil(al.getCodPerfil());
+        alumno.setPerfil(al.getPerfil());
         alumno.setContrasenia(al.getContrasenia());
         alumno.setEgresado(al.getEgresado());
         alumno.setEmail(al.getEmail());
