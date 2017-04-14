@@ -18,5 +18,6 @@ public interface CoordinadorRepositorio {
    void eliminaCoordinador(Coordinador coordinador);
    Coordinador encontrarCoordinadorPorLegajo(int legajo);
    void updateCoordinador(Coordinador al);
+   public List<Coordinador> obtenerTodosLosCoordinadoresPorPlan(int codPlan);
    
 }

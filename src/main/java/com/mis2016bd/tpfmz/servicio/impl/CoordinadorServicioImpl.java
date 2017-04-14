@@ -26,7 +26,11 @@ public class CoordinadorServicioImpl implements CoordinadorServicio{
     public List<Coordinador> obtenerTodosLosCoordinadores() {
        return repo.obtenerTodosLosCoordinadores();
     }
-
+     
+    @Override
+    public List<Coordinador> obtenerTodosLosCoordinadoresPorPlan(int codPlan) {
+       return repo.obtenerTodosLosCoordinadoresPorPlan(codPlan);
+    }
     @Override
     public void nuevoCoordinador(Coordinador al) {
         repo.nuevoCoordinador(al);
