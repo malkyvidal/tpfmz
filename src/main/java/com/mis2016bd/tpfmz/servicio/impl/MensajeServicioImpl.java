@@ -26,5 +26,20 @@ public class MensajeServicioImpl implements MensajeServicio{
     public List<Mensaje> obtenerTodasLosMensajes() {
         return repo.obtenerTodasLosMensajes();
     }
+
+    @Override
+    public Mensaje encontrarMensajePorId(int id) {
+       return repo.encontrarMensajePorId(id);
+    }
+
+    @Override
+    public void eliminarMensaje(Mensaje aa) {
+        repo.eliminarMensaje(aa);
+    }
+
+    @Override
+    public void nuevoMensaje(Mensaje mensaje) {
+        repo.nuevoMensaje(mensaje);
+    }
     
 }
