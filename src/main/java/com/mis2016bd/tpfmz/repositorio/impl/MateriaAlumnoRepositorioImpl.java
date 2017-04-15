@@ -38,7 +38,7 @@ public class MateriaAlumnoRepositorioImpl implements MateriaAlumnoRepositorio{
     @Override
     public List<Materiasalumnos> obtenerTodasLasMateriasAlumnosPorLegajo(int legajo) {
         Session session = sessionFactory.getCurrentSession();
-        String hql = "FROM MateriasAlumnos where legajo="+Integer.toString(legajo);
+        String hql = "FROM Materiasalumnos where legajo="+Integer.toString(legajo);
         Query query = session.createQuery(hql);
         List<Materiasalumnos> materias = query.list();
         return  materias;
