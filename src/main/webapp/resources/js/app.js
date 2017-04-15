@@ -6,5 +6,16 @@
  function activarMenu(menu){
                     
                     $("[href$='/tpfmz"+menu+"']").parent().addClass("active");
-                }
+                    validacionesHtml5();
+                };
+   
+  function validacionesHtml5(){
+      addRequerido();
+  }
+  function addRequerido(){
+      
+      $("[type='text']").attr("required",true);
+      $("[type='password']").attr("required",true);
+      
+  }
 
