@@ -61,9 +61,9 @@
                     </div>
                      <div class="form-group" >
 
-                        <label class="control-label col-md-2" for="codPerfil">Perfil</label>
+                        <label class="control-label col-md-2" for="perfil">Perfil</label>
                         
-                        <form:select id="codPerfil" path="perfil.codPerfil">
+                        <form:select id="perfil" path="perfil.codPerfil">
                             <form:options items="${datosPerfiles}" itemLabel="descripcion" itemValue="codPerfil"></form:options>
                         </form:select>
                     </div>    
