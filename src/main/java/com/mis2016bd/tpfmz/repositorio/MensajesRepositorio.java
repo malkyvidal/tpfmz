@@ -14,4 +14,10 @@ import java.util.List;
  */
 public interface MensajesRepositorio {
     List<Mensaje> obtenerTodasLosMensajes();
+
+    public Mensaje encontrarMensajePorId(int id);
+
+    public void eliminarMensaje(Mensaje aa);
+
+    public void nuevoMensaje(Mensaje mensaje);
 }

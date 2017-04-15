@@ -61,7 +61,7 @@ public class AdminAlumnoController {
     
     }
     
-     @RequestMapping(value="/AdminAlumno/nuevo",method = RequestMethod.GET)
+    @RequestMapping(value="/AdminAlumno/nuevo",method = RequestMethod.GET)
     public String nuevoAdminAlumno(Model model){
     
        AdminAlumnado aa = new AdminAlumnado();

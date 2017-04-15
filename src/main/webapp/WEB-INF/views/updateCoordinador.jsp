@@ -97,7 +97,7 @@
                         <label class="control-label col-md-2" for="codPerfil">Perfil</label>
                         <td>${coordinador.perfil.codPerfil}</td>
                         <form:select id="codPerfil" path="perfil.codPerfil">
-                            <form:options items="${datosPerfiles}" itemLabel="codPerfil" itemValue="codPerfil"></form:options>
+                            <form:options items="${datosPerfiles}" itemLabel="descripcion" itemValue="codPerfil"></form:options>
                         </form:select>
                     </div>
                     <div class="form-group" >
