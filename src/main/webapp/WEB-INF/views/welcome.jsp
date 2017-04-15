@@ -14,6 +14,7 @@
         <link href="<c:url value="/resources/css/bootstrap.css" />" rel="stylesheet">
         <link href="<c:url value="/resources/css/app.css" />" rel="stylesheet">
         <script src="${pageContext.request.contextPath}/resources/js/jquery.js" type="text/javascript"></script>
+        <script src="${pageContext.request.contextPath}/resources/js/app.js" type="text/javascript"></script>
 
         <title>Inicio</title>
     </head>
@@ -35,10 +36,7 @@
                         
         
                 });
-                function activarMenu(menu){
-                    
-                    $("[href$='/tpfmz"+menu+"']").parent().addClass("active");
-                }
+               
             </script>
     </body>
 </html>
