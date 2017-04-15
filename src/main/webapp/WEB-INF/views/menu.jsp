@@ -7,8 +7,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@	taglib	prefix="spring"	uri="http://www.springframework.org/tags"	%>
+
  <div class="row">
-                <nav class="navbar navbar-inverse navbar-static-top"
+                <nav class="navbar navbar-inverse   navbar-static-top" 
                      role="navigation">
                     <div class="container-fluid">
                         <div class="navbar-header">
@@ -58,6 +59,10 @@
                                 </li>
                                  <li ><a	href="<spring:url	value="/MateriaAlumno"/>"	>
                                         Materia - Alumno
+                                    </a>
+                                </li>
+                                 <li ><a	href="<spring:url	value="/Mensajes"/>"	>
+                                        Mensajes
                                     </a>
                                 </li>
                                 <li > <a	href="<spring:url	value="/Perfiles"/>"	>
