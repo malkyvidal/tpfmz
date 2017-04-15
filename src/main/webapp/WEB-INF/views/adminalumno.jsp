@@ -55,7 +55,7 @@
                        <td>${admin.legajo}</td>
                        <td>${admin.fechaAlta}</td>
                        <td>${admin.fechaBaja}</td>
-                       <td>${admin.codPerfil}</td>
+                       <td>${admin.perfil.codPerfil}</td>
                        <td>
 
                            <a class="btn btn-danger custom-width" onclick="return confirm('Seguro que desea eliminar?')" href="<spring:url	value='/AdminAlumno/eliminar/${admin.legajo}'/>">Eliminar</a>

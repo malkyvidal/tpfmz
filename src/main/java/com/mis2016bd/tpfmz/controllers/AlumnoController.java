@@ -85,7 +85,7 @@ public class AlumnoController {
        return "redirect:/Alumnos";
     }
     
-    /** el eliminar no funciona */
+    /** silvina:el eliminar no funciona */
     
     @RequestMapping(value="/Alumnos/eliminar/{id}",method = RequestMethod.GET)
     public String eliminarAlumno( @PathVariable("id") int id){

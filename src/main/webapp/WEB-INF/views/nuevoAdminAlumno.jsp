@@ -37,13 +37,13 @@
                         <form:input	id="contrasenia" path="contrasenia" type="password" class="form:input-large"/>
 
                     </div>
-                     <div class="form-group" >
+                    <div class="form-group" >
 
-                        <label class="control-label col-md-2" for="codPerfil">Perfil</label>
-                        <form:select id="codPerfil" path="codPerfil">
+                        <label class="control-label col-md-2" for="codPerfil">Perfil</label>                    
+                        <form:select id="codPerfil" path="perfil.codPerfil">
                             <form:options items="${datosPerfiles}" itemLabel="descripcion" itemValue="codPerfil"></form:options>
                         </form:select>
-                    </div>       
+                    </div>         
                    
 
                     

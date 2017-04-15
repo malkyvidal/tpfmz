@@ -54,8 +54,7 @@
                     <div class="form-group" >
                         
                         <label class="control-label col-md-2" for="plan">Plan</label>
-                        
-                       ${alumno.plan.identificador}
+                                           
                         <form:select id="plan" path="plan.identificador">
                             <form:options items="${datosPlanes}" itemLabel="nombre" itemValue="identificador"></form:options>
                         </form:select>

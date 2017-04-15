@@ -15,6 +15,7 @@ import com.mis2016bd.tpfmz.modelo.Carrera;
 import com.mis2016bd.tpfmz.modelo.Materiasalumnos;
 
 
+
 import com.mis2016bd.tpfmz.servicio.MateriaServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -39,7 +40,7 @@ public class MateriaController {
     @Autowired
     private CarreraServicio carreras;
     @Autowired
-    private MateriaAlumnoServicio matAlumnos;
+    private MateriaAlumnoServicio matAlum;
     
     @RequestMapping("/Materias")
     
@@ -78,10 +79,10 @@ public class MateriaController {
     
     
     @RequestMapping(value="/Materias/eliminar/{id}",method = RequestMethod.GET)
-    public String eliminarMateriao( @PathVariable("id") int id){
+    public String eliminarMateria( @PathVariable("id") int id){
     
-        Materia al  = servicio.encontrarMateriaPorCodigo(id);
-        servicio.eliminaMateria(al);
+       Materia al  = servicio.encontrarMateriaPorCodigo(id);
+       servicio.eliminaMateria(al);
         
        return "redirect:/Materias";
     
