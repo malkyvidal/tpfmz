@@ -31,6 +31,11 @@ public class MateriasalumnosServicioImpl implements MateriaAlumnoServicio{
     public List<Materiasalumnos> obtenerTodasLasMateriasAlumnosPorLegajo(int legajo){
         return repo.obtenerTodasLasMateriasAlumnosPorLegajo(legajo);
     }
+    
+        @Override
+public List<Materiasalumnos> obtenerTodasLasMateriasAlumnosPorCodMateria(int codMateria){
+    return repo.obtenerTodasLasMateriasAlumnosPorCodMateria(codMateria);
+}
 
     @Override
     public Materiasalumnos encontrarMateriaAlumnoPorCodigo(int id) {

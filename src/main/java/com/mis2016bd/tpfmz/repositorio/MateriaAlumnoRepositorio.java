@@ -23,4 +23,5 @@ public interface MateriaAlumnoRepositorio {
     
         public void updateMateriaAlumno(Materiasalumnos nuevo);
         public List<Materiasalumnos> obtenerTodasLasMateriasAlumnosPorLegajo(int legajo);
+        public List<Materiasalumnos> obtenerTodasLasMateriasAlumnosPorCodMateria(int codMateria);
 }

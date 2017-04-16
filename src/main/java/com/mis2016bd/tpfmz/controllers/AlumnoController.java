@@ -85,13 +85,29 @@ public class AlumnoController {
        return "redirect:/Alumnos";
     }
     
+   @RequestMapping(value="/Alumnos/eliminar/{id}",method = RequestMethod.GET)
+    public String borrarAlumno(@PathVariable("id") int id, Model model){
        
-    @RequestMapping(value="/Alumnos/eliminar/{id}",method = RequestMethod.GET)
-    public String eliminarAlumno( @PathVariable("id") int id){
+       Alumno al = servicio.encontrarAlumnoPorLegajo(id);
+           
+      List<Materiasalumnos> pl = matAlum.obtenerTodasLasMateriasAlumnosPorLegajo(id); 
+       int size = pl.size();
+       
+       model.addAttribute("cantMatAlum",size);
+       model.addAttribute("detalleMateriasAlumnos",pl);
+       model.addAttribute("borrarAlumno", al);
+       model.addAttribute("legajo", id);
+      
+        return "borrarAlumno";
+    }
     
-        Alumno al  = servicio.encontrarAlumnoPorLegajo(id);
         
-          int legajo = al.getLegajo();
+     @RequestMapping(value="/Alumnos/borrar/{id}",method = RequestMethod.GET)
+    public String procesaBorrarAlumno(@PathVariable("id") int id){
+    
+        Alumno alum  = servicio.encontrarAlumnoPorLegajo(id);
+        
+          int legajo = alum.getLegajo();
          
          List<Materiasalumnos>  lista = matAlum.obtenerTodasLasMateriasAlumnosPorLegajo(legajo);
          ListIterator<Materiasalumnos> it = lista.listIterator();
@@ -99,7 +115,7 @@ public class AlumnoController {
              Materiasalumnos next = it.next();
              matAlum.eliminaMateriaAlumno(next);
          }
-        servicio.eliminaAlumno(al);
+        servicio.eliminaAlumno(alum);
         
        return "redirect:/Alumnos";
     

@@ -78,13 +78,41 @@ public class MateriaController {
     }
     
     
-    @RequestMapping(value="/Materias/eliminar/{id}",method = RequestMethod.GET)
-    public String eliminarMateria( @PathVariable("id") int id){
+@RequestMapping(value="/Materias/eliminar/{id}",method = RequestMethod.GET)
+    public String borrarMateria(@PathVariable("id") int id, Model model){
+       
+       Materia al = servicio.encontrarMateriaPorCodigo(id);
+           
+      List<Materiasalumnos> pl = matAlum.obtenerTodasLasMateriasAlumnosPorCodMateria(id); 
+       int size = pl.size();
+       
+       model.addAttribute("cantMatAlum",size);
+       model.addAttribute("detalleMateriasAlumnos",pl);
+       model.addAttribute("borrarMateria", al);
+       model.addAttribute("codMateria", id);
+      
+        return "borrarMateria";
+    }
     
-       Materia al  = servicio.encontrarMateriaPorCodigo(id);
-       servicio.eliminaMateria(al);
         
-       return "redirect:/Materias";
+     @RequestMapping(value="/Materias/borrar/{id}",method = RequestMethod.GET)
+
+    public String procesaBorrarMateria(@PathVariable("id") int id){
+           
+       Materia al  = servicio.encontrarMateriaPorCodigo(id);
+       int codMateria = al.getCodMateria();
+       
+       
+       List<Materiasalumnos> lista = matAlum.obtenerTodasLasMateriasAlumnosPorCodMateria(id); 
+        
+       ListIterator<Materiasalumnos> it = lista.listIterator();
+       while(it.hasNext()) {
+         Materiasalumnos next = it.next();
+         matAlum.eliminaMateriaAlumno(next);
+       }
+        servicio.eliminaMateria(al);
+                       
+      return "redirect:/Materias";
     
     }
     

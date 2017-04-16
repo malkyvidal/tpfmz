@@ -88,7 +88,7 @@ CREATE TABLE `BDTP`.`Materia` (
     
 ###(deSilvina)alterar tabla Materia para poner codMateria como int auto_increment hacer :
 
-ALTER TABLE materiasAlumnos 
+ALTER TABLE MateriasAlumnos 
 DROP FOREIGN KEY fk_MateriaAlumno_2;
 
 alter table `BDTP`.`Materia`  Modify codMateria INT auto_increment ;
