@@ -55,8 +55,7 @@
                        <td>${perfil.estado}</td>
                        <td>
 
-                           <a class="btn btn-default" onclick="return confirm('Seguro que desea eliminar?')" href="<spring:url	value='/Perfiles/eliminar/${perfil.codPerfil}'/>">eliminar</a>
-                            <a class="btn btn-default" href="<spring:url	value='/Perfiles/update/${perfil.codPerfil}'/>">editar</a>
+                         <a class="btn btn-default" href="<spring:url	value='/Perfiles/update/${perfil.codPerfil}'/>">editar</a>
                        </td>
                 </tr>
             </c:forEach>

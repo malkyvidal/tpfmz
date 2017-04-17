@@ -77,49 +77,7 @@ public class PerfilController {
         return "redirect:/Perfiles";
     }
     
-     @RequestMapping(value="/Perfiles/eliminar/{id}",method = RequestMethod.GET)
-    public String borrarPerfil(@PathVariable("id") int id, Model model){
-       
-       Perfil al = servicio.encontrarPerfilPorCodigoPerfil(id);
-      List<Permiso> pl = servPermisos.obtenerTodosLosPermisosPorPerfil(id);
-       
-       int size = pl.size();
-       
-       model.addAttribute("cantPermisos",size);
-       model.addAttribute("detallePermisos",pl);
-       model.addAttribute("borrarPerfil", al);
-       model.addAttribute("codPerf", id);
-      
-        return "borrarPerfil";
-    }
-    @RequestMapping(value="/Perfiles/borrar/{id}",method = RequestMethod.GET)
-
-    public String procesaBorrarPerfil(@PathVariable("id") int id){
-           
-       Perfil al  = servicio.encontrarPerfilPorCodigoPerfil(id);
-       int codPerf = al.getCodPerfil();
-       
-       List<Permiso> lista = servPermisos.obtenerTodosLosPermisosPorPerfil(codPerf);
-        
-       ListIterator<Permiso> it = lista.listIterator();
-       while(it.hasNext()) {
-         Permiso next = it.next();
-         int codPerm = next.getCodPermiso();
-         
-         List<Modulo> listMod = servModulos.obtenerTodosLosModulosPorPermiso(codPerm);
-         ListIterator<Modulo> itMod = listMod.listIterator();
-         while(itMod.hasNext()) {
-             Modulo nextMod = itMod.next();
-             servModulos.eliminaModulo(nextMod);
-         }
-         servPermisos.eliminaPermiso(next);
-       }
-        servicio.eliminaPerfil(al);
-                       
-      return "redirect:/Perfiles";
-    
-    }
-    
+     
   
       @RequestMapping(value="/Perfiles/update/{id}",method = RequestMethod.GET)
     public String updatePerfil(@PathVariable("id") int id, Model model){
