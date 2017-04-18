@@ -29,7 +29,7 @@
 
                 <div >
                     <div class="col-md-4">
-                        <h4>Todos Las Materias - Alumnos</h4>
+                        <h4>Todos las Materias - Alumnos</h4>
                     </div>
                     <div class="col-md-offset-10">
                         <a class="btn btn-primary" href="<spring:url	value="/MateriaAlumno/nuevo"/>"  >Nuevo</a>

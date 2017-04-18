@@ -66,5 +66,15 @@ public class MensajesRepositorioImpl implements MensajesRepositorio{
         Session session = getSessionFactory().getCurrentSession();
         session.saveOrUpdate(mensaje);
     }
+
+    @Transactional
+    @Override
+    public List<Mensaje> obtenerTodosLosMensajesUsuario(int id) {
+        Session session = sessionFactory.getCurrentSession();
+        String hql = "FROM Mensaje where (usuarioRemitente="+Integer.toString(id)+") OR (usuarioDestinatario="+Integer.toString(id)+")";
+        Query query = session.createQuery(hql);
+        List<Mensaje> mensajes = query.list();
+        return  mensajes;
+    }
     
 }

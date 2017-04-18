@@ -28,6 +28,7 @@
             <div class="row">
 
                 <form:form  modelAttribute="updateMateriaAlumno"  class="form-horizontal">
+                    <h2 align="center"> Modificar Datos Materia - Alumno </h2>
                     <div class="form-group" >
                         
                         <label class="control-label col-md-2" for="alumno">Alumno</label>

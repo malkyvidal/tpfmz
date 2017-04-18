@@ -27,6 +27,7 @@
             <div class="row">
 
                 <form:form  modelAttribute="updateCarrera"  class="form-horizontal">
+                    <h2 align="center"> Modificar Datos Carrera </h2>
                     <div class="form-group" >
                         
                         <label class="control-label col-md-2" for="nombre">Nombre</label>

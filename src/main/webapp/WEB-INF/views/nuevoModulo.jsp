@@ -26,7 +26,7 @@
             <div class="row">
 
                 <form:form  modelAttribute="nuevoModulo"  class="form-horizontal">
-                   
+                   <h2 align="center"> Agregar Nuevo Módulo </h2>
                     <div class="form-group" >
 
                         <label class="control-label col-md-2" for="permiso">Permiso</label>

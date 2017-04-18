@@ -30,7 +30,7 @@
 
                 <div >
                     <div class="col-md-4">
-                        <h4>Todos Los Permisos</h4>
+                        <h4>Todos los Permisos</h4>
                     </div>
                     <div class="col-md-offset-10">
                         <a class="btn btn-primary" href="<spring:url	value="/Permisos/nuevo"/>"  >Nuevo</a>
@@ -41,9 +41,9 @@
                      
             <tr>
                 
-                <th>codPermiso</th>
-                <th>codPerfil</th>
-                <th>descripción</th>
+                <th>Código</th>
+                <th>Perfil</th>
+                <th>Descripción</th>
                 <th>Acción</th>
             </tr>
             <c:forEach  items="${datos}" var="permiso">
@@ -51,13 +51,13 @@
                  
                     
 
-                    <td>${permiso.codPermiso}</td>
+                       <td>${permiso.codPermiso}</td>
                        <td>${permiso.perfil.codPerfil}</td>
                        <td>${permiso.accion}</td>
                        <td>
 
-                           <a class="btn btn-default" onclick="return confirm('Seguro que desea eliminar?')" href="<spring:url	value='/Permisos/eliminar/${permiso.codPermiso}'/>">eliminar</a>
-                           <a class="btn btn-default" href="<spring:url	value='/Permisos/update/${permiso.codPermiso}'/>">editar</a>
+                           <a class="btn btn-danger custom-width" onclick="return confirm('Seguro que desea eliminar?')" href="<spring:url	value='/Permisos/eliminar/${permiso.codPermiso}'/>">Eliminar</a>
+                           <a class="btn btn-success custom-width" href="<spring:url	value='/Permisos/update/${permiso.codPermiso}'/>">Editar</a>
                        </td>
                 </tr>
             </c:forEach>

@@ -20,4 +20,6 @@ public interface MensajesRepositorio {
     public void eliminarMensaje(Mensaje aa);
 
     public void nuevoMensaje(Mensaje mensaje);
+
+    public List<Mensaje> obtenerTodosLosMensajesUsuario(int id);
 }

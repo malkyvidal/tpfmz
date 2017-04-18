@@ -27,7 +27,7 @@
             <div class="row">
                 
                 <form:form  modelAttribute="updatePlan"  class="form-horizontal">
-                    <h2 align="center"> Modificar Datos de Plan </h2>
+                    <h2 align="center"> Modificar Datos Plan </h2>
                     <div class="form-group" >
                         
                         <label class="control-label col-md-2" for="nombre">Nombre</label>
@@ -48,13 +48,13 @@
                     </div>    
                     <div class="form-group" >
                         
-                        <label class="control-label col-md-2" for="fechaIni">Fecha Inicio</label>
+                        <label class="control-label col-md-2" for="fechaIni">Fecha de Inicio (dd-mm-aaaa</label>
                         
                         <form:input	id="fechaIni" path="fechaIni" type="text" class="form:input-large"/>
                     </div>  
                        <div class="form-group" >
                         
-                        <label class="control-label col-md-2" for="fechaFin">Fecha Finalización</label>
+                        <label class="control-label col-md-2" for="fechaFin">Fecha de Finalización (dd-mm-aaaa)</label>
                         
                         <form:input	id="fechaFin" path="fechaFin" type="text" class="form:input-large"/>
                     </div> 

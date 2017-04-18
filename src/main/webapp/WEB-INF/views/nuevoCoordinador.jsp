@@ -25,8 +25,9 @@
             <div class="row">
             
                 <form:form  modelAttribute="nuevoCoordinador"  class="form-horizontal">
+                    <h2 align="center"> Agregar Nuevo Coordinador </h2>
                     <div class="form-group" >
-                        <label class="control-label col-md-2" for="nroResolucion">nroResolución</label>
+                        <label class="control-label col-md-2" for="nroResolucion">Resolución</label>
 
                         <form:input 	id="nroResolucion"	path="nroResolucion"  type="text" class="form:input-large"/>
                     </div>
@@ -48,13 +49,13 @@
                         </form:select>
                     </div>
                     <div class="form-group" >
-                        <label class="control-label col-md-2" for="contrasenia">Password</label>
+                        <label class="control-label col-md-2" for="contrasenia">Contraseña</label>
                         <form:input	id="contrasenia" path="contrasenia" type="password" class="form:input-large"/>
 
                     </div>
                         
                     <div class="form-group" >
-                        <label class="control-label col-md-2" for="plan">fechaAlta</label>
+                        <label class="control-label col-md-2" for="plan">Fecha Alta (dd-mm-aaaa)</label>
                         <form:input	id="fechaAlta" path="fechaAlta" class="form:input-large"/>
                     </div>
                     

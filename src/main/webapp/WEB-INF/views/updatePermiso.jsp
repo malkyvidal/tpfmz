@@ -27,7 +27,7 @@
             <div class="row">
 
                 <form:form  modelAttribute="updatePermiso"  class="form-horizontal">
-                    
+                     <h2 align="center"> Modificar Datos Permiso </h2>
                      <div class="form-group" >
                         <label class="control-label col-md-2" for="perfil">Perfil</label>
                        

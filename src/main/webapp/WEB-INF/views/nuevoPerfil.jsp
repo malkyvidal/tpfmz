@@ -25,14 +25,14 @@
             <div class="row">
 
                 <form:form  modelAttribute="nuevoPerfil"  class="form-horizontal">
-                    
+                    <h2 align="center"> Agregar Nuevo Perfil</h2>
                     <div class="form-group" >
-                        <label class="control-label col-md-2" for="descripcion">descripcion</label>
+                        <label class="control-label col-md-2" for="descripcion">Descripción</label>
                         <form:input	id="descripcion" path="descripcion" type="text" class="form:input-large"/>
                     </div>
 
                    <div class="form-group" >
-                        <label class="control-label col-md-2" for="estado">estado</label>
+                        <label class="control-label col-md-2" for="estado">Estado</label>
                         <form:input	id="estado" path="estado" type="text" class="form:input-large"/>
                     </div>
 

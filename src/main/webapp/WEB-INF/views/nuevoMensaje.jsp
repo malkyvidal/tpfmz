@@ -25,9 +25,9 @@
             <div class="row">
 
                 <form:form  modelAttribute="nuevoMensaje"  class="form-horizontal">
-                    
+                    <h2 align="center"> Agregar Nuevo Mensaje </h2>
                     <div class="form-group" >
-                        <label class="control-label col-md-2" for="fecha">Fecha Mensaje</label>
+                        <label class="control-label col-md-2" for="fecha">Fecha (dd-mm-aaaa)</label>
 
                         <form:input 	id="fecha"	path="fecha" type="text" class="form:input-large"/>
                     </div>

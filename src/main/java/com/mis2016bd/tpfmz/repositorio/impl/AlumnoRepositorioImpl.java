@@ -9,6 +9,7 @@ import com.mis2016bd.tpfmz.modelo.Alumno;
 import com.mis2016bd.tpfmz.modelo.Carrera;
 import com.mis2016bd.tpfmz.modelo.Materia;
 import com.mis2016bd.tpfmz.modelo.Plan;
+import com.mis2016bd.tpfmz.modelo.Usuario;
 import com.mis2016bd.tpfmz.repositorio.AlumnoRepositorio;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -63,7 +64,7 @@ public class AlumnoRepositorioImpl implements AlumnoRepositorio{
     @Override
     public void eliminaAlumno(Alumno alumno) {
         Session session = getSessionFactory().getCurrentSession();
-        session.delete(alumno);
+        session.delete(alumno);      
     }
 
     @Transactional

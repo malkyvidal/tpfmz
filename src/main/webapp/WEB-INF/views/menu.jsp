@@ -29,7 +29,7 @@
                             <ul class="nav navbar-nav">
                                 <li>
                                     
-                            <a class="navbar-brand  "	href="<spring:url	value="/"/>"	>
+                                <a class="navbar-brand  "	href="<spring:url	value="/"/>"	>
                                     Inicio
                                 </a>
                                 </li>
@@ -74,7 +74,7 @@
                                     </a>
                                 </li>
                                 <li > <a	href="<spring:url	value="/Modulos"/>"	>
-                                        Modulos
+                                        Módulos
                                     </a>
                                 </li>
                                 

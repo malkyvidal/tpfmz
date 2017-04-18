@@ -26,6 +26,7 @@
             <div class="row">
 
                 <form:form  modelAttribute="updatePerfil"  class="form-horizontal">
+                    <h2 align="center"> Modificar Datos Perfil </h2>
                     <div class="form-group" >
                         
                         <label class="control-label col-md-2" for="descripcion">descripción</label>

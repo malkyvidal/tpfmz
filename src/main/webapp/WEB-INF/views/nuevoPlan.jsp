@@ -43,12 +43,12 @@
                     </div>
                     
                     <div class="form-group" >
-                        <label class="control-label col-md-2" for="fechaIni">Fecha de Inicio</label>
+                        <label class="control-label col-md-2" for="fechaIni">Fecha de Inicio (dd-mm-aaaa)</label>
                         <form:input	id="fechaIni" path="fechaIni" class="form:input-large"/>
                     </div>
                     
                     <div class="form-group" >
-                        <label class="control-label col-md-2" for="fechaFin">Fecha de Finalización</label>
+                        <label class="control-label col-md-2" for="fechaFin">Fecha de Finalización (dd-mm-aaaa)</label>
                         <form:input	id="fechaFin" path="fechaFin" class="form:input-large"/>
                     </div>
                         <div class="form-group">

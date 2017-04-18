@@ -28,6 +28,7 @@
             <div class="row">
 
                 <form:form  modelAttribute="updateMateria"  class="form-horizontal">
+                    <h2 align="center"> Modificar Datos Materia </h2>
                     <div class="form-group" >
                         
                         <label class="control-label col-md-2" for="nombreMateria">Nombre</label>
@@ -44,7 +45,7 @@
                     </div>
                     <div class="form-group" >
                                                
-                        <label class="control-label col-md-2" for="telefono">Modalidad</label>
+                        <label class="control-label col-md-2" for="modalidad">Modalidad</label>
                         
                         <form:input	id="modalidad" path="modalidad" type="number" name="quantity" min="0" max="2"/>
                     </div>

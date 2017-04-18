@@ -26,7 +26,7 @@
             <div class="row">
 
                 <form:form  modelAttribute="nuevoPermiso"  class="form-horizontal">
-                                 
+                    <h2 align="center"> Agregar Nuevo Permiso </h2>             
                     <div class="form-group" >
 
                         <label class="control-label col-md-2" for="perfil">Perfil</label>
@@ -35,7 +35,7 @@
                         </form:select>
                     </div>
                         <div class="form-group" >
-                        <label class="control-label col-md-2" for="accion">accion</label>
+                        <label class="control-label col-md-2" for="accion">Descripción</label>
 
                         <form:input 	id="accion"	path="accion" type="text" class="form:input-large"/>
                     </div>

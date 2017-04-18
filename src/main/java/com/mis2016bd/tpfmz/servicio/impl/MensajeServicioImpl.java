@@ -41,5 +41,10 @@ public class MensajeServicioImpl implements MensajeServicio{
     public void nuevoMensaje(Mensaje mensaje) {
         repo.nuevoMensaje(mensaje);
     }
+
+    @Override
+    public List<Mensaje> obtenerTodosLosMensajesUsuario(int id) {
+        return repo.obtenerTodosLosMensajesUsuario(id);
+    }
     
 }

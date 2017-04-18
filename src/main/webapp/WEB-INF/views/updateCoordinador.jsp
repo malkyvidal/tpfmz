@@ -26,7 +26,8 @@
                  
                     
                   <form:form  modelAttribute="updateCoordinador"  class="form-horizontal">
-                    <div class="form-group" >
+                    <h2 align="center"> Modificar Datos Coordinador </h2>
+                      <div class="form-group" >
                         
                         <label class="control-label col-md-2" for="nroResolucion">nroResolución</label>
                         
@@ -57,19 +58,19 @@
                     </div>
                     <div class="form-group" >
                         
-                        <label class="control-label col-md-2" for="fechaAlta">Alta dd-mm-aaaa</label>
+                        <label class="control-label col-md-2" for="fechaAlta">Fecha Alta (dd-mm-aaaa)</label>
                         
                         <form:input	id="fechaAlta" path="fechaAlta"  class="form:input-large"/>
                     </div>
                     <div class="form-group" >
                         
-                        <label class="control-label col-md-2" for="fechaBaja">Baja dd-mm-aaaa</label>
+                        <label class="control-label col-md-2" for="fechaBaja">Fecha Baja (dd-mm-aaaa)</label>
                         
                         <form:input	id="fechaBaja" path="fechaBaja"  class="form:input-large"/>
                     </div>
                     
                     <div class="form-group" >
-                        <label class="control-label col-md-2" for="contrasenia">Password</label>
+                        <label class="control-label col-md-2" for="contrasenia">Constraseña</label>
                         <form:input	id="contrasenia" path="contrasenia" type="password" class="form:input-large"/>
 
                     </div>

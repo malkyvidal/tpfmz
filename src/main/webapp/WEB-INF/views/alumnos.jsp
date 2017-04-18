@@ -28,7 +28,7 @@
 
                 <div >
                     <div class="col-md-4">
-                        <h4>Todos Los Alumnos</h4>
+                        <h4>Todos los Alumnos</h4>
                     </div>
                     <div class="col-md-offset-10">
                         <a class="btn btn-primary" href="<spring:url	value="/Alumnos/nuevo"/>"  >Nuevo</a>
@@ -38,11 +38,11 @@
                  <table class="table table-striped">
                      
             <tr>
-                <th>legajo</th>
-                <th>telefono</th>
-                <th>Email</th>
+                <th>Legajo</th>
+                <th>Teléfono</th>
+                <th>Dirección de Correo Electrónico</th>
                 <th>Plan</th>
-                <th>perfil</th>
+                <th>Perfil</th>
                 <th>Acción</th>
             </tr>
             <c:forEach  items="${datos}" var="alumno">
@@ -56,8 +56,8 @@
                        
                        <td>
 
-                           <a class="btn btn-default" onclick="return confirm('Seguro que desea eliminar?')" href="<spring:url	value='/Alumnos/eliminar/${alumno.legajo}'/>">eliminar</a>
-                           <a class="btn btn-default" href="<spring:url	value='/Alumnos/update/${alumno.legajo}'/>">editar</a>
+                           <a class="btn btn-danger custom-width" onclick="return confirm('Seguro que desea eliminar?')" href="<spring:url	value='/Alumnos/eliminar/${alumno.legajo}'/>">Eliminar</a>
+                           <a class="btn btn-success custom-width" href="<spring:url	value='/Alumnos/update/${alumno.legajo}'/>">Editar</a>
                        </td>
                 </tr>
             </c:forEach>

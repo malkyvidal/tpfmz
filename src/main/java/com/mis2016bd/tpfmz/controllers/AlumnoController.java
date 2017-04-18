@@ -13,6 +13,7 @@ import com.mis2016bd.tpfmz.modelo.Alumno;
 import com.mis2016bd.tpfmz.modelo.Perfil;
 import com.mis2016bd.tpfmz.modelo.Plan;
 import com.mis2016bd.tpfmz.modelo.Materiasalumnos;
+import com.mis2016bd.tpfmz.modelo.Mensaje;
 import java.util.List;
 import java.util.ListIterator;
 
@@ -20,6 +21,7 @@ import java.util.ListIterator;
 import com.mis2016bd.tpfmz.servicio.AlumnoServicio;
 import com.mis2016bd.tpfmz.servicio.PerfilServicio;
 import com.mis2016bd.tpfmz.servicio.MateriaAlumnoServicio;
+import com.mis2016bd.tpfmz.servicio.MensajeServicio;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -42,10 +44,11 @@ public class AlumnoController {
     @Autowired
     private PlanServicio planes;
     @Autowired
-   private PerfilServicio perfil;
-    
-     @Autowired
-   private MateriaAlumnoServicio matAlum;
+    private PerfilServicio perfil;
+    @Autowired
+    private MensajeServicio mensaje;
+    @Autowired
+    private MateriaAlumnoServicio matAlum;
     
     @RequestMapping("/Alumnos")
     
@@ -102,19 +105,27 @@ public class AlumnoController {
     }
     
         
-     @RequestMapping(value="/Alumnos/borrar/{id}",method = RequestMethod.GET)
+    @RequestMapping(value="/Alumnos/borrar/{id}",method = RequestMethod.GET)
     public String procesaBorrarAlumno(@PathVariable("id") int id){
     
         Alumno alum  = servicio.encontrarAlumnoPorLegajo(id);
         
-          int legajo = alum.getLegajo();
+        int legajo = alum.getLegajo();
          
-         List<Materiasalumnos>  lista = matAlum.obtenerTodasLasMateriasAlumnosPorLegajo(legajo);
-         ListIterator<Materiasalumnos> it = lista.listIterator();
-         while(it.hasNext()) {
-             Materiasalumnos next = it.next();
-             matAlum.eliminaMateriaAlumno(next);
-         }
+        List<Materiasalumnos>  lista = matAlum.obtenerTodasLasMateriasAlumnosPorLegajo(legajo);
+        ListIterator<Materiasalumnos> it = lista.listIterator();
+        while(it.hasNext()) {
+            Materiasalumnos next = it.next();
+            matAlum.eliminaMateriaAlumno(next);
+        }
+        
+        List<Mensaje>  lista1 = mensaje.obtenerTodosLosMensajesUsuario(id);
+        ListIterator<Mensaje> it1 = lista1.listIterator();
+        while(it1.hasNext()) {
+            Mensaje next = it1.next();
+            mensaje.eliminarMensaje(next);
+        }
+        
         servicio.eliminaAlumno(alum);
         
        return "redirect:/Alumnos";

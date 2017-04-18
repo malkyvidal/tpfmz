@@ -28,9 +28,9 @@
 
                
                     <div class="col-md-4">
-                        <h4>Todos Los Modulos que serán eliminados</h4>
+                        <h4>Todos los Módulos que serán eliminados</h4>
                     </div>
-                       <a class="btn btn-default" onclick="return confirm('Seguro que desea eliminar?')" href="<spring:url value='/Permisos/borrar/${codPermi}'/>">eliminar</a>
+                       <a class="btn btn-danger custom-width" onclick="return confirm('Seguro que desea eliminar?')" href="<spring:url value='/Permisos/borrar/${codPermi}'/>">Eliminar</a>
                  <table class="table table-striped">
                      
             <tr>

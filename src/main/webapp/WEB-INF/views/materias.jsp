@@ -30,7 +30,7 @@
 
                 <div >
                     <div class="col-md-4">
-                        <h4>Todas Las Materias</h4>
+                        <h4>Todas las Materias</h4>
                     </div>
                     <div class="col-md-offset-10">
                         <a class="btn btn-primary" href="<spring:url	value="/Materias/nueva"/>"  >Nuevo</a>
@@ -41,10 +41,10 @@
                      
             <tr>
                 
-                <th>codMateria</th>
-                <th>nombre</th>
-                <th>codCarrera</th>
-                <th>modalidad</th>
+                <th>Código</th>
+                <th>Nombre</th>
+                <th>Carrera</th>
+                <th>Modalidad</th>
                 <th>Acción</th>
             </tr>
             <c:forEach  items="${datos}" var="materia">
@@ -58,8 +58,8 @@
                        <td>${materia.modalidad}</td>
                        <td>
 
-                           <a class="btn btn-default" onclick="return confirm('Seguro que desea eliminar?')" href="<spring:url	value='/Materias/eliminar/${materia.codMateria}'/>">eliminar</a>
-                           <a class="btn btn-default" href="<spring:url	value='/Materias/update/${materia.codMateria}'/>">editar</a>
+                           <a class="btn btn-danger custom-width" onclick="return confirm('Seguro que desea eliminar?')" href="<spring:url	value='/Materias/eliminar/${materia.codMateria}'/>">Eliminar</a>
+                           <a class="btn btn-success custom-width" href="<spring:url	value='/Materias/update/${materia.codMateria}'/>">Editar</a>
                        </td>
                 </tr>
             </c:forEach>

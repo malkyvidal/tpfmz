@@ -29,7 +29,7 @@
 
                 <div >
                     <div class="col-md-4">
-                        <h4>Todas Las Carreras</h4>
+                        <h4>Todas las Carreras</h4>
                     </div>
                     <div class="col-md-offset-10">
                         <a class="btn btn-primary" href="<spring:url	value="/Carreras/nuevo"/>"  >Nuevo</a>
@@ -46,17 +46,14 @@
                 <th>Acción</th>
             </tr>
             <c:forEach  items="${datos}" var="carrera">
-                <tr>
-                 
-                    
-
-                    <td>${carrera.codigoCarrera}</td>
+                <tr>                      
+                       <td>${carrera.codigoCarrera}</td>
                        <td>${carrera.nombre}</td>
                        <td>${carrera.canNivel}</td>
                        <td>
 
-                           <a class="btn btn-danger custom-width" onclick="return confirm('Seguro que desea eliminar?')" href="<spring:url	value='/Carreras/eliminar/${carrera.codigoCarrera}'/>">Eliminar</a>
-                           <a class="btn btn-success custom-width" href="<spring:url	value='/Carreras/update/${carrera.codigoCarrera}'/>">Editar</a>
+                        <a class="btn btn-danger custom-width" onclick="return confirm('Seguro que desea eliminar?')" href="<spring:url	value='/Carreras/eliminar/${carrera.codigoCarrera}'/>">Eliminar</a>
+                        <a class="btn btn-success custom-width" href="<spring:url	value='/Carreras/update/${carrera.codigoCarrera}'/>">Editar</a>
                        </td>
                 </tr>
             </c:forEach>

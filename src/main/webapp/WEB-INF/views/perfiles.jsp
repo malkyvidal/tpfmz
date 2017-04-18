@@ -30,7 +30,7 @@
 
                 <div >
                     <div class="col-md-4">
-                        <h4>Todos Los Perfiles</h4>
+                        <h4>Todos los Perfiles</h4>
                     </div>
                     <div class="col-md-offset-10">
                         <a class="btn btn-primary" href="<spring:url	value="/Perfiles/nuevo"/>"  >Nuevo</a>
@@ -41,9 +41,9 @@
                      
             <tr>
                 
-                <th>codPerfil</th>
-                <th>descripcion</th>
-                <th>estado</th>
+                <th>Código</th>
+                <th>Descripción</th>
+                <th>Estado</th>
                 <th>Acción</th>
                 
             </tr>
@@ -55,7 +55,7 @@
                        <td>${perfil.estado}</td>
                        <td>
 
-                         <a class="btn btn-default" href="<spring:url	value='/Perfiles/update/${perfil.codPerfil}'/>">editar</a>
+                         <a class="btn btn-success custom-width" href="<spring:url	value='/Perfiles/update/${perfil.codPerfil}'/>">Editar</a>
                        </td>
                 </tr>
             </c:forEach>

@@ -30,7 +30,7 @@
 
                 <div >
                     <div class="col-md-4">
-                        <h4>Todos Los Coordinadores</h4>
+                        <h4>Todos los Coordinadores</h4>
                     </div>
                     <div class="col-md-offset-10">
                         <a class="btn btn-primary" href="<spring:url	value="/Coordinadores/nuevo"/>"  >Nuevo</a>
@@ -41,13 +41,13 @@
                      
             <tr>
                 
-                <th>legajo</th>
-                <th>nroResolución</th>
-                <th>especialidad</th>
-                <th>plan</th>
-                <th>perfil</th>
-                <th>fechaAlta</th>
-                <th>fechaBaja</th>
+                <th>Legajo</th>
+                <th>Resolución</th>
+                <th>Especialidad</th>
+                <th>Plan</th>
+                <th>Perfil</th>
+                <th>Fecha Alta</th>
+                <th>Fecha Baja</th>
                 <th>Acción</th>
             </tr>
             <c:forEach  items="${datos}" var="coordinador">
@@ -62,8 +62,8 @@
                     <td>${coordinador.fechaBaja}</td>
                        <td>
 
-                           <a class="btn btn-default" onclick="return confirm('Seguro que desea eliminar?')" href="<spring:url	value='/Coordinadores/eliminar/${coordinador.legajo}'/>">eliminar</a>
-                           <a class="btn btn-default" href="<spring:url	value='/Coordinadores/update/${coordinador.legajo}'/>">editar</a>
+                           <a class="btn btn-danger custom-width" onclick="return confirm('Seguro que desea eliminar?')" href="<spring:url	value='/Coordinadores/eliminar/${coordinador.legajo}'/>">Eliminar</a>
+                           <a class="btn btn-success custom-width" href="<spring:url	value='/Coordinadores/update/${coordinador.legajo}'/>">Editar</a>
                        </td>
                 </tr>
             </c:forEach>

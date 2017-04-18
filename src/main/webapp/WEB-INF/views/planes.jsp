@@ -30,7 +30,7 @@
 
                 <div >
                     <div class="col-md-4">
-                        <h4>Todos Los Planes</h4>
+                        <h4>Todos los Planes</h4>
                     </div>
                     <div class="col-md-offset-10">
                         <a class="btn btn-primary" href="<spring:url	value="/Planes/nuevo"/>"  >Nuevo</a>
@@ -45,8 +45,8 @@
                 <th>Nombre</th>
                 <th>Resolución</th>
                 <th>Descripción</th>
-                <th>Fecha Inicio</th>
-                <th>Fecha Fin</th>
+                <th>Fecha de Inicio</th>
+                <th>Fecha de Finalización</th>
                 <th>Acción</th>
             </tr>
             <c:forEach  items="${planes}" var="plan">

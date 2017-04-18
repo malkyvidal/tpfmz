@@ -29,7 +29,7 @@
 
                 <div >
                     <div class="col-md-4">
-                        <h4>Todos Los Modulos</h4>
+                        <h4>Todos los Módulos</h4>
                     </div>
                     <div class="col-md-offset-10">
                         <a class="btn btn-primary" href="<spring:url	value="/Modulos/nuevo"/>"  >Nuevo</a>
@@ -40,9 +40,9 @@
                      
             <tr>
                 
-                <th>codModulo</th>
-                <th>codPermiso</th>
-                <th>descripción</th>
+                <th>Código</th>
+                <th>Permiso</th>
+                <th>Descripción</th>
                 <th>Acción</th>
             </tr>
             <c:forEach  items="${datos}" var="modulo">
@@ -55,8 +55,8 @@
                        <td>${modulo.descripcion}</td>
                        <td>
 
-                           <a class="btn btn-default" onclick="return confirm('Seguro que desea eliminar?')" href="<spring:url	value='/Modulos/eliminar/${modulo.codModulo}'/>">eliminar</a>
-                           <a class="btn btn-default" href="<spring:url	value='/Modulos/update/${modulo.codModulo}'/>">editar</a>
+                           <a class="btn btn-danger custom-width" onclick="return confirm('Seguro que desea eliminar?')" href="<spring:url	value='/Modulos/eliminar/${modulo.codModulo}'/>">Eliminar</a>
+                           <a class="btn btn-success custom-width" href="<spring:url	value='/Modulos/update/${modulo.codModulo}'/>">Editar</a>
                        </td>
                 </tr>
             </c:forEach>

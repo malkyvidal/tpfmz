@@ -26,14 +26,15 @@
             <div class="row">
 
                 <form:form  modelAttribute="nuevoAdminAlumno"  class="form-horizontal">
+                    <h2 align="center"> Agregar Nuevo Administrador-Alumno </h2>
                     <div class="form-group" >
-                        <label class="control-label col-md-2" for="fechaAlta">Fecha Alta</label>
+                        <label class="control-label col-md-2" for="fechaAlta">Fecha Alta (dd-mm-aaaa)</label>
 
                         <form:input 	id="fechaAlta"	path="fechaAlta" type="text" class="form:input-large"/>
                     </div>
                    
                     <div class="form-group" >
-                        <label class="control-label col-md-2" for="contrasenia">Password</label>
+                        <label class="control-label col-md-2" for="contrasenia">Contraseña</label>
                         <form:input	id="contrasenia" path="contrasenia" type="password" class="form:input-large"/>
 
                     </div>

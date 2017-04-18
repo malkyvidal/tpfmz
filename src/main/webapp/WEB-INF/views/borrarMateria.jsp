@@ -29,9 +29,9 @@
 
                
                     <div class="col-md-4">
-                        <h4>Todas las MateriasAlumnos que serán eliminadas</h4>
+                        <h4>Todas las Materias-Alumnos que serán eliminadas</h4>
                     </div>
-                       <a class="btn btn-default" onclick="return confirm('Seguro que desea eliminar?')" href="<spring:url value='/Materias/borrar/${codMateria}'/>">eliminar</a>
+                       <a class="btn btn-danger custom-width" onclick="return confirm('Seguro que desea eliminar?')" href="<spring:url value='/Materias/borrar/${codMateria}'/>">Eliminar</a>
                  <table class="table table-striped">
                      
             <tr>

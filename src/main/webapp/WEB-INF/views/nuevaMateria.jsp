@@ -26,6 +26,7 @@
             <div class="row">
 
                 <form:form  modelAttribute="nuevaMateria"  class="form-horizontal">
+                    <h2 align="center"> Agregar Nueva Materia </h2>
                     <div class="form-group" >
                         <label class="control-label col-md-2" for="nombreMateria">Nombre</label>
 

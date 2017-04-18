@@ -27,7 +27,7 @@
             <div class="row">
 
                 <form:form  modelAttribute="nuevaMateriaAlumno"  class="form-horizontal">
-                    
+                    <h2 align="center"> Agregar Nueva Materia - Alumno </h2>
                     
                     <div class="form-group" >
 

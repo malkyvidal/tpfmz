@@ -26,15 +26,16 @@
             <div class="row">
 
                 <form:form  modelAttribute="updateAdminAlumno"  class="form-horizontal">
+                    <h2 align="center"> Modificar Datos Administrador-Alumno </h2>
                     <div class="form-group" >
                         
-                        <label class="control-label col-md-2" for="fechaAlta">Fecha Alta</label>
+                        <label class="control-label col-md-2" for="fechaAlta">Fecha Alta (dd-mm-aaaa)</label>
                         <td>${adminalumno.fechaAlta}</td>
                         <form:input 	id="fechaAlta"	path="fechaAlta" type="text" class="form:input-large"/>
                     </div>
                     <div class="form-group" >
                         
-                        <label class="control-label col-md-2" for="fechaBaja">Fecha Baja</label>
+                        <label class="control-label col-md-2" for="fechaBaja">Fecha Baja (dd-mm-aaaa)</label>
                         <td>${adminalumno.fechaBaja}</td>
                         <form:input 	id="fechaBaja"	path="fechaBaja" type="text" class="form:input-large"/>
                     </div>

@@ -27,7 +27,8 @@
             <div class="row">
 
                 <form:form  modelAttribute="updateModulo"  class="form-horizontal">
-                      <div class="form-group" >
+                    <h2 align="center"> Modificar Datos Módulo </h2>  
+                    <div class="form-group" >
                         <label class="control-label col-md-2" for="permiso">Permiso</label>
                          
                         <form:select id="permiso" path="permiso.codPermiso">

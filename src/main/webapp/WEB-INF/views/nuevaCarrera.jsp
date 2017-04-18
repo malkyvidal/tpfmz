@@ -27,6 +27,7 @@
             <div class="row">
 
                 <form:form  modelAttribute="nuevaCarrera"  class="form-horizontal">
+                    <h2 align="center"> Agregar Nueva Carrera </h2>
                     <div class="form-group" >
                         <label class="control-label col-md-2" for="nombre">Nombre</label>
 
