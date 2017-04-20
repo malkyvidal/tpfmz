@@ -59,7 +59,7 @@
                        <td>${plan.fechaFin}</td>
                        <td>
 
-                           <a class="btn btn-danger custom-width" onclick="return confirm('Seguro que desea eliminar?')" href="<spring:url	value='/Planes/eliminar/${plan.identificador}'/>">Eliminar</a>
+                          
                            <a class="btn btn-success custom-width" href="<spring:url	value='/Planes/update/${plan.identificador}'/>">Editar</a>
                        </td>
                 </tr>

@@ -10,13 +10,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.ui.Model;
 import com.mis2016bd.tpfmz.modelo.Plan;
-import com.mis2016bd.tpfmz.modelo.Coordinador;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ListIterator;
 
 import com.mis2016bd.tpfmz.servicio.PlanServicio;
 import com.mis2016bd.tpfmz.servicio.CoordinadorServicio;
@@ -76,24 +72,6 @@ public class PlanController {
         return "redirect:/Planes";
     }
        
-    @RequestMapping(value="/Planes/eliminar/{id}",method = RequestMethod.GET)
-    public String eliminarPlan( @PathVariable("id") int id){
-    
-        Plan plan  = planes.encontrarPlanPorIdentificador(id);
-        
-        int codPlan = plan.getIdentificador();
-         
-         List<Coordinador>  listCoord = servCoord.obtenerTodosLosCoordinadoresPorPlan(codPlan);
-         ListIterator<Coordinador> itCoord = listCoord.listIterator();
-         while(itCoord.hasNext()) {
-             Coordinador nextCoord = itCoord.next();
-             servCoord.eliminaCoordinador(nextCoord);
-         }
-        planes.eliminaPlan(plan);
-        
-       return "redirect:/Planes";
-    
-    }
     
     @RequestMapping(value="/Planes/update/{id}",method = RequestMethod.GET)
     public String updatePlan(@PathVariable("id") int id, Model model){
