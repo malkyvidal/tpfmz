@@ -14,9 +14,11 @@ import org.springframework.ui.Model;
 import com.mis2016bd.tpfmz.modelo.Coordinador;
 import com.mis2016bd.tpfmz.modelo.Perfil;
 import com.mis2016bd.tpfmz.modelo.Plan;
+import com.mis2016bd.tpfmz.modelo.Mensaje;
 
 
 import com.mis2016bd.tpfmz.servicio.CoordinadorServicio;
+import com.mis2016bd.tpfmz.servicio.MensajeServicio;
 import com.mis2016bd.tpfmz.servicio.PerfilServicio;
 import com.mis2016bd.tpfmz.servicio.PlanServicio;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +36,8 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import java.util.List;
+import java.util.ListIterator;
 /**
  *
  * @author silvina
@@ -47,6 +51,8 @@ public class CoordinadorController {
     private PerfilServicio perfil;
     @Autowired
     private PlanServicio servPlan;
+        private MensajeServicio mensaje;
+    @Autowired
     
         
     @RequestMapping("/Coordinadores")
@@ -94,6 +100,14 @@ public class CoordinadorController {
     public String eliminarCoordinador( @PathVariable("id") int id){
     
         Coordinador al  = servicio.encontrarCoordinadorPorLegajo(id);
+        
+         List<Mensaje>  lista1 = mensaje.obtenerTodosLosMensajesUsuario(id);
+        ListIterator<Mensaje> it1 = lista1.listIterator();
+        while(it1.hasNext()) {
+            Mensaje next = it1.next();
+            mensaje.eliminarMensaje(next);
+        }
+        
         servicio.eliminaCoordinador(al);
         
        return "redirect:/Coordinadores";
