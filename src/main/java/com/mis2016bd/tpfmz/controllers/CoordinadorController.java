@@ -51,8 +51,9 @@ public class CoordinadorController {
     private PerfilServicio perfil;
     @Autowired
     private PlanServicio servPlan;
-        private MensajeServicio mensaje;
-    @Autowired
+     @Autowired
+    private MensajeServicio mensaje;
+   
     
         
     @RequestMapping("/Coordinadores")
@@ -101,7 +102,7 @@ public class CoordinadorController {
     
         Coordinador al  = servicio.encontrarCoordinadorPorLegajo(id);
         
-         List<Mensaje>  lista1 = mensaje.obtenerTodosLosMensajesUsuario(id);
+        List<Mensaje>  lista1 = mensaje.obtenerTodosLosMensajesUsuario(id);
         ListIterator<Mensaje> it1 = lista1.listIterator();
         while(it1.hasNext()) {
             Mensaje next = it1.next();
