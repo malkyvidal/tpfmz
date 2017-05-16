@@ -11,6 +11,7 @@ import java.util.Date;
  *
  * @author malky
  */
+
 public class AdminAlumnado extends Usuario{
     
     Date fechaAlta ;

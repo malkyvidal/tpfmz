@@ -18,6 +18,7 @@ public class Carrera {
      private Integer codigoCarrera;
      private String nombre;
      private Boolean canNivel;
+     private int version;
      private Set materias = new HashSet(0);
 
     public Carrera() {
@@ -27,10 +28,11 @@ public class Carrera {
     public Carrera(String nombre) {
         this.nombre = nombre;
     }
-    public Carrera(String nombre, Boolean canNivel, Set materias) {
+    public Carrera(String nombre, Boolean canNivel,int version, Set materias) {
        this.nombre = nombre;
        this.canNivel = canNivel;
        this.materias = materias;
+       this.version = version;
     }
    
     public Integer getCodigoCarrera() {
@@ -62,5 +64,12 @@ public class Carrera {
     public void setMaterias(Set materias) {
         this.materias = materias;
     }
-
+    
+    public int getVersion() {
+        return this.version;
+    }
+    
+    public void setVersion(int version) {
+        this.version = version;
+    }
 }

@@ -65,6 +65,12 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
     <tx:annotation-driven transaction-manager="transactionManager"/>
+    <tx:advice id="tx-advice">
+        <tx:attributes>
+            <tx:method name="*" propagation="REQUIRED" isolation="DEFAULT" rollback-for="Throwable" no-rollback-for="BusinessException" />
+            <tx:method name="get*" propagation="SUPPORTS" read-only="true" />
+        </tx:attributes>
+    </tx:advice>
     
  
     <bean	

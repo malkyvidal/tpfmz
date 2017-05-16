@@ -76,7 +76,6 @@ public class CarreraController {
     
     
     @RequestMapping(value="/Carreras/update/{id}",method = RequestMethod.POST)
- 
     public String procesaUpdateCarrera(@PathVariable("id") int id, @ModelAttribute("updateCarrera") Carrera nuevo){
         nuevo.setCodigoCarrera(id);
         servicio.updateCarrera(nuevo);
