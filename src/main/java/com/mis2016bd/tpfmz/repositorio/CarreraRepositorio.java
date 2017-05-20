@@ -23,6 +23,4 @@ public interface CarreraRepositorio {
     public void nuevaCarrera(Carrera nueva);
 
     public void updateCarrera(Carrera nuevo);
-    
-    public int ultimaVersion(int id);
 }

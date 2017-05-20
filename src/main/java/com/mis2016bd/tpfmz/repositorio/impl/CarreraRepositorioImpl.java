@@ -8,23 +8,18 @@ package com.mis2016bd.tpfmz.repositorio.impl;
 import com.mis2016bd.tpfmz.modelo.Carrera;
 import com.mis2016bd.tpfmz.repositorio.CarreraRepositorio;
 import java.util.List;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.LockModeType;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.persistence.OptimisticLockException;
-import javax.persistence.Persistence;
-import org.hibernate.HibernateException;
 import org.hibernate.LockMode;
 import org.hibernate.LockOptions;
 import org.hibernate.Query;
 import org.hibernate.Session;
-import org.hibernate.Session.LockRequest;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
+import org.junit.Assert;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Isolation;
-import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
@@ -88,40 +83,18 @@ public class CarreraRepositorioImpl implements CarreraRepositorio{
         session.saveOrUpdate(nueva);
     }
       
+    
     @Transactional
     @Override
     public void updateCarrera(Carrera al) {
-        try{
-            Session session = getSessionFactory().getCurrentSession();
-            String hql = "From Carrera where codigoCarrera=:codigoCarrera";
-            Query query = session.createQuery(hql);
-            query.setInteger("codigoCarrera", al.getCodigoCarrera());
-            Carrera carrera = (Carrera) query.uniqueResult();
-            System.out.println(carrera.getVersion());
-            System.out.println(al.getVersion());
-            /*if(al.getVersion() == this.ultimaVersion(al.getCodigoCarrera())){
-               /* carrera.setCanNivel(al.getCanNivel());
-                carrera.setNombre(al.getNombre());
-                
-            }else{
-               
-            }*/
-        }catch(OptimisticLockException ef)
-        {
-            ef.printStackTrace();
-        }  
-    }
-    
-    @Transactional
-    @Override
-    public int ultimaVersion(int id) {
         Session session = getSessionFactory().getCurrentSession();
-        String hql = "From Carrera where codigoCarrera=:codigoCarrera";
-        Query query = session.createQuery(hql);
-        query.setInteger("codigoCarrera", id);
-        Carrera carrera = (Carrera) query.uniqueResult();
-        
-        return carrera.getVersion();
-    }
-    
+        Carrera carrera;
+        int g = al.getCodigoCarrera();
+        carrera = (Carrera) session.get(Carrera.class, g,new LockOptions(LockMode.OPTIMISTIC));
+        for(int i=0; i<100000;i++){
+            System.out.println(i);
+        }
+        carrera.setCanNivel(al.getCanNivel());
+        carrera.setNombre(al.getNombre());
+    }  
 }
