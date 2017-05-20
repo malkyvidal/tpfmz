@@ -8,6 +8,7 @@
             <column name="codMateria" />
             <generator class="identity" />
         </id>
+        <version name="version" column="version"></version>
         <many-to-one name="carrera" class="Carrera">
             <column name="codCarrera" />
         </many-to-one>

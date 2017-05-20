@@ -18,6 +18,15 @@ public class Materia {
     private Carrera carrera;
     private String nombreMateria;
     private int modalidad;
+
+    public int getVersion() {
+        return version;
+    }
+
+    public void setVersion(int version) {
+        this.version = version;
+    }
+    private int version;
     private Set<Materiasalumnos> materiasalumnoses = new HashSet(0);
     
     public Materia() {

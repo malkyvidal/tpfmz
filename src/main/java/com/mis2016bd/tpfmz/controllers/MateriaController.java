@@ -13,8 +13,8 @@ import org.springframework.ui.Model;
 import com.mis2016bd.tpfmz.modelo.Materia;
 import com.mis2016bd.tpfmz.modelo.Carrera;
 import com.mis2016bd.tpfmz.modelo.Materiasalumnos;
-
-
+import javax.servlet.http.HttpServletRequest;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.mis2016bd.tpfmz.servicio.MateriaServicio;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,9 +25,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 
 import com.mis2016bd.tpfmz.servicio.CarreraServicio;
 import com.mis2016bd.tpfmz.servicio.MateriaAlumnoServicio;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import org.springframework.web.bind.annotation.PathVariable;
-
+import org.springframework.orm.hibernate4.HibernateOptimisticLockingFailureException;
 /**
  *
  * @author silvina
@@ -136,12 +137,25 @@ public class MateriaController {
     @RequestMapping(value="/Materias/update/{id}",method = RequestMethod.POST)
  
     public String procesaUpdateMateria(@PathVariable("id") int id, @ModelAttribute("updateMateria") Materia nueva){
+        
+        
+        // int d = 5/0;
        nueva.setCodMateria(id);
        
        Carrera carreraAsociada = carreras.obtenerCarreraPorCodigoCarrera(nueva.getCarrera().getCodigoCarrera());
        nueva.setCarrera(carreraAsociada);
        servicio.updateMateria(nueva);
         return "redirect:/Materias";
+    }
+    
+    @ExceptionHandler(Exception.class)
+    public ModelAndView handleError(HttpServletRequest req, HibernateOptimisticLockingFailureException exception) {
+        ModelAndView mav = new ModelAndView();
+        
+        mav.addObject("exception", exception);
+        mav.addObject("url", req.getRequestURL() + "?" + req.getQueryString());
+        mav.setViewName("error");
+        return mav;
     }
     
 }
