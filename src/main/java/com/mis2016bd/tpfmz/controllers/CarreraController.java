@@ -8,8 +8,6 @@ package com.mis2016bd.tpfmz.controllers;
 import com.mis2016bd.tpfmz.modelo.Carrera;
 import com.mis2016bd.tpfmz.servicio.CarreraServicio;
 import javax.servlet.http.HttpServletRequest;
-import org.apache.log4j.Level;
-import org.apache.log4j.LogManager;
 import org.hibernate.StaleObjectStateException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate4.HibernateOptimisticLockingFailureException;
@@ -31,8 +29,6 @@ import org.springframework.web.servlet.ModelAndView;
 public class CarreraController {
     @Autowired
     private CarreraServicio servicio;
-    
-    private final org.apache.log4j.Logger logger = LogManager.getLogger(RestController.class.getName());
     
     @RequestMapping("/Carreras")
     public String todoslosAlumnos(Model model){
