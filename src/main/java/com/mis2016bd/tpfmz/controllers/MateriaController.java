@@ -10,6 +10,9 @@ import java.util.ListIterator;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.ui.Model;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+
 import com.mis2016bd.tpfmz.modelo.Materia;
 import com.mis2016bd.tpfmz.modelo.Carrera;
 import com.mis2016bd.tpfmz.modelo.Materiasalumnos;
@@ -21,6 +24,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import org.springframework.web.bind.annotation.ModelAttribute;
+import javax.servlet.http.HttpServletRequest;
 
 
 import com.mis2016bd.tpfmz.servicio.CarreraServicio;
@@ -29,6 +33,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.orm.hibernate4.HibernateOptimisticLockingFailureException;
+
 /**
  *
  * @author silvina
@@ -159,3 +164,4 @@ public class MateriaController {
     }
     
 }
+

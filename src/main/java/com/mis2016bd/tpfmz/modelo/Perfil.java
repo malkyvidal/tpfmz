@@ -11,8 +11,19 @@ package com.mis2016bd.tpfmz.modelo;
  */
 import java.util.Set;
 import java.util.HashSet;
+import javax.persistence.Version;
 
 public class Perfil {
+    @Version
+    private int version;
+
+    public int getVersion() {
+        return version;
+    }
+
+    public void setVersion(int version) {
+        this.version = version;
+    }
 
     private int codPerfil;
 

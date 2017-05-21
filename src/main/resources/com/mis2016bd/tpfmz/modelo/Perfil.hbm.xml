@@ -6,6 +6,7 @@
 <column name="codPerfil" />
 <generator class="identity" />
 </id>
+<version name="version" column="version"></version>
 <property name="descripcion" type="string">
 <column name="descripcion" length="255" not-null="true" />
 </property>

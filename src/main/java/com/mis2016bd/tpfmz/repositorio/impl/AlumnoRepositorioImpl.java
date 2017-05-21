@@ -22,6 +22,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.annotation.Isolation;
 
 /**
  *
@@ -78,20 +79,39 @@ public class AlumnoRepositorioImpl implements AlumnoRepositorio{
     }
 
     
-     @Transactional
+     
+    
+    @Transactional(isolation=Isolation.SERIALIZABLE)
     @Override
     public void updateAlumno(Alumno al) {
+        try {
+       
          Session session = getSessionFactory().getCurrentSession();
         Query query = session.createQuery("from Alumno where legajo="+Integer.toString(al.getLegajo()));
         Alumno alumno = (Alumno) query.uniqueResult();
+        
+             for (int i = 0; i < 3000000; i++) {
+             System.out.println(i);
+        }
+             
+       
         alumno.setPerfil(al.getPerfil());
         alumno.setContrasenia(al.getContrasenia());
         alumno.setEgresado(al.getEgresado());
         alumno.setEmail(al.getEmail());
         alumno.setPlan(al.getPlan());
         alumno.setTelefono(al.getTelefono());
-    }
-
+                
+        System.out.println(session.getCurrentLockMode(alumno));
+            
    
-    
+     
+    }
+   
+          catch(Exception ef)
+        {
+            ef.printStackTrace();
+            
+        }  
+}
 }

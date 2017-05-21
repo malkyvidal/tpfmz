@@ -13,7 +13,7 @@ import java.util.Set;
  * @author malky
  */
 public class Materia {
-
+    
     private int codMateria;
     private Carrera carrera;
     private String nombreMateria;
@@ -22,6 +22,14 @@ public class Materia {
     
     private int version;
     private Set<Materiasalumnos> materiasalumnoses = new HashSet(0);
+    
+     public int getVersion() {
+        return version;
+    }
+
+    public void setVersion(int version) {
+        this.version = version;
+    }
     
     public Materia() {
     }
@@ -75,13 +83,6 @@ public class Materia {
     
     public void setMateriasalumnoses(Set materiasalumnoses) {
         this.materiasalumnoses = materiasalumnoses;
-    }
+ }
     
-    public int getVersion() {
-        return version;
-    }
-
-    public void setVersion(int version) {
-        this.version = version;
-    }
 }
