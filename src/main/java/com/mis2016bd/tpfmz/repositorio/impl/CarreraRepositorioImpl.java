@@ -90,7 +90,7 @@ public class CarreraRepositorioImpl implements CarreraRepositorio{
         Carrera carrera;
         int g = al.getCodigoCarrera();
         carrera = (Carrera) session.get(Carrera.class, g,new LockOptions(LockMode.OPTIMISTIC));
-        for(int i=0; i<100000;i++){
+        for(int i=0; i<1000000;i++){
             System.out.println(i);
         }
         carrera.setCanNivel(al.getCanNivel());
