@@ -21,9 +21,13 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 
 
 import com.mis2016bd.tpfmz.servicio.PermisoServicio;
+import javax.servlet.http.HttpServletRequest;
+import org.springframework.orm.hibernate4.HibernateOptimisticLockingFailureException;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 /**
  *
  * @author silvina
@@ -113,5 +117,13 @@ public class ModuloController {
         return "redirect:/Modulos";
     }
     
-    
+     @ExceptionHandler(Exception.class)
+   public ModelAndView handleError(HttpServletRequest req, HibernateOptimisticLockingFailureException exception) {
+        ModelAndView mav = new ModelAndView();
+        
+       mav.addObject("exception", exception);
+       mav.addObject("url", req.getRequestURL() + "?" + req.getQueryString());
+       mav.setViewName("error");
+        return mav;
+}
 }

@@ -11,14 +11,15 @@ import java.util.List;
 import org.hibernate.LockMode;
 import org.hibernate.LockOptions;
 import org.hibernate.Query;
+
 import org.hibernate.Session;
 import org.hibernate.Session.LockRequest;
 import org.hibernate.SessionFactory;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
-import org.hibernate.LockOptions;
 
 /**
  *

@@ -25,7 +25,10 @@ import com.mis2016bd.tpfmz.modelo.Modulo;
 import com.mis2016bd.tpfmz.servicio.PermisoServicio;
 import com.mis2016bd.tpfmz.servicio.ModuloServicio;
 import com.mis2016bd.tpfmz.servicio.PerfilServicio;
+import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.orm.hibernate4.HibernateOptimisticLockingFailureException;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -33,6 +36,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class PerfilController {
@@ -99,4 +103,13 @@ public class PerfilController {
         return "redirect:/Perfiles";
     }
     
+        @ExceptionHandler(Exception.class)
+   public ModelAndView handleError(HttpServletRequest req, HibernateOptimisticLockingFailureException exception) {
+        ModelAndView mav = new ModelAndView();
+        
+       mav.addObject("exception", exception);
+       mav.addObject("url", req.getRequestURL() + "?" + req.getQueryString());
+       mav.setViewName("error");
+        return mav;
+}
 }

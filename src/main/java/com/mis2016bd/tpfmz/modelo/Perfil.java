@@ -11,10 +11,9 @@ package com.mis2016bd.tpfmz.modelo;
  */
 import java.util.Set;
 import java.util.HashSet;
-import javax.persistence.Version;
 
 public class Perfil {
-    @Version
+ 
     private int version;
 
     public int getVersion() {
@@ -91,7 +90,7 @@ public class Perfil {
         this.descripcion = descripcion;
     }
 
-    public boolean isEstado() {
+    public boolean getEstado() {
         return estado;
     }
 
