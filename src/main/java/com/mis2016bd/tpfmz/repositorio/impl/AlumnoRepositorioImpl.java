@@ -81,18 +81,15 @@ public class AlumnoRepositorioImpl implements AlumnoRepositorio{
     
      
     
-    @Transactional(isolation=Isolation.SERIALIZABLE)
+    @Transactional
     @Override
     public void updateAlumno(Alumno al) {
-        try {
+      
        
          Session session = getSessionFactory().getCurrentSession();
         Query query = session.createQuery("from Alumno where legajo="+Integer.toString(al.getLegajo()));
         Alumno alumno = (Alumno) query.uniqueResult();
         
-             for (int i = 0; i < 3000000; i++) {
-             System.out.println(i);
-        }
              
        
         alumno.setPerfil(al.getPerfil());
@@ -102,16 +99,12 @@ public class AlumnoRepositorioImpl implements AlumnoRepositorio{
         alumno.setPlan(al.getPlan());
         alumno.setTelefono(al.getTelefono());
                 
-        System.out.println(session.getCurrentLockMode(alumno));
+       
             
    
      
-    }
+    
    
-          catch(Exception ef)
-        {
-            ef.printStackTrace();
-            
-        }  
+        
 }
 }

@@ -17,7 +17,7 @@
         </property>
         <set name="materias" cascade="delete" table="Materia" >
             <key>
-                <column name="codCarrera" />
+                <column name="codigoCarrera" />
             </key>
             <one-to-many class="Materia" />
         </set>

@@ -1,14 +1,13 @@
 
-Alter table `bdtp`.`materia`
-add version int not null after codcarrera;
 
 ALTER TABLE `BDTP`.`Perfil`  ADD COLUMN `version` INT NOT NULL AFTER `codPerfil`;
+ALTER TABLE `BDTP`.`Materia`  ADD COLUMN `version` INT DEFAULT 0;
 
-Alter table `bdtp`.`carrera`
-add version int not null after codcarrera;
+Alter table `BDTP`.`Carrera`
+add version int not null after codigoCarrera;
 
-Alter table `bdtp`.`plan`
+Alter table `BDTP`.`Plan`
 add version int not null after fechaFin;
 
-Alter table `bdtp`.`materiasalumnos`
+Alter table `BDTP`.`MateriasAlumnos`
 add version int not null after estadoMateria;
